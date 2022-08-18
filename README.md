@@ -58,7 +58,7 @@
 │   ├── proposal.md
 │   └── xxx_lib.md
 ├── src
-│   └── Template.cj
+│   └── template.cj
 └── test
     ├── HLT
     ├── LLT
