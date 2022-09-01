@@ -27,13 +27,16 @@ main() {
     if (mp3FileNew.hasId3v1Tag()){
         var id3v1Tag = mp3FileNew.getId3v1Tag().getOrThrow()
         showId3v1(id3v1Tag)
-        checkId3v1(id3v1Tag)
-
+        var res = checkId3v1(id3v1Tag)
+        if (res == 1) {
+            File.delete("../../../../test/LLT/testFile/v1tagNew.mp3")
+            return 1
+        }
     }
     File.delete("../../../../test/LLT/testFile/v1tagNew.mp3")
     0
 }
-func checkId3v1(id3v1Tag: ID3v1){
+func checkId3v1(id3v1Tag: ID3v1): Int64{
     if (id3v1Tag.getVersion() != "0") {
         return 1
     }
@@ -61,6 +64,7 @@ func checkId3v1(id3v1Tag: ID3v1){
     if (id3v1Tag.getGenreDescription() != "Alternative") {
         return 1
     }
+    return 0
 }
 
 func showId3v1(id3v1Tag: ID3v1) {
