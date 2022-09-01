@@ -18,7 +18,7 @@ public class Mp3File <: FileWrapper {
     private static let XING_MARKER_OFFSET_1: Int32 = 13
     private static let XING_MARKER_OFFSET_2: Int32 = 21
     private static let XING_MARKER_OFFSET_3: Int32 = 36
-    
+
     protected var bufferLength: Int32 = 0
     private var xingOffset: Int32 = -1
     private var startOffset: Int32 = -1
@@ -35,7 +35,7 @@ public class Mp3File <: FileWrapper {
     private var id3v2Tag: Option<ID3v2> = Option<ID3v2>.None
     private var customTag: Option<Array<Byte>> = Option<Array<Byte>>.None
     private var scanFile: Bool = true
-    
+
     protected init (){}
 
     /**
@@ -124,10 +124,12 @@ public class Mp3File <: FileWrapper {
         this.bufferLength = bufferLength
         this.scanFile = scanFile
         var fileStream: FileStream = FileStream(super.path)
-        if (fileStream.openFile()) {
-            initId3v1Tag(fileStream)
-        } else {
-           throw IOException("openFile fail")
+        try {
+            if (fileStream.openFile()) {
+                initId3v1Tag(fileStream)
+            }
+        }catch (e: Exception) {
+            throw BaseException("openFile fail")
         }
     }
 
@@ -138,7 +140,7 @@ public class Mp3File <: FileWrapper {
         fileStream.seek(SeekPosition.Begin(getLength() - Int64(ID3v1Tag.TAG_LENGTH)))
         var bytesRead: Int64 = fileStream.read(byteBuffer)
         if (bytesRead < Int64(ID3v1Tag.TAG_LENGTH)){
-            throw IOException("Not enough bytes read")
+            throw BaseException("Not enough bytes read")
         }
         try {
             this.id3v1Tag = Option<ID3v1>.Some(ID3v1Tag(byteBuffer))

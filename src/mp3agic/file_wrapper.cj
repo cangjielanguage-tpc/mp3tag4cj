@@ -17,7 +17,7 @@ from std import io.*
 open public class FileWrapper {
 
     protected var path: String = ""
-    
+
     protected var length: Int64 = 0
 
     protected init (){}
@@ -54,10 +54,10 @@ open public class FileWrapper {
         var file: File = File(FileInfo(path), AccessMode.ReadWrite, OpenMode.Open)
         var fileStream: FileStream = FileStream(FileInfo(path))
         if (!file.canRead()){
-            throw IOException("File not readable")
+            throw BaseException("File not readable")
         }
         if (!fileStream.openFile()){
-            throw IOException("File not open")
+            throw BaseException("File not open")
         }
         var byteaArray: Array<Byte> = fileStream.readAllBytes()
         return byteaArray.size()
