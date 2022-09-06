@@ -15,7 +15,7 @@ main() {
         showId3v1(id3v1Tag)
         id3v1Tag.setTrack(Option<String>.Some(""))
         id3v1Tag.setArtist(Option<String>.Some("NEWARTIST12345678901234567890"))
-        id3v1Tag.setTitle(Option<String>.Some("NEWTITLE12345678901234567890"))
+        id3v1Tag.setTitle(Option<String>.Some("NEWTITLE67890"))
         id3v1Tag.setAlbum(Option<String>.Some("NEWALBUM1234567890123456789011111111111111111111111111"))
         id3v1Tag.setYear(Option<String>.Some("19940821"))
         id3v1Tag.setGenre(Option<Int64>.Some(20))
@@ -29,11 +29,9 @@ main() {
         showId3v1(id3v1Tag)
         var res = checkId3v1(id3v1Tag)
         if (res == 1) {
-            File.delete("../../../../test/LLT/testFile/v1tagNew.mp3")
             return 1
         }
     }
-    File.delete("../../../../test/LLT/testFile/v1tagNew.mp3")
     0
 }
 func checkId3v1(id3v1Tag: ID3v1): Int64{
@@ -46,7 +44,7 @@ func checkId3v1(id3v1Tag: ID3v1): Int64{
     if (id3v1Tag.getArtist() != "NEWARTIST12345678901234567890") {
         return 1
     }
-    if (id3v1Tag.getTitle() != "NEWTITLE12345678901234567890") {
+    if (id3v1Tag.getTitle() != "NEWTITLE67890") {
         return 1
     }
     if (id3v1Tag.getAlbum() != "NEWALBUM1234567890123456789011") {

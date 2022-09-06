@@ -21,14 +21,14 @@ main() {
          var id3v1Tag = file2.getId3v1Tag().getOrThrow()
          var bytes: Array<UInt8> = id3v1Tag.toBytes()
          var resStr: String = BufferTools.byteBufferToString(bytes,0, 128)
-         if (bytes.size() != 128) {
-             println("bytesSize ==> ${bytes.size()}")
+         if (bytes.size != 128) {
+             println("bytesSize ==> ${bytes.size}")
              return 1
          }
 
          if (!resStr.equals(expStr)) {
              println("resStr ==> " + resStr)
-             println("resStrSize() ==> ${resStr.size()}")
+             println("resStrsize ==> ${resStr.size}")
              return 1
          }
      }

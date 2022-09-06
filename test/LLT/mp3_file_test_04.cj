@@ -31,11 +31,9 @@ main() {
         showId3v1(id3v1Tag)
         var res = checkId3v1(id3v1Tag)
         if (res == 1) {
-            File.delete("../../../../test/LLT/testFile/v1tagNew2.mp3")
             return 1
         }
     }
-    File.delete("../../../../test/LLT/testFile/v1tagNew2.mp3")
     0
 }
 func checkId3v1(id3v1Tag: ID3v1): Int64{

@@ -20,7 +20,7 @@ from charset import charset.encoding.*
  */
 public class BufferTools {
 
-    private static let defaultCharsetName: String = "ISO-8859-2"
+    private static let defaultCharsetName: String = "iso-8859-1"
 
     private init (){}
 
@@ -77,8 +77,11 @@ public class BufferTools {
             return ""
         }
         var buffer: Array<Char> =  Array<Char>(Int64(length), {i => ' '})
-        SingleByteCharset(charsetName).newDecoder().decode(bytes, Int64(offset), Int64(length + offset - 1), buffer, 0)
-        return String(buffer)
+        var charSet: Charset = match(Charsets.forName(charsetName)){
+            case Some(x) => x
+            case None => throw BaseException("Character set not found")
+        }
+        return charSet.newDecoder().decode(bytes.slice(Int64(offset), Int64(length)))
     }
 
     /**
@@ -130,7 +133,11 @@ public class BufferTools {
     @overflowWrapping
     public static func stringToByteBuffer (s: String, offset: Int64, length: Int64, charsetName: String): Array<Byte> {
         var stringToCopy: String = s.substring(Int64(offset), Int64(length))
-        return SingleByteCharset(charsetName).newEncoder().encode(stringToCopy)
+        var charSet: Charset = match(Charsets.forName(charsetName)){
+            case Some(x) => x
+            case None => throw BaseException("Character set not found")
+        }
+        return charSet.newEncoder().encode(stringToCopy)
     }
 
     /**
@@ -166,10 +173,14 @@ public class BufferTools {
     @overflowWrapping
     public static func stringIntoByteBuffer (s: String, offset: Int64, length: Int64, bytes: Array<Byte>, destOffset: Int64, charsetName: String): Unit {
         var stringToCopy: String = s.substring(offset, length)
-        var srcBytes: Array<UInt8> = SingleByteCharset(charsetName).newEncoder().encode(stringToCopy)
+        var charSet: Charset = match(Charsets.forName(charsetName)){
+            case Some(x) => x
+            case None => throw BaseException("Character set not found")
+        }
+        var srcBytes: Array<UInt8> = charSet.newEncoder().encode(stringToCopy)
         var destOffsets = destOffset
-        if (srcBytes.size() > 0){
-            arraycopys(srcBytes, offset, bytes, destOffset, Int64(srcBytes.size()))
+        if (srcBytes.size > 0){
+            arraycopys(srcBytes, offset, bytes, destOffset, Int64(srcBytes.size))
         }
     }
 
@@ -179,7 +190,7 @@ public class BufferTools {
         var flag: Bool = false
         var isOffSet: Bool = false
         var destOffsets = destOffset
-        for (index in 0..bytes.size()) {
+        for (index in 0..bytes.size) {
             if (index >= destOffsets && !isOffSet) {
                 flag = true
                 isOffSet = true
@@ -204,7 +215,7 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func trimStringRight (s: String): String {
-        var endPosition: Int64 = (s.size() - 1)
+        var endPosition: Int64 = (s.size - 1)
         var endChar: Char
         while (endPosition >= 0) {
             endChar = s.charAt(endPosition)
@@ -213,7 +224,7 @@ public class BufferTools {
             }
             endPosition--
         }
-        if (endPosition == s.size() - 1) {
+        if (endPosition == s.size - 1) {
             return s
         } else if (endPosition < 0) {
             return ""
@@ -233,12 +244,12 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func padStringRight (s: String, length: Int64, padWith: Char): String {
-        if (s.size() >= length)
+        if (s.size >= length)
         {
             return s
         }
         var stringBuffer: StringBuilder =  StringBuilder(s)
-        while (stringBuffer.size() < length) {
+        while (stringBuffer.size < length) {
             stringBuffer.append(padWith)
         }
         return stringBuffer.toString()
@@ -441,12 +452,12 @@ public class BufferTools {
     @overflowWrapping
     public static func sizeUnsynchronisationWouldAdd (bytes: Array<Int8>): Int32 {
 		var count: Int32 = 0
-		for (i in (0..bytes.size()-1)){
+		for (i in (0..bytes.size-1)){
             if (bytes[i] == Int8(0xff) && ((bytes[i + 1] & Int8(0xe0)) == Int8(0xe0) || bytes[i + 1] == 0)) {
 				count++
 			}
 		}
-		if (bytes.size() > 0 && bytes[bytes.size() - 1] == Int8(0xff) ) {
+		if (bytes.size > 0 && bytes[bytes.size - 1] == Int8(0xff) ) {
 		    count++
 		}
 		return count
@@ -466,9 +477,9 @@ public class BufferTools {
 		if (count == 0) {
             return bytes
 		}
-		var newBuffer: Array<Int8> = Array<Int8>(bytes.size() + Int64(count), {i => 0})
+		var newBuffer: Array<Int8> = Array<Int8>(bytes.size + Int64(count), {i => 0})
 		var j: Int64 = 0
-		for (i in  0..(bytes.size()-1) ) {
+		for (i in  0..(bytes.size-1) ) {
 			newBuffer[j] = bytes[i];
 			j++
 			if ( bytes[i] == Int8(0xff) && ((bytes[i + 1] & Int8(0xe0) ) == Int8(0xe0) || bytes[i + 1] == 0)) {
@@ -476,9 +487,9 @@ public class BufferTools {
 				j++
 			}
 		}
-		newBuffer[j] = bytes[bytes.size() - 1]
+		newBuffer[j] = bytes[bytes.size - 1]
 		j++
-		if (bytes[bytes.size() - 1] == Int8(0xff) ) {
+		if (bytes[bytes.size - 1] == Int8(0xff) ) {
 			newBuffer[j] = 0
 			j++
 		}
@@ -496,12 +507,12 @@ public class BufferTools {
     @overflowWrapping
     public static func sizeSynchronisationWouldSubtract (bytes: Array<Int8>): Int32 {
 		var count: Int32 = 0
-		for (i in  0..(bytes.size() - 2) ) {
+		for (i in  0..(bytes.size - 2) ) {
             if (bytes[i] == Int8(0xff) && bytes[i + 1] == 0 && ((bytes[i + 2] & Int8(0xe0)) == Int8(0xe0) || bytes[i + 2] == 0)) {
 				count++
 			}
 		}
-		if (bytes.size() > 1 && bytes[bytes.size() - 2] == Int8(0xff) && bytes[bytes.size() - 1] == 0){
+		if (bytes.size > 1 && bytes[bytes.size - 2] == Int8(0xff) && bytes[bytes.size - 1] == 0){
 		    count++
 		}
 		return count
@@ -521,16 +532,16 @@ public class BufferTools {
 		if (count == 0) {
 		    return bytes
 		}
-		var newBuffer: Array<Int8> = Array<Int8>(bytes.size() - Int64(count), {i => 0})
+		var newBuffer: Array<Int8> = Array<Int8>(bytes.size - Int64(count), {i => 0})
 		var i: Int64 = 0
-		for (j in 0..newBuffer.size() - 1) {
+		for (j in 0..newBuffer.size - 1) {
 			newBuffer[j] = bytes[i];
 			if (bytes[i] == Int8(0xff) && bytes[i + 1] == 0 && ((bytes[i + 2] & Int8(0xe0)) == Int8(0xe0) || bytes[i + 2] == 0)) {
 				i++
 			}
 			i++
 		}
-		newBuffer[newBuffer.size() - 1] = bytes[i];
+		newBuffer[newBuffer.size - 1] = bytes[i];
 		return newBuffer;
     }
 
@@ -546,7 +557,7 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func substitute (s: String, replaceThis: String, withThis: Option<String>): String {
-		if (replaceThis.size() < 1 || !s.contains(replaceThis)) {
+		if (replaceThis.size < 1 || !s.contains(replaceThis)) {
 			return s
 		}
 		var newString: StringBuilder = StringBuilder()
@@ -566,14 +577,14 @@ public class BufferTools {
 			        newString.append(x)
 			    case None => ()
 			}
-			lastPosition = position + replaceThis.size();
+			lastPosition = position + replaceThis.size;
 			position++
 			position = match(s.indexOf(replaceThis, position)){
                 case Some(x) => x
                 case None => -1
             }
 		}
-		if (lastPosition < s.size()) {
+		if (lastPosition < s.size) {
 			newString.append(s.substring(lastPosition))
 		}
 		return newString.toString()
@@ -590,7 +601,7 @@ public class BufferTools {
     @overflowWrapping
     public static func asciiOnly (s: String): String {
 		var newString: StringBuilder = StringBuilder()
-		for ( i in 0..s.size() ) {
+		for ( i in 0..s.size ) {
 			var ch: Char = s.charAt(i)
 			if (UInt32(ch) < 32 || UInt32(ch) > 126) {
 				newString.append('?')
@@ -611,7 +622,7 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func indexOfTerminator (bytes: Array<Int8>): Int32 {
-        return indexOfTerminator(bytes, 0);
+        return indexOfTerminator(bytes, 0)
     }
 
     /**
@@ -625,7 +636,9 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func indexOfTerminator (bytes: Array<Int8>, fromIndex: Int32): Int32 {
-        return indexOfTerminator(bytes, 0, 1);
+        var fromIndexDef: Int32 = fromIndex
+        fromIndexDef = 0
+        return indexOfTerminator(bytes, fromIndexDef, 1)
     }
 
     /**
@@ -641,7 +654,7 @@ public class BufferTools {
     @overflowWrapping
     public static func indexOfTerminator (bytes: Array<Int8>, fromIndex: Int32, terminatorLength: Int32): Int32 {
         var marker: Int32 = -1
-		for (i in fromIndex..(Int32(bytes.size()) - terminatorLength) + 1) {
+		for (i in fromIndex..(Int32(bytes.size) - terminatorLength) + 1) {
 		    //println("i ==> ${i}")
 			if ((i - fromIndex) % terminatorLength == 0) {
 				var matched: Int32 = 0

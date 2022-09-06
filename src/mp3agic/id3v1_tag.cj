@@ -68,19 +68,19 @@ public class ID3v1Tag <: ID3v1 {
         sanityCheckTag(bytes)
         match (BufferTools.byteBufferToStringIgnoringEncodingIssues(bytes, TITLE_OFFSET, TITLE_LENGTH)){
             case Some(x) => title = BufferTools.trimStringRight(x)
-            case None => throw RuntimeException("title None Exception")
+            case None => throw BaseException("title None Exception")
         }
         match (BufferTools.byteBufferToStringIgnoringEncodingIssues(bytes, ARTIST_OFFSET, ARTIST_LENGTH)){
             case Some(x) => artist = BufferTools.trimStringRight(x)
-            case None => throw RuntimeException("artist None Exception")
+            case None => throw BaseException("artist None Exception")
         }
         match (BufferTools.byteBufferToStringIgnoringEncodingIssues(bytes, ALBUM_OFFSET, ALBUM_LENGTH)){
             case Some(x) => album = BufferTools.trimStringRight(x)
-            case None => throw RuntimeException("album None Exception")
+            case None => throw BaseException("album None Exception")
         }
         match (BufferTools.byteBufferToStringIgnoringEncodingIssues(bytes, YEAR_OFFSET, YEAR_LENGTH)){
             case Some(x) => year = BufferTools.trimStringRight(x)
-            case None => throw RuntimeException("year None Exception")
+            case None => throw BaseException("year None Exception")
         }
         genre = Int64(bytes[Int64(GENRE_OFFSET)]) & 255;
         if (genre == 255) {
@@ -90,7 +90,7 @@ public class ID3v1Tag <: ID3v1 {
         if (bytes[Int64(TRACK_MARKER_OFFSET)] != 0) {
             match (BufferTools.byteBufferToStringIgnoringEncodingIssues(bytes, COMMENT_OFFSET, COMMENT_LENGTH_V1_0)){
                 case Some(x) => comment = BufferTools.trimStringRight(x)
-                case None => throw RuntimeException("comment None Exception")
+                case None => throw BaseException("comment None Exception")
             }
             track = ""
         } else {
@@ -103,16 +103,16 @@ public class ID3v1Tag <: ID3v1 {
                     } else {
                         track = trackInt.toString()
                     }
-                case None => throw RuntimeException("comment None Exception")
+                case None => throw BaseException("comment None Exception")
             }
         }
     }
 
     private func sanityCheckTag (bytes: Array<Byte>): Unit {
-        if (bytes.size() != Int64(TAG_LENGTH)){
+        if (bytes.size != Int64(TAG_LENGTH)){
             throw NoSuchTagException("Buffer length wrong")
         }
-        match(BufferTools.byteBufferToStringIgnoringEncodingIssues(bytes, 0, Int32(TAG.size()))){
+        match(BufferTools.byteBufferToStringIgnoringEncodingIssues(bytes, 0, Int32(TAG.size))){
             case Some(x) =>
                 if (!TAG.equals(x)){
                     throw NoSuchTagException("sanityCheckTag fail")
@@ -153,6 +153,7 @@ public class ID3v1Tag <: ID3v1 {
      * @return Type of Unit
      * @since 0.31.4
      */
+    @overflowWrapping
     public func packTag (bytes: Array<Byte>): Unit {
         try {
             BufferTools.stringIntoByteBuffer(TAG, 0, 3, bytes, 0)
@@ -176,7 +177,7 @@ public class ID3v1Tag <: ID3v1 {
             case Some(x) =>
        		    packField(bytes, comment, COMMENT_LENGTH_V1_1, COMMENT_OFFSET)
        		    var trackTemp: String = numericsOnly(x)
-       		    if (trackTemp.size() > 0) {
+       		    if (trackTemp.size > 0) {
        		    	var trackInt: Int64 = Int64.parse(trackTemp)
        		    	if (trackInt < 128) {
        		    		bytes[Int64(TRACK_OFFSET)] = UInt8(trackInt)
@@ -191,14 +192,14 @@ public class ID3v1Tag <: ID3v1 {
 
     private func packField (bytes: Array<Byte>, value: Option<String>, maxLength: Int32, offset: Int32): Unit {
         match(value){
-            case Some(x) => BufferTools.stringIntoByteBuffer(x, 0, min(x.size(), Int64(maxLength)), bytes, Int64(offset))
+            case Some(x) => BufferTools.stringIntoByteBuffer(x, 0, min(x.size, Int64(maxLength)), bytes, Int64(offset))
             case None => ()
         }
     }
 
     private func numericsOnly (s: String): String {
         var stringBuffer:StringBuilder = StringBuilder()
-        for (index in 0..s.size()) {
+        for (index in 0..s.size) {
             var ch: Char = s.charAt(index)
             if (ch >= '0' && ch <= '9') {
                 stringBuffer.append(ch)

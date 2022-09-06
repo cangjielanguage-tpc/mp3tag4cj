@@ -38,8 +38,8 @@ main() {
         println("res6 ==>" + res6)
         return 1
     }
-    if (res6.size() != 3) {
-        println("res6 ==> ${res6.size()}")
+    if (res6.size != 3) {
+        println("res6 ==> ${res6.size}")
         return 1
     }
     0

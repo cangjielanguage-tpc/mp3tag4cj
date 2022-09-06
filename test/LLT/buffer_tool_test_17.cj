@@ -8,8 +8,8 @@ from std import convert.*
 
 main() {
 	var original: String = "1234567890QWERTYUIOP";
-	var buffer: Array<Byte> = BufferTools.stringToByteBuffer(original, 2, (original.size() - 5))
-	var converted: String = BufferTools.byteBufferToString(buffer, 0, Int32(buffer.size()))
+	var buffer: Array<Byte> = BufferTools.stringToByteBuffer(original, 2, (original.size - 5))
+	var converted: String = BufferTools.byteBufferToString(buffer, 0, Int32(buffer.size))
     if (converted != "34567890QWERTYU"){
         return 1
     }
