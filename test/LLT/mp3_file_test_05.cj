@@ -19,10 +19,8 @@ main() {
     var file2 = FileInfo("../../../../test/LLT/testFile/v1tagNew3.mp3")
     var mp3FileNew = Mp3File(file2)
     if (mp3FileNew.hasId3v1Tag()){
-        File.delete("../../../../test/LLT/testFile/v1tagNew3.mp3")
         return 1
     }
-    File.delete("../../../../test/LLT/testFile/v1tagNew3.mp3")
     0
 }
 

@@ -11,8 +11,8 @@ main() {
     var buffer1: Array<Byte> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     var buffer2: Array<Byte> = [0, 1, 2, 3, 4]
     var buffer3: Array<Byte> = [0, 0, 2, 3, 4]
-    var desBuffer: Array<Byte> = Array<Byte>(buffer.size(), {i=>0})
-    BufferTools.copyIntoByteBuffer(buffer, 0, buffer.size(), desBuffer, 0)
+    var desBuffer: Array<Byte> = Array<Byte>(buffer.size, {i=>0})
+    BufferTools.copyIntoByteBuffer(buffer, 0, buffer.size, desBuffer, 0)
     if (desBuffer != buffer1){
         return 1
     }

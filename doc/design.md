@@ -90,7 +90,7 @@ java.io 中的 File，path
 | getGenreDescription   | 无 | String |设置风格描述 |
 | getComment   | 无 | String | 获取附注 |
 | setComment   | comment: String | Unit | 设置附注 |
-| toBytes   | 无 | Array\<Int8\> | 转换为字节流数据 |
+| toBytes   | 无 | Array\<Byte\> | 转换为字节流数据 |
 
 💡 ID3V1Tag 标签类型ID3v1的实现类。
 

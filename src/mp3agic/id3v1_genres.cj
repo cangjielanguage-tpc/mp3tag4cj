@@ -46,7 +46,7 @@ public class ID3v1Genres {
      * @since 0.31.4
      */
     public static func matchGenreDescription (description: String): Int32 {
-        if (description != "" && description.size() > 0) {
+        if (description != "" && description.size > 0) {
             var times: Int32 = 0
             for (gen in GENRES){
                 if (gen.toAsciiLower().equals(description.toAsciiLower())) {

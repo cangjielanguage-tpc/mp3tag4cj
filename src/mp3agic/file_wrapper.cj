@@ -52,15 +52,11 @@ open public class FileWrapper {
 
     private static func initSizeFunc (path: String): Int64 {
         var file: File = File(FileInfo(path), AccessMode.ReadWrite, OpenMode.Open)
-        var fileStream: FileStream = FileStream(FileInfo(path))
         if (!file.canRead()){
             throw BaseException("File not readable")
         }
-        if (!fileStream.openFile()){
-            throw BaseException("File not open")
-        }
-        var byteaArray: Array<Byte> = fileStream.readAllBytes()
-        return byteaArray.size()
+        var byteaArray: Array<Byte> = file.readToEnd()
+        return byteaArray.size
     }
 
     /**

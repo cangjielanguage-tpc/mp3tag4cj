@@ -123,22 +123,20 @@ public class Mp3File <: FileWrapper {
         }
         this.bufferLength = bufferLength
         this.scanFile = scanFile
-        var fileStream: FileStream = FileStream(super.path)
         try {
-            if (fileStream.openFile()) {
-                initId3v1Tag(fileStream)
-            }
+            var file: File = File(super.path, AccessMode.ReadWrite, OpenMode.Open)
+            initId3v1Tag(file)
         }catch (e: Exception) {
             throw BaseException("openFile fail")
         }
     }
 
-    private func initId3v1Tag (fileStream:  FileStream): Unit {
+    private func initId3v1Tag (file:  File): Unit {
         var byteBuffer: Array<Byte> = Array<Byte>(Int64(ID3v1Tag.TAG_LENGTH), { i => 0 })
         var byteBuffer2: Array<Byte> = Array<Byte>(getLength(), { i => 0 })
-        fileStream.read(byteBuffer2)
-        fileStream.seek(SeekPosition.Begin(getLength() - Int64(ID3v1Tag.TAG_LENGTH)))
-        var bytesRead: Int64 = fileStream.read(byteBuffer)
+        file.read(byteBuffer2)
+        file.seek(SeekPosition.Begin(getLength() - Int64(ID3v1Tag.TAG_LENGTH)))
+        var bytesRead: Int64 = file.read(byteBuffer)
         if (bytesRead < Int64(ID3v1Tag.TAG_LENGTH)){
             throw BaseException("Not enough bytes read")
         }
@@ -238,7 +236,7 @@ public class Mp3File <: FileWrapper {
         if (isExist && FileInfo(newFilename).getCanonicalPath() == super.path){
             throw IllegalArgumentException("Save filename same as source filename")
         }
-        var saveFile: File = File(newFilename, AccessMode.ReadWrite, OpenMode.Create)
+        var saveFile: File = File(newFilename, AccessMode.ReadWrite, OpenMode.ForceCreate)
 		if (!hasId3v2Tag() && !hasCustomTag() && this.frameCount == 0) {
             var sourceFile: File = File(super.path, AccessMode.Read, OpenMode.Open)
             var srcByte: Array<UInt8> = Array<UInt8>(getLength() - Int64(ID3v1Tag.TAG_LENGTH), {i => 0})
