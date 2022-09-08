@@ -1,6 +1,6 @@
-<p align="center">
-<img src="./doc/assets/iocn.png" width="40%" >
-</p>
+<div align="center">
+<h1>mp3agic</h1>
+</div>
 
 <p align="center">
 <img alt="" src="https://img.shields.io/badge/release-v0.0.1-brightgreen" style="display: inline-block;" />
