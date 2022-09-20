@@ -163,7 +163,7 @@ public interface ID3v1 {
      * @return Type of Array<Byte>
      * @since 0.31.4
      */
-    func toBytes (): Array<Byte>
+    func toBytes (): Array<Int8>
 
 }
 

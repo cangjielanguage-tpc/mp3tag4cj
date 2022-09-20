@@ -62,7 +62,7 @@ main() {
         if (comm != "COMMENT123456789012345678901") {
             return 1
         }
-        var pack: Array<Byte> = id3v1Tag.toBytes()
+        var pack: Array<Byte> = BufferTools.transInt8ArrayToUInt8(id3v1Tag.toBytes())
         println(pack.toString())
         var res = BufferTools.byteBufferToString(pack, 0, 128)
         println(res)

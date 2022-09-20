@@ -19,7 +19,7 @@ main() {
     var file2 = Mp3File(file)
      if (file2.hasId3v1Tag()){
          var id3v1Tag = file2.getId3v1Tag().getOrThrow()
-         var bytes: Array<UInt8> = id3v1Tag.toBytes()
+         var bytes: Array<UInt8> = BufferTools.transInt8ArrayToUInt8(id3v1Tag.toBytes())
          var resStr: String = BufferTools.byteBufferToString(bytes,0, 128)
          if (bytes.size != 128) {
              println("bytesSize ==> ${bytes.size}")

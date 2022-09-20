@@ -11,7 +11,7 @@ from charset import charset.encoding.*
 main() {
     var id3v1Tag: ID3v1Tag = ID3v1Tag()
     id3v1Tag.setArtist("我是谁我在哪")
-    var bytes: Array<Byte> = id3v1Tag.toBytes()
+    var bytes: Array<Int8> = id3v1Tag.toBytes()
     if (bytes[34] != 26){
         return -1
     }

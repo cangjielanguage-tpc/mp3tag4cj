@@ -45,6 +45,14 @@ public class BufferTools {
           return ""
     }
 
+    public static func byteBufferToStringIgnoringEncodingIssues (bytes: Array<Int8>, offset: Int32, length: Int32): Option<String> {
+        try {
+            return byteBufferToString(bytes, offset, length, defaultCharsetName);
+        } catch (e: Exception) {
+            return Option<String>.None
+        }
+          return ""
+    }
     /**
      * The Function is byteBufferToString, Gets the data of the specified offset and length in the byte array
      *
@@ -57,6 +65,10 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func byteBufferToString (bytes: Array<Byte>, offset: Int32, length: Int32): String {
+        return byteBufferToString(bytes, offset, length, defaultCharsetName);
+    }
+
+    public static func byteBufferToString (bytes: Array<Int8>, offset: Int32, length: Int32): String {
         return byteBufferToString(bytes, offset, length, defaultCharsetName);
     }
 
@@ -82,6 +94,19 @@ public class BufferTools {
             case None => throw BaseException("Character set not found")
         }
         return charSet.newDecoder().decode(bytes.slice(Int64(offset), Int64(length)))
+    }
+
+    @overflowWrapping
+    public static func byteBufferToString (bytes: Array<Int8>, offset: Int32, length: Int32, charsetName: String): String {
+        if (length < 1){
+            return ""
+        }
+        var buffer: Array<Char> =  Array<Char>(Int64(length), {i => ' '})
+        var charSet: Charset = match(Charsets.forName(charsetName)){
+            case Some(x) => x
+            case None => throw BaseException("Character set not found")
+        }
+        return charSet.newDecoder().decode( BufferTools.transInt8ArrayToUInt8(bytes.slice(Int64(offset), Int64(length))) )
     }
 
     /**
@@ -157,6 +182,9 @@ public class BufferTools {
         stringIntoByteBuffer(s, offset, length, bytes, destOffset, defaultCharsetName)
     }
 
+    public static func stringIntoByteBuffer (s: String, offset: Int64, length: Int64, bytes: Array<Int8>, destOffset: Int64): Unit {
+        stringIntoByteBuffer(s, offset, length, bytes, destOffset, defaultCharsetName)
+    }
     /**
      * The Function is stringIntoByteBuffer, string into the specified byte array
      *
@@ -184,8 +212,42 @@ public class BufferTools {
         }
     }
 
+    public static func stringIntoByteBuffer (s: String, offset: Int64, length: Int64, bytes: Array<Int8>, destOffset: Int64, charsetName: String): Unit {
+        var stringToCopy: String = s.substring(offset, length)
+        var charSet: Charset = match(Charsets.forName(charsetName)){
+            case Some(x) => x
+            case None => throw BaseException("Character set not found")
+        }
+        var srcBytes: Array<UInt8> = charSet.newEncoder().encode(stringToCopy)
+        var destOffsets = destOffset
+        if (srcBytes.size > 0){
+            arraycopys(transUInt8ArrayToInt8 (srcBytes), offset, bytes, destOffset, Int64(srcBytes.size))
+        }
+    }
+
     @overflowWrapping
-    private static func arraycopys(srcBytes: Array<UInt8>, offset: Int64, bytes: Array<Byte>, destOffset: Int64, length: Int64){
+    public static func arraycopys(srcBytes: Array<UInt8>, offset: Int64, bytes: Array<Byte>, destOffset: Int64, length: Int64){
+        var times: Int64 = 0
+        var flag: Bool = false
+        var isOffSet: Bool = false
+        var destOffsets = destOffset
+        for (index in 0..bytes.size) {
+            if (index >= destOffsets && !isOffSet) {
+                flag = true
+                isOffSet = true
+            }
+            if (flag) {
+                for (i in offset..length + offset) {
+                    bytes[destOffsets] = srcBytes[i]
+                    destOffsets++
+                }
+                flag = false
+            }
+        }
+    }
+
+    @overflowWrapping
+    public static func arraycopys(srcBytes: Array<Int8>, offset: Int64, bytes: Array<Int8>, destOffset: Int64, length: Int64){
         var times: Int64 = 0
         var flag: Bool = false
         var isOffSet: Bool = false
@@ -283,10 +345,8 @@ public class BufferTools {
     public static func setBit (b: Int8, bitPosition: Int64, value: Bool): Int8 {
 		var newByte: Int8
 		if (value) {
-		    println("1")
 			newByte = Int8 (b | (0x01 << bitPosition) )
 		} else {
-		    println("2")
 			newByte = Int8 (  (b & ( !(0x01 << bitPosition) ) ) )
 		}
 		return newByte
@@ -436,6 +496,13 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func copyIntoByteBuffer (bytes: Array<Byte>, offset: Int64, length: Int64, destBuffer: Array<Byte>, destOffset: Int64): Unit {
+        if (length > 0) {
+            arraycopys(bytes, offset, destBuffer, destOffset, length)
+        }
+    }
+
+    @overflowWrapping
+    public static func copyIntoByteBuffer (bytes: Array<Int8>, offset: Int64, length: Int64, destBuffer: Array<Int8>, destOffset: Int64): Unit {
         if (length > 0) {
             arraycopys(bytes, offset, destBuffer, destOffset, length)
         }
@@ -655,16 +722,13 @@ public class BufferTools {
     public static func indexOfTerminator (bytes: Array<Int8>, fromIndex: Int32, terminatorLength: Int32): Int32 {
         var marker: Int32 = -1
 		for (i in fromIndex..(Int32(bytes.size) - terminatorLength) + 1) {
-		    //println("i ==> ${i}")
 			if ((i - fromIndex) % terminatorLength == 0) {
 				var matched: Int32 = 0
 				for (j in 0..terminatorLength) {
 					if (bytes[Int64(i) + Int64(matched)] != 0){
-					    //println("break ==> ${bytes[Int64(i) + Int64(matched)]}")
 					    break
 					}
 					matched++
-					//println("breakMatched ==> ${matched}")
 				}
 				if (matched == terminatorLength) {
 					marker = i
@@ -694,6 +758,24 @@ public class BufferTools {
             terminatorLength = 1
         }
         return indexOfTerminator(bytes, fromIndex, terminatorLength);
+    }
+
+    @overflowWrapping
+    public static func transUInt8ArrayToInt8 (bytes: Array<Byte>): Array<Int8> {
+        var tarr: Array<Int8> = Array<Int8>(bytes.size, { i => 0 })
+        for (i in 0..bytes.size){
+            tarr[i] = Int8(bytes[i])
+        }
+        return tarr
+    }
+
+    @overflowWrapping
+    public static func transInt8ArrayToUInt8 (bytes: Array<Int8>): Array<Byte> {
+        var tarr: Array<Byte> = Array<Byte>(bytes.size, { i => 0 })
+        for (i in 0..bytes.size){
+            tarr[i] = UInt8(bytes[i])
+        }
+        return tarr
     }
 
 }
