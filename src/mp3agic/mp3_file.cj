@@ -244,13 +244,9 @@ public class Mp3File <: FileWrapper {
             saveFile.write(srcByte)
 		}
         if (hasId3v1Tag()) {
-            match(this.id3v1Tag){
-                case Some(x) =>
-                    var byteBuffer: Array<UInt8> = x.toBytes()
-                    saveFile.write(byteBuffer)
-                case None =>
-                    throw IllegalArgumentException("id3v1Tag is None")
-            }
+		    var bytes: Array<Int8> = this.id3v1Tag.getOrThrow().toBytes()
+		    var byteBuffer: Array<UInt8> = BufferTools.transInt8ArrayToUInt8(bytes)
+		    saveFile.write(byteBuffer)
         }
     }
 }

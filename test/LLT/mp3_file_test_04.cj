@@ -77,15 +77,6 @@ func showId3v1(id3v1Tag: ID3v1) {
     var genre = id3v1Tag.getGenre()
     var des = id3v1Tag.getGenreDescription()
     var comm = id3v1Tag.getComment()
-    println("version ==> ${version}")
-    println("track ==> ${track}")
-    println("artist ==> ${artist}")
-    println("title ==> ${title}")
-    println("album ==> ${album}")
-    println("year ==> ${year}")
-    println("genre ==> ${genre}")
-    println("comm ==> ${comm}")
-    println("des ==> ${des}")
 }
 
 

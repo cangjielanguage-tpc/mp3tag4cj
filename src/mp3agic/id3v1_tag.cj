@@ -127,10 +127,10 @@ public class ID3v1Tag <: ID3v1 {
      * @return Type of Array<Byte>
      * @since 0.31.4
      */
-    public func toBytes (): Array<Byte> {
+    public func toBytes (): Array<Int8> {
         var bytes:Array<Byte> = Array<Byte>(Int64(TAG_LENGTH), {i => 0})
         packTag(bytes)
-        return bytes
+        return BufferTools.transUInt8ArrayToInt8(bytes)
     }
 
     /**

@@ -45,11 +45,11 @@ public class ID3v1Genres {
      * @return Type of Int32
      * @since 0.31.4
      */
-    public static func matchGenreDescription (description: String): Int32 {
-        if (description != "" && description.size > 0) {
+    public static func matchGenreDescription (description: Option<String>): Int32 {
+        if (description != Option<String>.None && description.getOrThrow().size > 0) {
             var times: Int32 = 0
             for (gen in GENRES){
-                if (gen.toAsciiLower().equals(description.toAsciiLower())) {
+                if (gen.toAsciiLower().equals(description.getOrThrow().toAsciiLower())) {
                     return times
                 }
                 times++
