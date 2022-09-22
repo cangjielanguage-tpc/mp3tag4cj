@@ -44,17 +44,17 @@ public class ID3v2ObseleteFrame <: ID3v2Frame {
     }
 
     protected override func unpackHeader (buffer: Array<Int8>, offset: Int32): Int32 {
-		match(BufferTools.byteBufferToStringIgnoringEncodingIssues(BufferTools.transInt8ArrayToUInt8(buffer), offset + ID_OFFSET, ID_LENGTH)) {
-		    case Some(x) => id = x
-		    case None => ()
-		}
-		unpackDataLength(buffer, offset)
-		return offset + HEADER_LENGTH
+        match(BufferTools.byteBufferToStringIgnoringEncodingIssues(BufferTools.transInt8ArrayToUInt8(buffer), offset + ID_OFFSET, ID_LENGTH)) {
+            case Some(x) => id = x
+            case None => ()
+        }
+        unpackDataLength(buffer, offset)
+        return offset + HEADER_LENGTH
     }
 
     protected override func unpackDataLength (buffer: Array<Int8>, offset: Int32): Unit {
-		dataLength = BufferTools.unpackInteger(Int8(0), buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET)], buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET) + 1], buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET) + 2])
-	}
+        dataLength = BufferTools.unpackInteger(Int8(0), buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET)], buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET) + 1], buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET) + 2])
+    }
 
     public override func packFrame (bytes: Array<Int8>, offset: Int32): Unit {
         var bytesTmp = bytes

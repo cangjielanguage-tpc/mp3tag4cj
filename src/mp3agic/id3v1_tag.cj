@@ -175,16 +175,16 @@ public class ID3v1Tag <: ID3v1 {
         }
         match (track){
             case Some(x) =>
-       		    packField(bytes, comment, COMMENT_LENGTH_V1_1, COMMENT_OFFSET)
-       		    var trackTemp: String = numericsOnly(x)
-       		    if (trackTemp.size > 0) {
-       		    	var trackInt: Int64 = Int64.parse(trackTemp)
-       		    	if (trackInt < 128) {
-       		    		bytes[Int64(TRACK_OFFSET)] = UInt8(trackInt)
-       		    	} else {
-       		    		bytes[Int64(TRACK_OFFSET)] = UInt8(trackInt - 256)
-       		    	}
-       		    }
+                   packField(bytes, comment, COMMENT_LENGTH_V1_1, COMMENT_OFFSET)
+                   var trackTemp: String = numericsOnly(x)
+                   if (trackTemp.size > 0) {
+                       var trackInt: Int64 = Int64.parse(trackTemp)
+                       if (trackInt < 128) {
+                           bytes[Int64(TRACK_OFFSET)] = UInt8(trackInt)
+                       } else {
+                           bytes[Int64(TRACK_OFFSET)] = UInt8(trackInt - 256)
+                       }
+                   }
             case None =>
                 packField(bytes, comment, COMMENT_LENGTH_V1_0, COMMENT_OFFSET)
         }

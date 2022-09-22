@@ -48,13 +48,13 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
      * @since 0.32.5
      */
     public init (textEncoding: Int8, value: Array<Int8>){
-		if ((textEncoding == TEXT_ENCODING_UTF_16) && (textEncodingForBytesFromBOM(value) == TEXT_ENCODING_UTF_16BE)) {
-			this.textEncoding = TEXT_ENCODING_UTF_16BE
-		} else {
-			this.textEncoding = textEncoding
-		}
-		this.value = Option<Array<Int8>>.Some(value)
-		this.stripBomAndTerminator();
+        if ((textEncoding == TEXT_ENCODING_UTF_16) && (textEncodingForBytesFromBOM(value) == TEXT_ENCODING_UTF_16BE)) {
+            this.textEncoding = TEXT_ENCODING_UTF_16BE
+        } else {
+            this.textEncoding = textEncoding
+        }
+        this.value = Option<Array<Int8>>.Some(value)
+        this.stripBomAndTerminator();
     }
 
     /**
@@ -64,9 +64,9 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
      * @since 0.32.5
      */
     public init (string: String){
-		for (textEncodingTmp in textEncodingFallback) {
-			this.textEncoding = textEncodingTmp
-			value = stringToBytes(string, characterSetForTextEncoding(textEncoding))
+        for (textEncodingTmp in textEncodingFallback) {
+            this.textEncoding = textEncodingTmp
+            value = stringToBytes(string, characterSetForTextEncoding(textEncoding))
             match (value) {
                 case Some(x) =>
                     if (this.toString() != Option<String>.None){
@@ -76,9 +76,9 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
                 case None => ()
             }
 
-		}
-		throw IllegalArgumentException("Invalid string, could not find appropriate encoding");
-	}
+        }
+        throw IllegalArgumentException("Invalid string, could not find appropriate encoding");
+    }
 
     /**
      * The Function is init constructor.
@@ -89,8 +89,8 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
      * @since 0.32.5
      */
     public init (string: String, transcodeToTextEncoding: Int8){
-		this(string)
-		setTextEncoding(transcodeToTextEncoding, true)
+        this(string)
+        setTextEncoding(transcodeToTextEncoding, true)
     }
 
     /**
@@ -101,9 +101,9 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
      * @since 0.32.5
      */
     public init (textEncoding: Int8, string: String){
-		this.textEncoding = textEncoding
-		value = stringToBytes(string, characterSetForTextEncoding(textEncoding))
-		this.stripBomAndTerminator()
+        this.textEncoding = textEncoding
+        value = stringToBytes(string, characterSetForTextEncoding(textEncoding))
+        this.stripBomAndTerminator()
     }
 
     public init (value: Array<Int8>){
@@ -111,59 +111,59 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
     }
     @overflowWrapping
     private static func textEncodingForBytesFromBOM (value: Array<Int8>): Int8 {
-		if (value.size >= 2 && value[0] == Int8(0xff) && value[1] == Int8(0xfe)) {
-			return TEXT_ENCODING_UTF_16
-		} else if (value.size >= 2 && value[0] == Int8(0xfe) && value[1] == Int8(0xff)) {
-			return TEXT_ENCODING_UTF_16BE
-		} else if (value.size >= 3 && (value[0] == Int8(0xef) && value[1] == Int8(0xbb) && value[2] == Int8(0xbf))) {
-			return TEXT_ENCODING_UTF_8
-		} else {
-			return TEXT_ENCODING_ISO_8859_1
-		}
+        if (value.size >= 2 && value[0] == Int8(0xff) && value[1] == Int8(0xfe)) {
+            return TEXT_ENCODING_UTF_16
+        } else if (value.size >= 2 && value[0] == Int8(0xfe) && value[1] == Int8(0xff)) {
+            return TEXT_ENCODING_UTF_16BE
+        } else if (value.size >= 3 && (value[0] == Int8(0xef) && value[1] == Int8(0xbb) && value[2] == Int8(0xbf))) {
+            return TEXT_ENCODING_UTF_8
+        } else {
+            return TEXT_ENCODING_ISO_8859_1
+        }
     }
 
     private static func characterSetForTextEncoding (textEncoding: Int8): String {
-		try {
-			return characterSets[Int64(textEncoding)]
-		} catch (e: Exception) {
-			throw IllegalArgumentException("Invalid text encoding ${textEncoding}")
-		}
+        try {
+            return characterSets[Int64(textEncoding)]
+        } catch (e: Exception) {
+            throw IllegalArgumentException("Invalid text encoding ${textEncoding}")
+        }
     }
     @overflowWrapping
     private func stripBomAndTerminator (): Unit {
         match(this.value){
             case Some(valueOp) =>
                 var leadingCharsToRemove: Int32 = 0
-          		if (valueOp.size >= 2 && ((valueOp[0] == Int8(0xfe) && valueOp[1] == Int8(0xff)) || (valueOp[0] == Int8(0xff) && valueOp[1] == Int8(0xfe)))) {
-          			leadingCharsToRemove = 2
-          		} else if (valueOp.size >= 3 && (valueOp[0] == Int8(0xef) && valueOp[1] == Int8(0xbb) && valueOp[2] == Int8(0xbf))) {
-          			leadingCharsToRemove = 3
-          		}
-          		var trailingCharsToRemove: Int32 = 0
-          		var terminator: Array<Int8> = terminators[Int64(textEncoding)]
-          		if (valueOp.size - Int64(leadingCharsToRemove) >= terminator.size) {
-          			var haveTerminator: Bool = true
-          			for ( i in 0..terminator.size ) {
-          				if (valueOp[valueOp.size - terminator.size + i] != terminator[i]) {
-          					haveTerminator = false
-          					break
-          				}
-          			}
-          			if (haveTerminator) {
-          			    trailingCharsToRemove = Int32(terminator.size)
-          			}
-          		}
-          		if (leadingCharsToRemove + trailingCharsToRemove > 0) {
-          			var newLength: Int32 = Int32(valueOp.size) - leadingCharsToRemove - trailingCharsToRemove
-          			var newValue: Array<Int8> = Array<Int8>(Int64(newLength), { i => 0 })
-          			if (newLength > 0) {
+                  if (valueOp.size >= 2 && ((valueOp[0] == Int8(0xfe) && valueOp[1] == Int8(0xff)) || (valueOp[0] == Int8(0xff) && valueOp[1] == Int8(0xfe)))) {
+                      leadingCharsToRemove = 2
+                  } else if (valueOp.size >= 3 && (valueOp[0] == Int8(0xef) && valueOp[1] == Int8(0xbb) && valueOp[2] == Int8(0xbf))) {
+                      leadingCharsToRemove = 3
+                  }
+                  var trailingCharsToRemove: Int32 = 0
+                  var terminator: Array<Int8> = terminators[Int64(textEncoding)]
+                  if (valueOp.size - Int64(leadingCharsToRemove) >= terminator.size) {
+                      var haveTerminator: Bool = true
+                      for ( i in 0..terminator.size ) {
+                          if (valueOp[valueOp.size - terminator.size + i] != terminator[i]) {
+                              haveTerminator = false
+                              break
+                          }
+                      }
+                      if (haveTerminator) {
+                          trailingCharsToRemove = Int32(terminator.size)
+                      }
+                  }
+                  if (leadingCharsToRemove + trailingCharsToRemove > 0) {
+                      var newLength: Int32 = Int32(valueOp.size) - leadingCharsToRemove - trailingCharsToRemove
+                      var newValue: Array<Int8> = Array<Int8>(Int64(newLength), { i => 0 })
+                      if (newLength > 0) {
                         BufferTools.arraycopys(valueOp, Int64(leadingCharsToRemove), newValue, 0, newValue.size)
-          			}
-          			this.value = newValue
-          		}
+                      }
+                      this.value = newValue
+                  }
             case None => ()
         }
-	}
+    }
 
     /**
      * The Function is getTextEncoding, Get the corresponding number of the code set.
@@ -201,13 +201,13 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
     public func setTextEncoding (textEncoding: Int8, transcode: Bool): Unit {
         var transcodeTmp = transcode
         if (this.value != Option<Array<Int8>>.None){
-		    if (this.textEncoding != textEncoding) {
-		    	var charBuffer: String = bytesToCharBuffer(this.value.getOrThrow(), characterSetForTextEncoding(this.textEncoding))
-		    	var transcodedBytes: Array<Int8> = charBufferToBytes(charBuffer, characterSetForTextEncoding(textEncoding))
-		    	this.textEncoding = textEncoding
-		    	this.value = Option<Array<Int8>>.Some(transcodedBytes)
-		    }
-		}
+            if (this.textEncoding != textEncoding) {
+                var charBuffer: String = bytesToCharBuffer(this.value.getOrThrow(), characterSetForTextEncoding(this.textEncoding))
+                var transcodedBytes: Array<Int8> = charBufferToBytes(charBuffer, characterSetForTextEncoding(textEncoding))
+                this.textEncoding = textEncoding
+                this.value = Option<Array<Int8>>.Some(transcodedBytes)
+            }
+        }
     }
 
     public func getTerminator (): Array<Int8> {
@@ -231,62 +231,62 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
     public func toBytes (includeBom: Bool, includeTerminator: Bool): Array<Int8> {
         match (this.value){
             case Some(valueOp) =>
-		        characterSetForTextEncoding(textEncoding); // ensured textEncoding is valid
-		        var includeBomNum: Int32
-		        var includeTerminatorNum: Int32
-		        if (includeBom){ includeBomNum = Int32(boms[Int64(textEncoding)].size) } else { includeBomNum = Int32(0) }
-		        if (includeTerminator){ includeTerminatorNum = Int32(getTerminator().size) } else{ includeTerminatorNum = Int32(0) }
-		        var newLength: Int32 = Int32(valueOp.size) + includeBomNum + includeTerminatorNum
-		        if (Int64(newLength) == valueOp.size) {
-		        	return valueOp
-		        } else {
-		        	var bytes: Array<Int8> = Array<Int8>(Int64(newLength), { i => 0 })
-		        	var i: Int32 = 0;
-		        	if (includeBom) {
-		        		var bom: Array<Int8> = boms[Int64(textEncoding)]
-		        		if (bom.size > 0) {
-		        			BufferTools.arraycopys(boms[Int64(textEncoding)], 0, bytes, Int64(i), boms[Int64(textEncoding)].size)
-		        			i += Int32(boms[Int64(textEncoding)].size)
-		        		}
-		        	}
-		        	if (valueOp.size > 0) {
-		        		BufferTools.arraycopys(valueOp, 0, bytes, Int64(i), valueOp.size)
-		        		i += Int32(valueOp.size)
-		        	}
-		        	if (includeTerminator) {
-		        		var terminator: Array<Int8> = getTerminator()
-		        		if (terminator.size > 0) {
-		        			BufferTools.arraycopys(terminator, 0, bytes, Int64(i), terminator.size);
-		        		}
-		        	}
-		        	return bytes
-		        }
-		    case None => return []
-		}
+                characterSetForTextEncoding(textEncoding); // ensured textEncoding is valid
+                var includeBomNum: Int32
+                var includeTerminatorNum: Int32
+                if (includeBom){ includeBomNum = Int32(boms[Int64(textEncoding)].size) } else { includeBomNum = Int32(0) }
+                if (includeTerminator){ includeTerminatorNum = Int32(getTerminator().size) } else{ includeTerminatorNum = Int32(0) }
+                var newLength: Int32 = Int32(valueOp.size) + includeBomNum + includeTerminatorNum
+                if (Int64(newLength) == valueOp.size) {
+                    return valueOp
+                } else {
+                    var bytes: Array<Int8> = Array<Int8>(Int64(newLength), { i => 0 })
+                    var i: Int32 = 0;
+                    if (includeBom) {
+                        var bom: Array<Int8> = boms[Int64(textEncoding)]
+                        if (bom.size > 0) {
+                            BufferTools.arraycopys(boms[Int64(textEncoding)], 0, bytes, Int64(i), boms[Int64(textEncoding)].size)
+                            i += Int32(boms[Int64(textEncoding)].size)
+                        }
+                    }
+                    if (valueOp.size > 0) {
+                        BufferTools.arraycopys(valueOp, 0, bytes, Int64(i), valueOp.size)
+                        i += Int32(valueOp.size)
+                    }
+                    if (includeTerminator) {
+                        var terminator: Array<Int8> = getTerminator()
+                        if (terminator.size > 0) {
+                            BufferTools.arraycopys(terminator, 0, bytes, Int64(i), terminator.size);
+                        }
+                    }
+                    return bytes
+                }
+            case None => return []
+        }
     }
 
     public func toString (): Option<String> {
-		try {
-			return bytesToString(this.value.getOrDefault({=> []}), characterSetForTextEncoding(textEncoding))
-		} catch (e: Exception) {
-			return Option<String>.None
-		}
+        try {
+            return bytesToString(this.value.getOrDefault({=> []}), characterSetForTextEncoding(textEncoding))
+        } catch (e: Exception) {
+            return Option<String>.None
+        }
     }
 
     public func getCharacterSet (): String {
-		return characterSetForTextEncoding(textEncoding)
+        return characterSetForTextEncoding(textEncoding)
     }
 
     private static func bytesToString (bytes: Array<Int8>, characterSet: String): String {
-		var s: String = bytesToCharBuffer(bytes, characterSet)
-		var length: Int64 = match(s.indexOf(Char(0))){
-		    case Some(x) => x
-		    case None => -1
-		}
-		if (length == -1) {
-		    return s
-		}
-		return s.substring(0, length)
+        var s: String = bytesToCharBuffer(bytes, characterSet)
+        var length: Int64 = match(s.indexOf(Char(0))){
+            case Some(x) => x
+            case None => -1
+        }
+        if (length == -1) {
+            return s
+        }
+        return s.substring(0, length)
     }
 
     protected static func bytesToCharBuffer (bytes: Array<Int8>, characterSet: String): String {
@@ -294,15 +294,15 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
             case Some(x) => x
             case None => throw BaseException("Character set not found")
         }
-		return charSet.newDecoder().decode(BufferTools.transInt8ArrayToUInt8(bytes))
+        return charSet.newDecoder().decode(BufferTools.transInt8ArrayToUInt8(bytes))
     }
 
     private static func stringToBytes (s: String, characterSet: String): Option<Array<Int8>> {
-		try {
-			return charBufferToBytes(s, characterSet);
-		} catch (e: Exception) {
-			return  Option<Array<Int8>>.None
-		}
+        try {
+            return charBufferToBytes(s, characterSet);
+        } catch (e: Exception) {
+            return  Option<Array<Int8>>.None
+        }
     }
 
     protected static func charBufferToBytes (charBuffer: String, characterSet: String): Array<Int8> {
@@ -314,7 +314,7 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
         if (checkByteBuffer(byteBuffer)) {
             throw BaseException("Character set not found")
         }
-		return BufferTools.transUInt8ArrayToInt8(BufferTools.copyBuffer(byteBuffer, 0, byteBuffer.size))
+        return BufferTools.transUInt8ArrayToInt8(BufferTools.copyBuffer(byteBuffer, 0, byteBuffer.size))
     }
 
     private static func checkByteBuffer(byteBuffer: Array<UInt8>): Bool{

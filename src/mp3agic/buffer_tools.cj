@@ -343,13 +343,13 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func setBit (b: Int8, bitPosition: Int64, value: Bool): Int8 {
-		var newByte: Int8
-		if (value) {
-			newByte = Int8 (b | (0x01 << bitPosition) )
-		} else {
-			newByte = Int8 (  (b & ( !(0x01 << bitPosition) ) ) )
-		}
-		return newByte
+        var newByte: Int8
+        if (value) {
+            newByte = Int8 (b | (0x01 << bitPosition) )
+        } else {
+            newByte = Int8 (  (b & ( !(0x01 << bitPosition) ) ) )
+        }
+        return newByte
     }
 
     /**
@@ -363,13 +363,13 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func shiftByte (c: Int8, places: Int32): Int32 {
-		var i: Int32 = Int32(c) & 0xff
-		if (places < 0) {
-			return i << -places
-		} else if (places > 0) {
-			return i >> places
-		}
-		return i
+        var i: Int32 = Int32(c) & 0xff
+        if (places < 0) {
+            return i << -places
+        } else if (places > 0) {
+            return i >> places
+        }
+        return i
     }
 
     /**
@@ -385,11 +385,11 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func unpackInteger (b1: Int8, b2: Int8, b3: Int8, b4: Int8): Int32 {
-		var value: Int32 = Int32(b4) & 0xff
-		value += BufferTools.shiftByte(b3, -8)
-		value += BufferTools.shiftByte(b2, -16)
-		value += BufferTools.shiftByte(b1, -24)
-		return value
+        var value: Int32 = Int32(b4) & 0xff
+        value += BufferTools.shiftByte(b3, -8)
+        value += BufferTools.shiftByte(b2, -16)
+        value += BufferTools.shiftByte(b1, -24)
+        return value
     }
 
     /**
@@ -475,11 +475,11 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func copyBuffer (bytes: Array<Byte>, offset: Int64, length: Int64): Array<Byte> {
-		var copy: Array<Byte> = Array<Byte>(length, {i => 0})
-		if (length > 0) {
-		    arraycopys(bytes, offset, copy, 0, length)
-		}
-		return copy
+        var copy: Array<Byte> = Array<Byte>(length, {i => 0})
+        if (length > 0) {
+            arraycopys(bytes, offset, copy, 0, length)
+        }
+        return copy
     }
 
     /**
@@ -518,16 +518,16 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func sizeUnsynchronisationWouldAdd (bytes: Array<Int8>): Int32 {
-		var count: Int32 = 0
-		for (i in (0..bytes.size-1)){
+        var count: Int32 = 0
+        for (i in (0..bytes.size-1)){
             if (bytes[i] == Int8(0xff) && ((bytes[i + 1] & Int8(0xe0)) == Int8(0xe0) || bytes[i + 1] == 0)) {
-				count++
-			}
-		}
-		if (bytes.size > 0 && bytes[bytes.size - 1] == Int8(0xff) ) {
-		    count++
-		}
-		return count
+                count++
+            }
+        }
+        if (bytes.size > 0 && bytes[bytes.size - 1] == Int8(0xff) ) {
+            count++
+        }
+        return count
     }
 
     /**
@@ -540,27 +540,27 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func unsynchroniseBuffer (bytes: Array<Int8>): Array<Int8> {
-		var count: Int32 =  sizeUnsynchronisationWouldAdd(bytes)
-		if (count == 0) {
+        var count: Int32 =  sizeUnsynchronisationWouldAdd(bytes)
+        if (count == 0) {
             return bytes
-		}
-		var newBuffer: Array<Int8> = Array<Int8>(bytes.size + Int64(count), {i => 0})
-		var j: Int64 = 0
-		for (i in  0..(bytes.size-1) ) {
-			newBuffer[j] = bytes[i];
-			j++
-			if ( bytes[i] == Int8(0xff) && ((bytes[i + 1] & Int8(0xe0) ) == Int8(0xe0) || bytes[i + 1] == 0)) {
-				newBuffer[j] = 0
-				j++
-			}
-		}
-		newBuffer[j] = bytes[bytes.size - 1]
-		j++
-		if (bytes[bytes.size - 1] == Int8(0xff) ) {
-			newBuffer[j] = 0
-			j++
-		}
-		return newBuffer
+        }
+        var newBuffer: Array<Int8> = Array<Int8>(bytes.size + Int64(count), {i => 0})
+        var j: Int64 = 0
+        for (i in  0..(bytes.size-1) ) {
+            newBuffer[j] = bytes[i];
+            j++
+            if ( bytes[i] == Int8(0xff) && ((bytes[i + 1] & Int8(0xe0) ) == Int8(0xe0) || bytes[i + 1] == 0)) {
+                newBuffer[j] = 0
+                j++
+            }
+        }
+        newBuffer[j] = bytes[bytes.size - 1]
+        j++
+        if (bytes[bytes.size - 1] == Int8(0xff) ) {
+            newBuffer[j] = 0
+            j++
+        }
+        return newBuffer
     }
 
     /**
@@ -573,16 +573,16 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func sizeSynchronisationWouldSubtract (bytes: Array<Int8>): Int32 {
-		var count: Int32 = 0
-		for (i in  0..(bytes.size - 2) ) {
+        var count: Int32 = 0
+        for (i in  0..(bytes.size - 2) ) {
             if (bytes[i] == Int8(0xff) && bytes[i + 1] == 0 && ((bytes[i + 2] & Int8(0xe0)) == Int8(0xe0) || bytes[i + 2] == 0)) {
-				count++
-			}
-		}
-		if (bytes.size > 1 && bytes[bytes.size - 2] == Int8(0xff) && bytes[bytes.size - 1] == 0){
-		    count++
-		}
-		return count
+                count++
+            }
+        }
+        if (bytes.size > 1 && bytes[bytes.size - 2] == Int8(0xff) && bytes[bytes.size - 1] == 0){
+            count++
+        }
+        return count
     }
 
     /**
@@ -595,21 +595,21 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func synchroniseBuffer (bytes: Array<Int8>): Array<Int8> {
-		var count: Int32 = sizeSynchronisationWouldSubtract(bytes)
-		if (count == 0) {
-		    return bytes
-		}
-		var newBuffer: Array<Int8> = Array<Int8>(bytes.size - Int64(count), {i => 0})
-		var i: Int64 = 0
-		for (j in 0..newBuffer.size - 1) {
-			newBuffer[j] = bytes[i];
-			if (bytes[i] == Int8(0xff) && bytes[i + 1] == 0 && ((bytes[i + 2] & Int8(0xe0)) == Int8(0xe0) || bytes[i + 2] == 0)) {
-				i++
-			}
-			i++
-		}
-		newBuffer[newBuffer.size - 1] = bytes[i];
-		return newBuffer;
+        var count: Int32 = sizeSynchronisationWouldSubtract(bytes)
+        if (count == 0) {
+            return bytes
+        }
+        var newBuffer: Array<Int8> = Array<Int8>(bytes.size - Int64(count), {i => 0})
+        var i: Int64 = 0
+        for (j in 0..newBuffer.size - 1) {
+            newBuffer[j] = bytes[i];
+            if (bytes[i] == Int8(0xff) && bytes[i + 1] == 0 && ((bytes[i + 2] & Int8(0xe0)) == Int8(0xe0) || bytes[i + 2] == 0)) {
+                i++
+            }
+            i++
+        }
+        newBuffer[newBuffer.size - 1] = bytes[i];
+        return newBuffer;
     }
 
     /**
@@ -624,37 +624,37 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func substitute (s: String, replaceThis: String, withThis: Option<String>): String {
-		if (replaceThis.size < 1 || !s.contains(replaceThis)) {
-			return s
-		}
-		var newString: StringBuilder = StringBuilder()
-		var lastPosition: Int64 = 0;
-		var position: Int64 = 0;
-		position = match (s.indexOf(replaceThis, position)){
-		    case Some(x) => x
-		    case None => -1
-		}
-		while ( position>= 0 ) {
-			if (position > lastPosition) {
-			    var subStr = s.substring(lastPosition, position - lastPosition)
-				newString.append(subStr)
-			}
-			match (withThis) {
-			    case Some(x) =>
-			        newString.append(x)
-			    case None => ()
-			}
-			lastPosition = position + replaceThis.size;
-			position++
-			position = match(s.indexOf(replaceThis, position)){
+        if (replaceThis.size < 1 || !s.contains(replaceThis)) {
+            return s
+        }
+        var newString: StringBuilder = StringBuilder()
+        var lastPosition: Int64 = 0;
+        var position: Int64 = 0;
+        position = match (s.indexOf(replaceThis, position)){
+            case Some(x) => x
+            case None => -1
+        }
+        while ( position>= 0 ) {
+            if (position > lastPosition) {
+                var subStr = s.substring(lastPosition, position - lastPosition)
+                newString.append(subStr)
+            }
+            match (withThis) {
+                case Some(x) =>
+                    newString.append(x)
+                case None => ()
+            }
+            lastPosition = position + replaceThis.size;
+            position++
+            position = match(s.indexOf(replaceThis, position)){
                 case Some(x) => x
                 case None => -1
             }
-		}
-		if (lastPosition < s.size) {
-			newString.append(s.substring(lastPosition))
-		}
-		return newString.toString()
+        }
+        if (lastPosition < s.size) {
+            newString.append(s.substring(lastPosition))
+        }
+        return newString.toString()
     }
 
     /**
@@ -667,16 +667,16 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func asciiOnly (s: String): String {
-		var newString: StringBuilder = StringBuilder()
-		for ( i in 0..s.size ) {
-			var ch: Char = s.charAt(i)
-			if (UInt32(ch) < 32 || UInt32(ch) > 126) {
-				newString.append('?')
-			} else {
-				newString.append(ch)
-			}
-		}
-		return newString.toString()
+        var newString: StringBuilder = StringBuilder()
+        for ( i in 0..s.size ) {
+            var ch: Char = s.charAt(i)
+            if (UInt32(ch) < 32 || UInt32(ch) > 126) {
+                newString.append('?')
+            } else {
+                newString.append(ch)
+            }
+        }
+        return newString.toString()
     }
 
     /**
@@ -721,22 +721,22 @@ public class BufferTools {
     @overflowWrapping
     public static func indexOfTerminator (bytes: Array<Int8>, fromIndex: Int32, terminatorLength: Int32): Int32 {
         var marker: Int32 = -1
-		for (i in fromIndex..(Int32(bytes.size) - terminatorLength) + 1) {
-			if ((i - fromIndex) % terminatorLength == 0) {
-				var matched: Int32 = 0
-				for (j in 0..terminatorLength) {
-					if (bytes[Int64(i) + Int64(matched)] != 0){
-					    break
-					}
-					matched++
-				}
-				if (matched == terminatorLength) {
-					marker = i
-					break
-				}
-			}
-		}
-		return marker
+        for (i in fromIndex..(Int32(bytes.size) - terminatorLength) + 1) {
+            if ((i - fromIndex) % terminatorLength == 0) {
+                var matched: Int32 = 0
+                for (j in 0..terminatorLength) {
+                    if (bytes[Int64(i) + Int64(matched)] != 0){
+                        break
+                    }
+                    matched++
+                }
+                if (matched == terminatorLength) {
+                    marker = i
+                    break
+                }
+            }
+        }
+        return marker
     }
 
     /**
