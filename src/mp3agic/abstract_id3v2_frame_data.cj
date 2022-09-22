@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright (c) Cangjie Library Team 2022-2022. All rights resvered.
  */
 
@@ -8,26 +8,24 @@
  */
 package mp3agic
 
-
 /**
  * The class is AbstractID3v2FrameData
  * @since 0.32.5
  */
 public abstract class AbstractID3v2FrameData {
-
     var unsynchronisation: Bool = false
 
     /**
      * The Function is init constructor
-     *
+     * 
      * @param unsynchronisation of Bool
      * @since 0.32.5
      */
-    public init (unsynchronisation: Bool){
+    public init(unsynchronisation: Bool) {
         this.unsynchronisation = unsynchronisation
     }
 
-    protected open func synchroniseAndUnpackFrameData (bytes: Array<Int8>): Unit {
+    protected open func synchroniseAndUnpackFrameData(bytes: Array<Int8>): Unit {
         if (unsynchronisation && BufferTools.sizeSynchronisationWouldSubtract(bytes) > 0) {
             var synchronisedBytes: Array<Int8> = BufferTools.synchroniseBuffer(bytes)
             unpackFrameData(synchronisedBytes)
@@ -36,7 +34,7 @@ public abstract class AbstractID3v2FrameData {
         }
     }
 
-    protected open func packAndUnsynchroniseFrameData (): Array<Int8> {
+    protected open func packAndUnsynchroniseFrameData(): Array<Int8> {
         var bytes: Array<Int8> = packFrameData()
         if (unsynchronisation && BufferTools.sizeUnsynchronisationWouldAdd(bytes) > 0) {
             return BufferTools.unsynchroniseBuffer(bytes)
@@ -44,24 +42,21 @@ public abstract class AbstractID3v2FrameData {
         return bytes
     }
 
-    protected open func toBytes (): Array<Int8> {
-       return packAndUnsynchroniseFrameData()
+    protected open func toBytes(): Array<Int8> {
+        return packAndUnsynchroniseFrameData()
     }
 
     /**
      * The Function is hashCode
-     *
+     * 
      * @return Type of Int64
      * @since 0.32.5
      */
-    public open func hashCode (): Int64
+    public open func hashCode(): Int64
 
-    protected func unpackFrameData (bytes: Array<Int8>): Unit 
+    protected func unpackFrameData(bytes: Array<Int8>): Unit
 
-    protected func packFrameData (): Array<Int8> 
+    protected func packFrameData(): Array<Int8>
 
-    protected func getLength (): Int32
-
+    protected func getLength(): Int32
 }
-
-
