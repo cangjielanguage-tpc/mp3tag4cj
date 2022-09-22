@@ -1,6 +1,5 @@
 // EXEC: cjc %import-path %L %l %f
 // EXEC: ./main
-
 from mp3agic import mp3agic.*
 from std import io.*
 from std import collection.*
@@ -10,12 +9,12 @@ from charset import charset.encoding.*
 
 main() {
     var mp3File: Mp3File = Mp3File("../../../../test/LLT/id3v2Test/testv2File/爱的罗曼史.mp3", false)
-    var startOffset:Int32 = mp3File.getStartOffset()
-    var xingOffset:Int32 = mp3File.getXingOffset()
-    var endOffset:Int32 = mp3File.getEndOffset()
-    var frameCount:Int32 = mp3File.getFrameCount()
-    var bitrate:Int32 = mp3File.getBitrate()
-    var xingBitrate:Int32 = mp3File.getXingBitrate()
+    var startOffset: Int32 = mp3File.getStartOffset()
+    var xingOffset: Int32 = mp3File.getXingOffset()
+    var endOffset: Int32 = mp3File.getEndOffset()
+    var frameCount: Int32 = mp3File.getFrameCount()
+    var bitrate: Int32 = mp3File.getBitrate()
+    var xingBitrate: Int32 = mp3File.getXingBitrate()
     var bitrates: Map<Int32, MutableInteger> = mp3File.getBitrates()
     var channelMode: String = mp3File.getChannelMode()
     var emphasis: String = mp3File.getEmphasis()
@@ -28,67 +27,62 @@ main() {
     var copyright: Bool = mp3File.isCopyright()
     var original: Bool = mp3File.isOriginal()
     var vbr: Bool = mp3File.isVbr()
-    if (startOffset != 417){
+    if (startOffset != 417) {
         return 1
     }
-    if (xingOffset != 0){
+    if (xingOffset != 0) {
         return 1
     }
-    if (endOffset != -1){
+    if (endOffset != -1) {
         return 1
     }
-    if (frameCount != 1){
+    if (frameCount != 1) {
         return 1
     }
-    if (bitrate != 32){
+    if (bitrate != 32) {
         return 1
     }
-    if (xingBitrate != 128){
+    if (xingBitrate != 128) {
         return 1
     }
-    if (channelMode != "Stereo"){
+    if (channelMode != "Stereo") {
         return 1
     }
-    if (emphasis != "None"){
+    if (emphasis != "None") {
         return 1
     }
-    if (layer != "III"){
+    if (layer != "III") {
         return 1
     }
-    if (lengthInMilliseconds != -104){
+    if (lengthInMilliseconds != -104) {
         return 1
     }
-    if (lengthInSeconds != 0){
+    if (lengthInSeconds != 0) {
         return 1
     }
-    if (modeExtension != "n/a"){
+    if (modeExtension != "n/a") {
         return 1
     }
-    if (sampleRate != 44100){
+    if (sampleRate != 44100) {
         return 1
     }
-    if (version != "1.0"){
+    if (version != "1.0") {
         return 1
     }
-    if (copyright != false){
+    if (copyright != false) {
         return 1
     }
-    if (original != true){
+    if (original != true) {
         return 1
     }
-    if (vbr != false){
+    if (vbr != false) {
         return 1
     }
-    if (bitrates.size != 1){
+    if (bitrates.size != 1) {
         return 1
     }
-    if (bitrates.get(32).getOrThrow().getValue() != 1){
+    if (bitrates.get(32).getOrThrow().getValue() != 1) {
         return 1
     }
     0
 }
-
-
-
-
-

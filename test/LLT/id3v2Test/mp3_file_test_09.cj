@@ -1,6 +1,5 @@
 // EXEC: cjc %import-path %L %l %f
 // EXEC: ./main
-
 from mp3agic import mp3agic.*
 from std import io.*
 from std import collection.*
@@ -10,71 +9,120 @@ from charset import charset.encoding.*
 
 main() {
     var mp3File: Mp3File = Mp3File("../../../../test/LLT/id3v2Test/testv2File/v1andv23andcustomtags.mp3", 41, true)
-    if (mp3File.hasId3v2Tag()){
+    if (mp3File.hasId3v2Tag()) {
         var id3v2Tag = mp3File.getId3v2Tag().getOrThrow()
         if (showV323((id3v2Tag as AbstractID3v2Tag).getOrThrow()) == 1) {
             return 1
         }
     }
-    if (mp3File.hasCustomTag()){
+    if (mp3File.hasCustomTag()) {
         var customTag = mp3File.getCustomTag().getOrThrow()
-        var expBuffer: Array<Int8> = [67, 85, 83, 84, 79, 77, 84, 65, 71, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 49, 50, 51, 52]
-        if (customTag != expBuffer) { return 1 }
+        var expBuffer: Array<Int8> = [67, 85, 83, 84, 79, 77, 84, 65, 71, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 49,
+        50, 51, 52, 53, 54, 55, 56, 57, 48, 49, 50, 51, 52]
+        if (customTag != expBuffer) {
+            return 1
+        }
     }
     0
 }
 
-func showV323(id3v23: AbstractID3v2Tag): Int64{
-    match(id3v23 as ID3v23Tag) {
+func showV323(id3v23: AbstractID3v2Tag): Int64 {
+    match (id3v23 as ID3v23Tag) {
         case Some(x) =>
             var version = x.getVersion()
-			var track = x.getTrack()
-			var partOfSet = x.getPartOfSet()
-			var compilation = x.isCompilation()
-			var grouping = x.getGrouping()
-			var artist = x.getArtist()
-			var albumArtist = x.getAlbumArtist()
-			var title = x.getTitle()
-			var album = x.getAlbum()
-			var year = x.getYear()
-			var date = x.getDate()
-			var genre = x.getGenre()
-			var bpm = x.getBPM()
-			var key = x.getKey()
-			var genreDescription = x.getGenreDescription()
-			var composer = x.getComposer()
-			var publisher = x.getPublisher()
-			var originalArtist = x.getOriginalArtist()
-			var copyright = x.getCopyright()
-			var encoder = x.getEncoder()
+            var track = x.getTrack()
+            var partOfSet = x.getPartOfSet()
+            var compilation = x.isCompilation()
+            var grouping = x.getGrouping()
+            var artist = x.getArtist()
+            var albumArtist = x.getAlbumArtist()
+            var title = x.getTitle()
+            var album = x.getAlbum()
+            var year = x.getYear()
+            var date = x.getDate()
+            var genre = x.getGenre()
+            var bpm = x.getBPM()
+            var key = x.getKey()
+            var genreDescription = x.getGenreDescription()
+            var composer = x.getComposer()
+            var publisher = x.getPublisher()
+            var originalArtist = x.getOriginalArtist()
+            var copyright = x.getCopyright()
+            var encoder = x.getEncoder()
             var id3v2Frame: HashMap<String, ID3v2FrameSet> = x.getFrameSets()
-			if (Int64(x.getDataLength()) != 1089) { return 1 }
-            if (Int64(x.getLength()) != 1099) { return 1 }
-            if (id3v2Frame.size != 12) { return 1 }
-            if (version != "3.0"){ return 1 }
-			if (track != "1") { return 1 }
-			if (partOfSet != Option<String>.None){ return 1 }
-			if (compilation != false) { return 1 }
-			if (grouping != Option<String>.None){ return 1 }
-			if (artist != "ARTIST123456789012345678901234") { return 1 }
-			if (albumArtist != Option<String>.None) { return 1 }
-			if (title != "TITLE1234567890123456789012345") { return 1 }
-			if (album != "ALBUM1234567890123456789012345") { return 1 }
-			if (year != "2001") { return 1 }
-			if (date != Option<String>.None) { return 1 }
-			if (genre != 13) { return 1 }
-			if (bpm != -1) { return 1 }
-			if (key != Option<String>.None) { return 1 }
-			if (genreDescription != "Pop") { return 1 }
-			if (composer != "COMPOSER23456789012345678901234") { return 1 }
-			if (publisher != Option<String>.None) { return 1 }
-			if (originalArtist != "ORIGARTIST234567890123456789012") { return 1 }
-			if (copyright != "COPYRIGHT2345678901234567890123") { return 1 }
-			if (encoder != "ENCODER234567890123456789012345") { return 1 }
-			println("getDataLength  => ${x.getDataLength()}")
-			println("getLength  => ${x.getLength()}")
-			println("id3v2Frame.size  => ${id3v2Frame.size}")
-			println("version  => ${version}")
+            if (Int64(x.getDataLength()) != 1089) {
+                return 1
+            }
+            if (Int64(x.getLength()) != 1099) {
+                return 1
+            }
+            if (id3v2Frame.size != 12) {
+                return 1
+            }
+            if (version != "3.0") {
+                return 1
+            }
+            if (track != "1") {
+                return 1
+            }
+            if (partOfSet != Option<String>.None) {
+                return 1
+            }
+            if (compilation != false) {
+                return 1
+            }
+            if (grouping != Option<String>.None) {
+                return 1
+            }
+            if (artist != "ARTIST123456789012345678901234") {
+                return 1
+            }
+            if (albumArtist != Option<String>.None) {
+                return 1
+            }
+            if (title != "TITLE1234567890123456789012345") {
+                return 1
+            }
+            if (album != "ALBUM1234567890123456789012345") {
+                return 1
+            }
+            if (year != "2001") {
+                return 1
+            }
+            if (date != Option<String>.None) {
+                return 1
+            }
+            if (genre != 13) {
+                return 1
+            }
+            if (bpm != -1) {
+                return 1
+            }
+            if (key != Option<String>.None) {
+                return 1
+            }
+            if (genreDescription != "Pop") {
+                return 1
+            }
+            if (composer != "COMPOSER23456789012345678901234") {
+                return 1
+            }
+            if (publisher != Option<String>.None) {
+                return 1
+            }
+            if (originalArtist != "ORIGARTIST234567890123456789012") {
+                return 1
+            }
+            if (copyright != "COPYRIGHT2345678901234567890123") {
+                return 1
+            }
+            if (encoder != "ENCODER234567890123456789012345") {
+                return 1
+            }
+            println("getDataLength  => ${x.getDataLength()}")
+            println("getLength  => ${x.getLength()}")
+            println("id3v2Frame.size  => ${id3v2Frame.size}")
+            println("version  => ${version}")
             println("track  => ${track}")
             println("partOfSet  => ${partOfSet}")
             println("compilation  => ${compilation}")
@@ -98,6 +146,3 @@ func showV323(id3v23: AbstractID3v2Tag): Int64{
     }
     0
 }
-
-
-
