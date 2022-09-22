@@ -62,9 +62,9 @@ open public class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
      * @since 0.32.5
      */
     public init (id: String, data: Array<Int8>){
-		this.id = id
-		this.data = data
-		dataLength = Int32(data.size)
+        this.id = id
+        this.data = data
+        dataLength = Int32(data.size)
     }
 
     /**
@@ -77,46 +77,46 @@ open public class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
      * @since 0.32.5
      */
     public open func unpackFrame (buffer: Array<Int8>, offset: Int32): Unit {
-		var dataOffset: Int32 = unpackHeader(buffer, offset) //解析标签帧，帧头数据
-		sanityCheckUnpackedHeader() //检查标签帧 帧头标志的合法性
-		data = BufferTools.transUInt8ArrayToInt8(BufferTools.copyBuffer(BufferTools.transInt8ArrayToUInt8(buffer), Int64(dataOffset), Int64(dataLength)))
+        var dataOffset: Int32 = unpackHeader(buffer, offset) //解析标签帧，帧头数据
+        sanityCheckUnpackedHeader() //检查标签帧 帧头标志的合法性
+        data = BufferTools.transUInt8ArrayToInt8(BufferTools.copyBuffer(BufferTools.transInt8ArrayToUInt8(buffer), Int64(dataOffset), Int64(dataLength)))
     }
 
     protected open func unpackHeader (buffer: Array<Int8>, offset: Int32): Int32 {
-		//标签帧前4个字符 代表标签帧的标识
-		//给成员id赋值
-		match(BufferTools.byteBufferToStringIgnoringEncodingIssues(BufferTools.transInt8ArrayToUInt8(buffer), offset + ID_OFFSET, ID_LENGTH)) {
-		    case Some(x) => id = x
-		    case None => ()
-		}
-		unpackDataLength(buffer, offset)  //计算标签帧 长度， 不包含 帧头的10个字节
-		unpackFlags(buffer, offset)  // 接续数据帧头中的标志，位置在帧头的9字节 和 10字节
-		return offset + HEADER_LENGTH
+        //标签帧前4个字符 代表标签帧的标识
+        //给成员id赋值
+        match(BufferTools.byteBufferToStringIgnoringEncodingIssues(BufferTools.transInt8ArrayToUInt8(buffer), offset + ID_OFFSET, ID_LENGTH)) {
+            case Some(x) => id = x
+            case None => ()
+        }
+        unpackDataLength(buffer, offset)  //计算标签帧 长度， 不包含 帧头的10个字节
+        unpackFlags(buffer, offset)  // 接续数据帧头中的标志，位置在帧头的9字节 和 10字节
+        return offset + HEADER_LENGTH
     }
 
     protected open func unpackDataLength (buffer: Array<Int8>, offset: Int32): Unit {
         dataLength = BufferTools.unpackInteger(buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET)], buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET) + 1], buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET) + 2], buffer[Int64(offset) + Int64(DATA_LENGTH_OFFSET) + 3])
-	}   //给成员dataLength 计算标签帧 长度， 不包含 帧头的10个字节
+    }   //给成员dataLength 计算标签帧 长度， 不包含 帧头的10个字节
 
     private func unpackFlags (buffer: Array<Int8>, offset: Int32): Unit {
-		//解析标签帧的 帧头标记数据
-		//给成员
-		preserveTag = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS1_OFFSET)], Int64(PRESERVE_TAG_BIT))
-		preserveFile = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS1_OFFSET)], Int64(PRESERVE_FILE_BIT))
-		readOnly = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS1_OFFSET)], Int64(READ_ONLY_BIT))
-		group = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(GROUP_BIT))
-		compression = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(COMPRESSION_BIT))
-		encryption = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(ENCRYPTION_BIT))
-		unsynchronisation = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(UNSYNCHRONISATION_BIT))
-		dataLengthIndicator = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(DATA_LENGTH_INDICATOR_BIT))
-	}
+        //解析标签帧的 帧头标记数据
+        //给成员
+        preserveTag = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS1_OFFSET)], Int64(PRESERVE_TAG_BIT))
+        preserveFile = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS1_OFFSET)], Int64(PRESERVE_FILE_BIT))
+        readOnly = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS1_OFFSET)], Int64(READ_ONLY_BIT))
+        group = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(GROUP_BIT))
+        compression = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(COMPRESSION_BIT))
+        encryption = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(ENCRYPTION_BIT))
+        unsynchronisation = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(UNSYNCHRONISATION_BIT))
+        dataLengthIndicator = BufferTools.checkBit(buffer[Int64(offset) + Int64(FLAGS2_OFFSET)], Int64(DATA_LENGTH_INDICATOR_BIT))
+    }
 
     protected func sanityCheckUnpackedHeader (): Unit {
-		for (i in 0..id.size) {
-			if (!((id.charAt(i) >= 'A' && id.charAt(i) <= 'Z') || (id.charAt(i) >= '0' && id.charAt(i) <= '9'))) {
-				throw InvalidDataException("Not a valid frame - invalid tag " + id)
-			}
-		}
+        for (i in 0..id.size) {
+            if (!((id.charAt(i) >= 'A' && id.charAt(i) <= 'Z') || (id.charAt(i) >= '0' && id.charAt(i) <= '9'))) {
+                throw InvalidDataException("Not a valid frame - invalid tag " + id)
+            }
+        }
     }
 
     /**
@@ -126,9 +126,9 @@ open public class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
      * @since 0.32.5
      */
     public open func toBytes (): Array<Int8> {
-		var bytes: Array<Int8> = Array<Int8>(Int64(getLength()), {i => 0})
-		packFrame(bytes, 0)
-		return bytes
+        var bytes: Array<Int8> = Array<Int8>(Int64(getLength()), {i => 0})
+        packFrame(bytes, 0)
+        return bytes
     }
 
     public open func toBytes (bytes: Array<Int8>, offset: Int32): Unit {
@@ -142,11 +142,11 @@ open public class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
 
     private func packHeader (bytes: Array<Int8>, i: Int32): Unit {
         var iTmp = i
-		try {
-			BufferTools.stringIntoByteBuffer(id, 0, id.size, bytes, 0)
-		} catch (e: Exception) { }
-		BufferTools.copyIntoByteBuffer(packDataLength(), 0, 4, bytes, 4)
-		BufferTools.copyIntoByteBuffer(packFlags(), 0, 2, bytes, 8)
+        try {
+            BufferTools.stringIntoByteBuffer(id, 0, id.size, bytes, 0)
+        } catch (e: Exception) { }
+        BufferTools.copyIntoByteBuffer(packDataLength(), 0, 4, bytes, 4)
+        BufferTools.copyIntoByteBuffer(packFlags(), 0, 2, bytes, 8)
     }
 
     protected open func packDataLength (): Array<Int8> {
@@ -154,16 +154,16 @@ open public class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
     }
 
     private func packFlags (): Array<Int8> {
-		var bytes: Array<Int8> = Array<Int8>(2, { i => 0})
-		bytes[0] = BufferTools.setBit(bytes[0], Int64(PRESERVE_TAG_BIT), preserveTag)
-		bytes[0] = BufferTools.setBit(bytes[0], Int64(PRESERVE_FILE_BIT), preserveFile)
-		bytes[0] = BufferTools.setBit(bytes[0], Int64(READ_ONLY_BIT), readOnly)
-		bytes[1] = BufferTools.setBit(bytes[1], Int64(GROUP_BIT), group)
-		bytes[1] = BufferTools.setBit(bytes[1], Int64(COMPRESSION_BIT), compression)
-		bytes[1] = BufferTools.setBit(bytes[1], Int64(ENCRYPTION_BIT), encryption)
-		bytes[1] = BufferTools.setBit(bytes[1], Int64(UNSYNCHRONISATION_BIT), unsynchronisation)
-		bytes[1] = BufferTools.setBit(bytes[1], Int64(DATA_LENGTH_INDICATOR_BIT), dataLengthIndicator)
-		return bytes
+        var bytes: Array<Int8> = Array<Int8>(2, { i => 0})
+        bytes[0] = BufferTools.setBit(bytes[0], Int64(PRESERVE_TAG_BIT), preserveTag)
+        bytes[0] = BufferTools.setBit(bytes[0], Int64(PRESERVE_FILE_BIT), preserveFile)
+        bytes[0] = BufferTools.setBit(bytes[0], Int64(READ_ONLY_BIT), readOnly)
+        bytes[1] = BufferTools.setBit(bytes[1], Int64(GROUP_BIT), group)
+        bytes[1] = BufferTools.setBit(bytes[1], Int64(COMPRESSION_BIT), compression)
+        bytes[1] = BufferTools.setBit(bytes[1], Int64(ENCRYPTION_BIT), encryption)
+        bytes[1] = BufferTools.setBit(bytes[1], Int64(UNSYNCHRONISATION_BIT), unsynchronisation)
+        bytes[1] = BufferTools.setBit(bytes[1], Int64(DATA_LENGTH_INDICATOR_BIT), dataLengthIndicator)
+        return bytes
     }
 
     /**
@@ -215,7 +215,7 @@ open public class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
      * @since 0.32.5
      */
     public open func setData (data: Array<Int8>): Unit {
-		this.data = data
+        this.data = data
         this.dataLength = Int32(data.size)
     }
 

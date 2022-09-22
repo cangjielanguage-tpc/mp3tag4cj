@@ -184,7 +184,7 @@ public class Mp3File <: FileWrapper {
             case Some(x) => true
             case None => false
         }
-	}
+    }
 
     /**
      * The Function is getId3v1Tag, Get Tags
@@ -230,23 +230,25 @@ public class Mp3File <: FileWrapper {
         var isExist: Bool = true
         try {
             FileInfo(newFilename).getCanonicalPath()
+            ()
         }catch (e: Exception) {
             isExist = false
+            ()
         }
         if (isExist && FileInfo(newFilename).getCanonicalPath() == super.path){
             throw IllegalArgumentException("Save filename same as source filename")
         }
         var saveFile: File = File(newFilename, AccessMode.ReadWrite, OpenMode.ForceCreate)
-		if (!hasId3v2Tag() && !hasCustomTag() && this.frameCount == 0) {
+        if (!hasId3v2Tag() && !hasCustomTag() && this.frameCount == 0) {
             var sourceFile: File = File(super.path, AccessMode.Read, OpenMode.Open)
             var srcByte: Array<UInt8> = Array<UInt8>(getLength() - Int64(ID3v1Tag.TAG_LENGTH), {i => 0})
             sourceFile.read(srcByte)
             saveFile.write(srcByte)
-		}
+        }
         if (hasId3v1Tag()) {
-		    var bytes: Array<Int8> = this.id3v1Tag.getOrThrow().toBytes()
-		    var byteBuffer: Array<UInt8> = BufferTools.transInt8ArrayToUInt8(bytes)
-		    saveFile.write(byteBuffer)
+            var bytes: Array<Int8> = this.id3v1Tag.getOrThrow().toBytes()
+            var byteBuffer: Array<UInt8> = BufferTools.transInt8ArrayToUInt8(bytes)
+            saveFile.write(byteBuffer)
         }
     }
 }
