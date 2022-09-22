@@ -1210,6 +1210,14 @@ public open class AbstractID3v2Tag <: ID3v2 {
         return Option<Int64>.Some(Int64.parse(value))
     }
 
+    /*
+     * The Function is extractGenreDescription
+     *
+     * @param genreValue of String
+     *
+     * @return Type of Option<String>
+     * @since 0.32.5
+     */
     protected open func extractGenreDescription(genreValue: String): Option<String> {
         var value: String = genreValue.trim();
         if (value.size > 0) {
