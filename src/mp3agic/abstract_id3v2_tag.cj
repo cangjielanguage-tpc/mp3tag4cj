@@ -239,22 +239,22 @@ public open class AbstractID3v2Tag <: ID3v2 {
     }
 
     protected open func addFrame(frame: ID3v2Frame, replace: Bool): Unit {
-        var frameSet: ID3v2FrameSet = ID3v2FrameSet("")
+        var frameSetVar: ID3v2FrameSet = ID3v2FrameSet("")
         var isNone: Bool = false
         match (frameSets.get(frame.getId())) {
-            case Some(x) => frameSet = x
+            case Some(x) => frameSetVar = x
             case None => isNone = true
         }
         if (isNone) {
-            frameSet = ID3v2FrameSet(frame.getId())
-            frameSet.addFrame(frame)
-            frameSets.put(frame.getId(), frameSet)
+            frameSetVar = ID3v2FrameSet(frame.getId())
+            frameSetVar.addFrame(frame)
+            frameSets.put(frame.getId(), frameSetVar)
             ()
         } else if (replace) {
-            frameSet.clear()
-            frameSet.addFrame(frame)
+            frameSetVar.clear()
+            frameSetVar.addFrame(frame)
         } else {
-            frameSet.addFrame(frame)
+            frameSetVar.addFrame(frame)
         }
     }
 

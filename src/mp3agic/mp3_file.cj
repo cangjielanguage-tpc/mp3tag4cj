@@ -169,12 +169,12 @@ public class Mp3File <: FileWrapper {
                         break
                     } catch (e: Exception) {
                         if (frameCount < 2) {
-                            startOffset = -1
                             xingOffset = -1
                             frameCount = 0
+                            startOffset = -1
                             bitrates.clear()
                             lastBlock = false
-                            fileOffset = lastOffset + 1
+                            fileOffset = 1 + lastOffset
                             if (fileOffset == 0) {
                                 throw InvalidDataException("Valid start of mpeg frames not found ${e}")
                             }
