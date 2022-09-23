@@ -22,7 +22,7 @@ MIT License
 | Distribution  |   |
 | Private use   |   |
 
-#### 4 依赖分析 
+#### 4 依赖分析
 
 依赖
 
@@ -33,7 +33,7 @@ java.io 中的 File，path
 
 #### 5 特性设计文档
 
-##### 5.1 核心特性1 
+##### 5.1 核心特性1
 
 ###### 5.1.1 特性介绍
 
@@ -54,14 +54,14 @@ java.io 中的 File，path
 | init   | filename: String | Unit | 通过文件名构造，filename：为文件路径和文件名称 |
 | init   | file: FileInfo | Unit |  通过文件类型构造  |
 | getFilename   | 无 | String | 获得文件名称 |
-| getLength   |  | Int64 | 获得文件大小 |
+| getLength   |  | Int64 | 获得文件字节长度 |
 
 💡 Mp3File 构建MP3文件并根据文件初始化各个部分的数据。
 
 | 成员函数 | 入参 | 返回值 | 作用描述 |
 | --- | --- | --- | ---  |
 | init   | filename: String | Unit | 通过文件构造，filename：文件路径和文件名称 |
-| init   | filename: String, bufferLength: Int32| Unit | 通过文件构造并且传入需要扫描文件的长度，fileNamme：文件路径和文件名称，可以换成FileInfo类型；bufferLength：规则扫描的大小，默认值为65536 |
+| init   | filename: String, bufferLength: Int32| Unit | 通过文件构造并且传入需要扫描文件的长度，fileNamme：文件路径和文件名称，可以换成FileInfo类型；bufferLength：规则扫描的字节容器的长度，默认值为65536 |
 | init   | filename: String, scanFile: Bool | Unit | 通过文件构造并，fileNamme：文件路径和文件名称；scanFile：规定是否扫描所有音频数据帧|
 | init   | filename: String, bufferLength: Int32, scanFile: Bool | Unit | 构造方法，fileNamme：文件路径和文件名称，可以换成FileInfo类型；scanFile：规定是否扫描所有音频数据帧 |
 | hasId3v1Tag   | 无 | Bool |是否包含ID3V1标签 |
@@ -90,7 +90,7 @@ java.io 中的 File，path
 | getGenreDescription   | 无 | String |设置风格描述 |
 | getComment   | 无 | String | 获取附注 |
 | setComment   | comment: String | Unit | 设置附注 |
-| toBytes   | 无 | Array\<Byte\> | 转换为字节流数据 |
+| toBytes   | 无 | Array\<Int8\> | 转换为字节流数据 |
 
 💡 ID3V1Tag 标签类型ID3v1的实现类。
 
@@ -128,7 +128,7 @@ java.io 中的 File，path
 | --- | --- | --- | --- |
 | GENRES | Array\<String\> | 曲风字典 | Genres数值对应曲风描述 |
 | 成员函数 | 入参 | 返回值 | 作用描述 | 
-| matchGenreDescription | description: String | Int32 | 获取Genres对应的序号，description：成员GENRES中的147种风格之一 |
+| matchGenreDescription | description: Option<String> | Int32 | 获取Genres对应的序号，description：成员GENRES中的147种风格之一 |
 
 ###### 5.1.4 展示示例
 ```cangjie
@@ -216,7 +216,7 @@ func showId3v1(id3v1Tag: ID3v1) {
     println("des ==> ${des}")
 }
 ```
-    
+
 ```cangjie
 执行结果:
 version ==> 1
@@ -258,40 +258,39 @@ des ==> Alternative
 
 | 成员函数 | 入参 | 返回值 | 作用描述 |
 | --- | --- | --- | ---  |
-| getFrameCount  | 无 | Int32 | 得到音频数据帧的个数 |
-| getStartOffset  | 无 | Int32 | 得到扫描的开始偏移量，第一个音频数据帧的起点 |
-| getEndOffset  | 无 | Int32 | 得到扫描的音频数据帧结束的偏移量，如果全都扫描到的话ID3V1存在的话，就是ID3V1之前 |
-| getLengthInMilliseconds  | 无 | Int64 | 获得播放时长的毫秒 |
-| getLengthInSeconds  | 无 | Int64 | 获得播放时长的秒数 |
-| isVbr  | 无 | Bool | 判断是否是VBR(可变位率) |
-| getBitrate  | 无 | Bool | 获得位率，VBR得到是时平均位率向上取整 |
-| getBitrates  | 无 | Map<Integer, MutableInteger> | 得到音频数据帧的位率容器 |
-| getChannelMode  | 无 | String | 得到声道模式 |
-| isCopyright  | 无 | Bool | 得到是否有版权 |
-| getEmphasis  | 无 | String | 得到强调方式 |
-| getLayer  | 无 | String | 得到layer版本 |
-| getModeExtension  | 无 | String | 得到扩充模式 |
-| isOriginal  | 无 | Bool | 得到原版标志 |
-| getSampleRate  | 无 | Int32 | 得到采样率 |
-| getVersion  | 无 | String | 得到媒体版本 |
-| hasXingFrame  | 无 | Bool | 是否包含xing-header帧 |
-| getXingOffset  | 无 | Int32 | 得到Xing-header的偏移量 |
-| getXingBitrate  | 无 | Int32 | 得到Xing-header的偏移量 |
-| hasId3v2Tag  | 无 | Bool | 是否包含ID3V2标签 |
-| getId3v2Tag  | 无 | Option\<ID3v2\> | 得到ID3V2标签对象 |
-| setId3v2Tag  | id3v2Tag: Option\<ID3v2\> | Unit | 设置ID3V2标签，id3v2Tag：标签对象 |
-| removeId3v2Tag  | 无 | Unit | 移除ID3V2标签 |
-| hasCustomTag  | 无 | Bool | 是否包含CustomTag |
-| getCustomTag  | 无 | Array\<Int8\> | 得到CustomTag |
-| setCustomTag  | customTag: Array\<Int8\> | Unit | 设置CustomTag，customTag：自定义标签的字节内容 |
-| removeCustomTag  | 无 | Unit | 移除CustomTag |
+| hasId3v2Tag | 无 | Bool | 是否包含ID3V2标签 |
+| getId3v2Tag | 无 | Option<ID3v2> | 获得ID3V1标签 |
+| setId3v2Tag | id3v2Tag: Option<ID3v2> | Unit | 设置ID3V1标签 |
+| removeId3v2Tag | 无 | Unit | 移除ID3V2标签 |
+| hasCustomTag | 无 | Bool | 是否包含CustomTag标签 |
+| getCustomTag | 无 | Option<Array<Int8>> | 获得CustomTag标签 |
+| setCustomTag | customTag: Option<Array<Int8>> | Unit | 设置CustomTag标签 |
+| removeId3v1Tag | 无 | Unit | 移除CustomTag标签 |
+| getStartOffset | 无 | Int32 | 获得音频数据帧开始的偏移量,如果存在Xing-header会越过Xing-header |
+| getXingOffset | 无 | Int32 | 获得Xing-header开始的偏移量 |
+| getEndOffset | 无 | Int32 | 获得音频数据帧结束的偏移量，如果有customTag在customTag之前 |
+| getFrameCount | 无 | Int32 | 获得音频数据帧的数量 |
+| getBitrate | 无 | Int32 | 获得位率，若是可变位率的音频，该数值为平均位率 |
+| getXingBitrate | 无 | Int32 | 获得Xing-header帧的位率 |
+| getBitrates | 无 | Map<Int32, MutableInteger> | 获得位率集合，若scanfile为false时。该一个size只有1为第一个音频数据真的位率。集合的key为位率的值，MutableInteger 记录该位率出现的次数 |
+| getChannelMode | 无 | String | 获取渠道模式 |
+| getEmphasis | 无 | String | 获取强调信息 |
+| getLayer | 无 | String | 获取压缩级别 |
+| getLengthInMilliseconds | 无 | Int64 | 获取MP3长度，单位毫秒 |
+| getLengthInSeconds | 无 | Int64 | 获取MP3长度，单位秒 |
+| getModeExtension | 无 | String | 获取模式扩展 |
+| getSampleRate | 无 | Int32 | 获取音频采样率 |
+| getVersion | 无 | String | 获取版本 |
+| isCopyright | 无 | Bool | 是否有版权 |
+| isOriginal | 无 | Bool | 是否是原版 |
+| isVbr | 无 | Bool | 是否为VBR编码（可变位率），不是为 CBR编码 |
+| hasXingFrame | 无 | Bool | 断是否有 xing帧 |
 
 💡 ID3v2 标签的接口类型，继承ID3v1。
 
 | 接口名 | 入参 | 返回值 | 作用描述 |
 | --- | --- | --- | ---  |
 | getPadding   | 无 | Bool | 获得是否有填充 |
-| setPadding   | padding: Bool | Unit | 设置是否有填充 |
 | hasFooter   | 无 | Bool | 是否存在标签尾 |
 | setFooter   | footer: Bool | Unit | 设置标签尾是否存在 |
 | hasUnsynchronisation   | 无 | Bool | 是否存在不同步标识 |
@@ -430,6 +429,93 @@ ID3v2UrlFrameData，ID3v2ChapterTOCFrameData，ID3v2PopmFrameData，ID3v2Chapter
 | init | unsynchronisation: Bool | Unit | 构造方法，unsynchronisation：设置不同步标识 |
 
 💡 工具类 ByteBufferUtils，BufferTools；EncodedText编码解析类，用于在设置或者获取标签帧标识数据的时候的时候进行编码解码。
+
+###### 5.2.4 展示示例
+```cangjie
+from mp3agic import mp3agic.*
+from std import io.*
+from std import collection.*
+from charset import charset.*
+from charset import charset.singlebyte.*
+from charset import charset.encoding.*
+
+main() {
+    //v1andv23andcustomtags.mp3
+    var mp3File: Mp3File = Mp3File("../../../../test/LLT/id3v2Test/testv2File/v1andv23andcustomtags.mp3")
+    var startOffset:Int32 = mp3File.getStartOffset()
+    var xingOffset:Int32 = mp3File.getXingOffset()
+    var endOffset:Int32 = mp3File.getEndOffset()
+    var frameCount:Int32 = mp3File.getFrameCount()
+    var bitrate:Int32 = mp3File.getBitrate()
+    var xingBitrate:Int32 = mp3File.getXingBitrate()
+    var bitrates: Map<Int32, MutableInteger> = mp3File.getBitrates()
+    var channelMode: String = mp3File.getChannelMode()
+    var emphasis: String = mp3File.getEmphasis()
+    var layer: String = mp3File.getLayer()
+    var lengthInMilliseconds: Int64 = mp3File.getLengthInMilliseconds()
+    var lengthInSeconds: Int64 = mp3File.getLengthInSeconds()
+    var modeExtension: String = mp3File.getModeExtension()
+    var sampleRate: Int32 = mp3File.getSampleRate()
+    var version: String = mp3File.getVersion()
+    var copyright: Bool = mp3File.isCopyright()
+    var original: Bool = mp3File.isOriginal()
+    var vbr: Bool = mp3File.isVbr()
+    println("startOffset ===> ${startOffset}")
+    println("xingOffset ===> ${xingOffset}")
+    println("endOffset ===> ${endOffset}")
+    println("frameCount ===> ${frameCount}")
+    println("bitrate ===> ${bitrate}")
+    println("xingBitrate ===> ${xingBitrate}")
+    println("channelMode ===> ${channelMode}")
+    println("emphasis ===> ${emphasis}")
+    println("layer ===> ${layer}")
+    println("lengthInMilliseconds ===> ${lengthInMilliseconds}")
+    println("lengthInSeconds ===> ${lengthInSeconds}")
+    println("modeExtension ===> ${modeExtension}")
+    println("sampleRate ===> ${sampleRate}")
+    println("version ===> ${version}")
+    println("copyright ===> ${copyright}")
+    println("original ===> ${original}")
+    println("vbr ===> ${vbr}")
+    for ( (k,v) in bitrates ){
+        println("bitrates key ===> ${k}")
+        println("bitrates val ===> ${v.getValue()}")
+    }
+    0
+}
+```
+
+```cangjie
+执行结果:
+startOffset ===> 1516
+xingOffset ===> 1099
+endOffset ===> 3967
+frameCount ===> 6
+bitrate ===> 125
+xingBitrate ===> 128
+channelMode ===> Joint stereo
+emphasis ===> None
+layer ===> III
+lengthInMilliseconds ===> 156
+lengthInSeconds ===> 0
+modeExtension ===> None
+sampleRate ===> 44100
+version ===> 1.0
+copyright ===> false
+original ===> true
+vbr ===> true
+bitrates key ===> 224
+bitrates val ===> 1
+bitrates key ===> 112
+bitrates val ===> 1
+bitrates key ===> 96
+bitrates val ===> 2
+bitrates key ===> 192
+bitrates val ===> 1
+bitrates key ===> 32
+bitrates val ===> 1
+
+```
 
 
 #### 🚀 6 架构图
