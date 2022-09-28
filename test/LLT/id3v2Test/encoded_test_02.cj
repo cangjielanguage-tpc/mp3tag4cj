@@ -16,6 +16,14 @@ main() {
     }
     var text1: EncodedText = EncodedText("测试UTF-16LE", 1)
     var bytes1: Array<Int8> = text1.toBytes()
+    var bytes11: Array<Int8> = text1.toBytes(true)
+    var terminator: Array<Int8> = text1.getTerminator()
+    if (bytes11 != [-1, -2, 75, 109, -43, -117, 85, 0, 84, 0, 70, 0, 45, 0, 49, 0, 54, 0, 76, 0, 69, 0]){
+        return 1
+    }
+    if (terminator != [0, 0]) {
+        return 1
+    }
     if (bytes1 != [75, 109, -43, -117, 85, 0, 84, 0, 70, 0, 45, 0, 49, 0, 54, 0, 76, 0, 69, 0]) {
         return 1
     }

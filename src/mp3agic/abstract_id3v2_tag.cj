@@ -1201,7 +1201,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 match (pos) {
                     case Some(x) =>
                         if (x > 0) {
-                            return Int64.tryParse(value.substring(1, x - "(".size))
+                            return Option<Int64>.Some(Int64.parse(value.substring(1, x - "(".size)))
                         }
                     case None => ()
                 }
