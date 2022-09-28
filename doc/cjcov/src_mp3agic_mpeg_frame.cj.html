@@ -284,12 +284,12 @@ pre
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2022-09-22 10:42:05</td>
+            <td class="headerValue">2022-09-28 18:51:55</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">240</td>
+            <td class="headerTableEntry">377</td>
             <td class="headerTableEntry">407</td>
-            <td class="headerTableEntry" style="background-color:LightPink">59.0 %</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">92.6 %</td>
           </tr>
           <tr>
             <td class="headerName">Legend:</td>
@@ -797,20 +797,20 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>80</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>    public init(frameData: Array&lt;Int8&gt;) {</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public init(frameData: Array&lt;Int8&gt;) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>81</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>        if (frameData.size &lt; Int64(FRAME_DATA_LENGTH)) {</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (frameData.size &lt; Int64(FRAME_DATA_LENGTH)) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>82</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            throw InvalidDataException("Mpeg frame too short")</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            throw InvalidDataException("Mpeg frame too short")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>83</pre></td>
@@ -821,14 +821,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>84</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>        var frameHeader: Int64 = Int64(BufferTools.unpackInteger(frameData[0], frameData[1], frameData[2], frameData[3]))</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        var frameHeader: Int64 = Int64(BufferTools.unpackInteger(frameData[0], frameData[1], frameData[2], frameData[3]))</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>85</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>        setFields(frameHeader)</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        setFields(frameHeader)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>86</pre></td>
@@ -1625,14 +1625,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>218</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 32</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 32</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>219</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>220</pre></td>
@@ -1643,14 +1643,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>221</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 64</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 64</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>222</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>223</pre></td>
@@ -1661,14 +1661,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>224</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 96</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 96</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>225</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>226</pre></td>
@@ -1679,14 +1679,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>227</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 128</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 128</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>228</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>229</pre></td>
@@ -1697,14 +1697,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>230</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 160</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 160</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>231</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>232</pre></td>
@@ -1715,14 +1715,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>233</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 192</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 192</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>234</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>235</pre></td>
@@ -1733,14 +1733,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>236</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 224</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 224</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>237</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>238</pre></td>
@@ -1751,14 +1751,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>239</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 256</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 256</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>240</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>241</pre></td>
@@ -1769,14 +1769,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>242</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 288</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 288</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>243</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>244</pre></td>
@@ -1787,14 +1787,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>245</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 320</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 320</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>246</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>247</pre></td>
@@ -1805,14 +1805,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>248</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 352</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 352</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>249</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>250</pre></td>
@@ -1823,14 +1823,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>251</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 384</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 384</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>252</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>253</pre></td>
@@ -1841,14 +1841,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>254</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 416</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 416</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>255</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>256</pre></td>
@@ -1871,8 +1871,8 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>259</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>260</pre></td>
@@ -1913,14 +1913,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>266</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 32</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 32</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>267</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>268</pre></td>
@@ -1931,14 +1931,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>269</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 48</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 48</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>270</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>271</pre></td>
@@ -1949,14 +1949,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>272</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 56</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 56</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>273</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>274</pre></td>
@@ -1967,14 +1967,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>275</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 64</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 64</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>276</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>277</pre></td>
@@ -1985,14 +1985,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>278</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 80</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 80</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>279</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>280</pre></td>
@@ -2003,14 +2003,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>281</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 96</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 96</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>282</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>283</pre></td>
@@ -2021,14 +2021,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>284</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 112</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 112</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>285</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>286</pre></td>
@@ -2039,14 +2039,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>287</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 128</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 128</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>288</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>289</pre></td>
@@ -2057,14 +2057,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>290</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 160</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 160</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>291</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>292</pre></td>
@@ -2075,14 +2075,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>293</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 192</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 192</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>294</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>295</pre></td>
@@ -2093,14 +2093,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>296</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 224</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 224</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>297</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>298</pre></td>
@@ -2111,14 +2111,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>299</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 256</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 256</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>300</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>301</pre></td>
@@ -2129,14 +2129,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>302</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 320</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 320</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>303</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>304</pre></td>
@@ -2159,8 +2159,8 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>307</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>308</pre></td>
@@ -2219,14 +2219,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>317</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 40</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 40</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>318</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>319</pre></td>
@@ -2237,14 +2237,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>320</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 48</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 48</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>321</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>322</pre></td>
@@ -2255,14 +2255,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>323</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 56</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 56</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>324</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>325</pre></td>
@@ -2363,14 +2363,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>341</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 160</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 160</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>342</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>343</pre></td>
@@ -2417,14 +2417,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>350</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 256</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 256</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>351</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>352</pre></td>
@@ -2447,8 +2447,8 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>355</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>356</pre></td>
@@ -2489,14 +2489,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>362</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 32</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 32</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>363</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>364</pre></td>
@@ -2507,14 +2507,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>365</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 48</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 48</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>366</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>367</pre></td>
@@ -2525,14 +2525,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>368</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 56</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 56</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>369</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>370</pre></td>
@@ -2543,14 +2543,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>371</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 64</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 64</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>372</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>373</pre></td>
@@ -2561,14 +2561,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>374</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 80</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 80</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>375</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>376</pre></td>
@@ -2579,14 +2579,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>377</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 96</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 96</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>378</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>379</pre></td>
@@ -2597,14 +2597,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>380</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 112</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 112</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>381</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>382</pre></td>
@@ -2615,14 +2615,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>383</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 128</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 128</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>384</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>385</pre></td>
@@ -2633,14 +2633,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>386</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 144</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 144</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>387</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>388</pre></td>
@@ -2651,14 +2651,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>389</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 160</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 160</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>390</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>391</pre></td>
@@ -2669,14 +2669,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>392</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 176</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 176</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>393</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>394</pre></td>
@@ -2687,14 +2687,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>395</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 192</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 192</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>396</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>397</pre></td>
@@ -2705,14 +2705,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>398</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 224</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 224</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>399</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>400</pre></td>
@@ -2735,8 +2735,8 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>403</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>404</pre></td>
@@ -2777,14 +2777,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>410</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 8</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 8</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>411</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>412</pre></td>
@@ -2795,14 +2795,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>413</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 16</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 16</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>414</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>415</pre></td>
@@ -2813,14 +2813,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>416</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 24</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 24</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>417</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>418</pre></td>
@@ -2831,14 +2831,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>419</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 32</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 32</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>420</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>421</pre></td>
@@ -2849,14 +2849,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>422</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 40</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 40</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>423</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>424</pre></td>
@@ -2867,14 +2867,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>425</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 48</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 48</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>426</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>427</pre></td>
@@ -2885,14 +2885,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>428</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 56</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 56</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>429</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>430</pre></td>
@@ -2903,14 +2903,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>431</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 64</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 64</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>432</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>433</pre></td>
@@ -2921,14 +2921,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>434</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 80</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 80</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>435</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>436</pre></td>
@@ -2939,14 +2939,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>437</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 96</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 96</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>438</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>439</pre></td>
@@ -2957,14 +2957,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>440</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 112</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 112</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>441</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>442</pre></td>
@@ -2975,14 +2975,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>443</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 128</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 128</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>444</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>445</pre></td>
@@ -2993,14 +2993,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>446</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                this.bitrate = 144</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                this.bitrate = 144</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>447</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>448</pre></td>
@@ -3023,8 +3023,8 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>451</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case _ =&gt; throw InvalidDataException("Invalid bitrate in frame header")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>452</pre></td>
@@ -3131,44 +3131,44 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>469</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                case 1 =&gt;</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                case 1 =&gt;</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>470</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                    this.sampleRate = 48000</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    this.sampleRate = 48000</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>471</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                    return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>472</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                case 2 =&gt;</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                case 2 =&gt;</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>473</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                    this.sampleRate = 32000</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    this.sampleRate = 32000</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>474</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                    return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>475</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                case _ =&gt; throw InvalidDataException("Invalid sample rate in frame header")</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                case _ =&gt; throw InvalidDataException("Invalid sample rate in frame header")</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>476</pre></td>
@@ -3197,14 +3197,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>480</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                    this.sampleRate = 22050</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    this.sampleRate = 22050</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>481</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                    return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>482</pre></td>
@@ -3737,14 +3737,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>570</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                        this.modeExtension = MODE_EXTENSION_BANDS_12_31</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                        this.modeExtension = MODE_EXTENSION_BANDS_12_31</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>571</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                        return</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                        return</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>572</pre></td>
@@ -4115,14 +4115,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>633</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            case 1 =&gt; this.emphasis = EMPHASIS__50_15_MS</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case 1 =&gt; this.emphasis = EMPHASIS__50_15_MS</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>634</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            case 3 =&gt; this.emphasis = EMPHASIS_CCITT_J_17</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case 3 =&gt; this.emphasis = EMPHASIS_CCITT_J_17</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>635</pre></td>
