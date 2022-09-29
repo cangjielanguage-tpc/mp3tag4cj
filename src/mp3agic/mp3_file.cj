@@ -22,7 +22,7 @@ public class Mp3File <: FileWrapper {
     private var xingOffset: Int32 = -1
     private var startOffset: Int32 = -1
     private var endOffset: Int32 = -1
-    private var frameCount: Int32 = 0
+    private var frameCounts: Int32 = 0
     private let bitrates: HashMap<Int32, MutableInteger> = HashMap<Int32, MutableInteger>()
     private var xingBitrate: Int32 = 0
     private var bitrate: Float64 = 0.0
@@ -126,18 +126,16 @@ public class Mp3File <: FileWrapper {
         }
         this.bufferLength = bufferLength
         this.scanFile = scanFile
-        try {
-            var file: File = File(super.path, AccessMode.ReadWrite, OpenMode.Open)
-            initId3v1Tag(file)
-            scanFileFunc(file) //扫描文件获取音频数据流的帧头数据并解析。 涉及到Xing-header帧处理和是否扫描全部的容器大小
-            if (startOffset < 0) { //此时startOffset的值应为第一个媒体数据帧的起始位置，不算Xing-header帧不算做媒体数据帧
-                throw InvalidDataException("No mpegs frames found");
-            }
-            initId3v2Tag(file) //初始化Id3v2标签
-            if (scanFile) {
-                initCustomTag(file)
-            }
-        } catch (e: Exception) {}
+        var file: File = File(super.path, AccessMode.ReadWrite, OpenMode.Open)
+        initId3v1Tag(file)
+        scanFileFunc(file) //扫描文件获取音频数据流的帧头数据并解析。 涉及到Xing-header帧处理和是否扫描全部的容器大小
+        if (startOffset < 0) { //此时startOffset的值应为第一个媒体数据帧的起始位置，不算Xing-header帧不算做媒体数据帧
+            throw InvalidDataException("No mpegs frames found");
+        }
+        initId3v2Tag(file) //初始化Id3v2标签
+        if (scanFile) {
+            initCustomTag(file)
+        }
     }
 
     private func scanFileFunc(seekableByteChannel: File): Unit {
@@ -168,9 +166,9 @@ public class Mp3File <: FileWrapper {
                         seekableByteChannel.seek(SeekPosition.Begin(Int64(fileOffset)))
                         break
                     } catch (e: Exception) {
-                        if (frameCount < 2) {
+                        if (frameCounts < 2) {
                             xingOffset = -1
-                            frameCount = 0
+                            frameCounts = 0
                             startOffset = -1
                             bitrates.clear()
                             lastBlock = false
@@ -189,26 +187,26 @@ public class Mp3File <: FileWrapper {
     }
 
     private func scanBlock(bytes: Array<Int8>, bytesRead: Int32, absoluteOffset: Int32, offsets: Int32): Int32 {
-        var offset: Int32 = offsets
-        while (offset < bytesRead - MINIMUM_BUFFER_LENGTH) {
+        var offsets: Int32 = offsets
+        while (offsets < bytesRead - MINIMUM_BUFFER_LENGTH) {
             var frame: MpegFrame = MpegFrame(
-                bytes[Int64(offset)],
-                bytes[Int64(offset) + 1],
-                bytes[Int64(offset) + 2],
-                bytes[Int64(offset) + 3]
+                bytes[Int64(offsets)],
+                bytes[Int64(offsets) + 1],
+                bytes[Int64(offsets) + 2],
+                bytes[Int64(offsets) + 3]
             )
-            sanityCheckFrame(frame, absoluteOffset + offset)
-            var newEndOffset: Int32 = absoluteOffset + offset + frame.getLengthInBytes() - 1
+            sanityCheckFrame(frame, absoluteOffset + offsets)
+            var newEndOffset: Int32 = absoluteOffset + offsets + frame.getLengthInBytes() - 1
             if (newEndOffset < maxEndOffset()) {
-                endOffset = absoluteOffset + offset + frame.getLengthInBytes() - 1
-                frameCount++
-                addBitrate(frame.getBitrate())
-                offset += frame.getLengthInBytes()
+                endOffset = absoluteOffset + offsets + frame.getLengthInBytes() - 1
+                frameCounts++
+                addBitrates(frame.getBitrate())
+                offsets += frame.getLengthInBytes()
             } else {
                 break
             }
         }
-        return offset
+        return offsets
     }
 
     private func maxEndOffset(): Int32 {
@@ -268,10 +266,10 @@ public class Mp3File <: FileWrapper {
                         this.version = frame.getVersion()
                         this.copyright = frame.isCopyright()
                         this.original = frame.isOriginal()
-                        frameCount++
+                        frameCounts++
 
                         //存储每一个音频数据真的位率
-                        addBitrate(frame.getBitrate())
+                        addBitrates(frame.getBitrate())
                         offset += frame.getLengthInBytes()
                         return offset
                     }
@@ -285,7 +283,7 @@ public class Mp3File <: FileWrapper {
         return offset
     }
 
-    private func addBitrate(bitrate: Int32): Unit {
+    private func addBitrates(bitrate: Int32): Unit {
         match (bitrates.get(bitrate)) {
             case Some(x) =>
                 x.increment()
@@ -294,7 +292,7 @@ public class Mp3File <: FileWrapper {
                 this.bitrates.put(bitrate, MutableInteger(1))
                 ()
         }
-        this.bitrate = ((this.bitrate * (Float64(frameCount) - Float64(1))) + Float64(bitrate)) / Float64(frameCount)
+        this.bitrate = ((this.bitrate * (Float64(frameCounts) - Float64(1))) + Float64(bitrate)) / Float64(frameCounts)
     }
 
     private func isXingFrame(bytes: Array<Int8>, offset: Int32): Bool {
@@ -535,7 +533,7 @@ public class Mp3File <: FileWrapper {
     }
 
     public func getFrameCount(): Int32 {
-        return frameCount
+        return frameCounts
     }
 
     public func getBitrate(): Int32 {
