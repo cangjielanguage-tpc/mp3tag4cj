@@ -10,6 +10,7 @@ package mp3agic
 
 from std import io.*
 from std import collection.*
+from std import fs.*
 
 public class Mp3File <: FileWrapper {
     private static let DEFAULT_BUFFER_LENGTH: Int32 = 65536
@@ -126,7 +127,7 @@ public class Mp3File <: FileWrapper {
         }
         this.bufferLength = bufferLength
         this.scanFile = scanFile
-        var file: File = File(super.path, AccessMode.ReadWrite, OpenMode.Open)
+        var file: File = File(super.path, OpenOption.Open(true, true))
         initId3v1Tag(file)
         scanFileFunc(file) //扫描文件获取音频数据流的帧头数据并解析。 涉及到Xing-header帧处理和是否扫描全部的容器大小
         if (startOffset < 0) { //此时startOffset的值应为第一个媒体数据帧的起始位置，不算Xing-header帧不算做媒体数据帧
@@ -607,17 +608,17 @@ public class Mp3File <: FileWrapper {
     public func save(newFilename: String): Unit {
         var isExist: Bool = true
         try {
-            FileInfo(newFilename).getCanonicalPath()
+            FileInfo(newFilename).path.toCanonical().toString()
             ()
         } catch (e: Exception) {
             isExist = false
             ()
         }
-        if (isExist && FileInfo(newFilename).getCanonicalPath() == super.path) {
+        if (isExist && FileInfo(newFilename).path.toCanonical().toString() == super.path) {
             throw IllegalArgumentException("Save filename same as source filename")
         }
         try {
-            var saveFile: File = File(newFilename, AccessMode.ReadWrite, OpenMode.ForceCreate)
+            var saveFile: File = File(newFilename, OpenOption.CreateOrTruncate(true))
             if (hasId3v2Tag()) {
                 var bytes: Array<Int8> = this.id3v2Tag.getOrThrow().toBytes()
                 var byteBuffer: Array<UInt8> = BufferTools.transInt8ArrayToUInt8(bytes)
@@ -649,7 +650,7 @@ public class Mp3File <: FileWrapper {
         }
         var byteBuffer: Array<UInt8> = Array<UInt8>(Int64(bufferLength), {i => 0})
         try {
-            var seekableByteChannel: File = File(super.path, AccessMode.Read, OpenMode.Open)
+            var seekableByteChannel: File = File(super.path, OpenOption.Open(true, true))
             seekableByteChannel.seek(SeekPosition.Begin(Int64(filePos)))
             while (true) {
                 var bytesRead: Int64 = seekableByteChannel.read(byteBuffer)

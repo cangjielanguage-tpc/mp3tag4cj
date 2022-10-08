@@ -129,7 +129,7 @@ public open class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
     protected func sanityCheckUnpackedHeader(): Unit {
         for (i in 0..id.size) {
             if (!((id.charAt(i) >= 'A' && id.charAt(i) <= 'Z') || (id.charAt(i) >= '0' && id.charAt(i) <= '9'))) {
-                throw InvalidDataException("Not a valid frame - invalid tag " + id)
+                throw InvalidDataException("Not a valid frame - invalid tag ")
             }
         }
     }
