@@ -9,6 +9,7 @@
 package mp3agic
 
 from std import io.*
+from std import fs.*
 
 /**
  * The class is FileWrapper
@@ -28,7 +29,7 @@ public open class FileWrapper {
      * @since 0.31.4
      */
     public init(filename: String) {
-        this.path = FileInfo(filename).getCanonicalPath()
+        this.path = FileInfo(filename).path.toCanonical().toString()
         var size = initSizeFunc(this.path)
         this.length = size
     }
@@ -41,7 +42,7 @@ public open class FileWrapper {
      */
     public init(file: FileInfo) {
         try {
-            this.path = file.getCanonicalPath()
+            this.path = file.path.toCanonical().toString()
         } catch (e: Exception) {
             throw IllegalArgumentException("File path exception")
         }
@@ -50,7 +51,7 @@ public open class FileWrapper {
     }
 
     private static func initSizeFunc(path: String): Int64 {
-        var file: File = File(FileInfo(path), AccessMode.ReadWrite, OpenMode.Open)
+        var file: File = File(FileInfo(path).path.toCanonical().toString(), OpenOption.Open(true, true))
         if (!file.canRead()) {
             throw BaseException("File not readable")
         }

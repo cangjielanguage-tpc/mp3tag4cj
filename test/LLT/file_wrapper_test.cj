@@ -3,6 +3,7 @@
 
 from mp3agic import mp3agic.*
 from std import io.*
+from std import fs.*
 
 main() {
     var file = FileInfo("../../../../test/LLT/testFile/v1tag.mp3")

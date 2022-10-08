@@ -2,6 +2,7 @@
 // EXEC: ./main
 from mp3agic import mp3agic.*
 from std import io.*
+from std import fs.*
 from std import collection.*
 from charset import charset.*
 from charset import charset.singlebyte.*
