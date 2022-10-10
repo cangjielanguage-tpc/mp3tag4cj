@@ -519,6 +519,13 @@ public class BufferTools {
         }
         return copy
     }
+    public static func copyBuffer(bytes: Array<Int8>, offset: Int64, length: Int64): Array<Int8> {
+        var copy: Array<Int8> = Array<Int8>(length, {i => 0})
+        if (length > 0) {
+            arraycopys(bytes, offset, copy, 0, length)
+        }
+        return copy
+    }
 
     /**
      * The Function is copyIntoByteBuffer

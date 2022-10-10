@@ -367,8 +367,13 @@ public class EncodedText <: Hashable & Equatable<EncodedText> {
      * @return Type of Int64
      * @since 0.32.5
      */
+    @overflowWrapping
     public func hashCode(): Int64 {
-        return CODE
+        let prime: Int32 = 31
+        var result: Int32 = 1
+        result = prime * result + Int32(textEncoding)
+        result = prime * result + Int32(value.toString().hashCode())
+        return Int64(result)
     }
 
     public operator func ==(rhs: EncodedText): Bool {

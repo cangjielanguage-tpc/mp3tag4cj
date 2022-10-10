@@ -13,7 +13,6 @@ from std import collection.*
 from std import random.*
 
 public open class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
-    protected let CODE = Random().nextInt64()
     private static let HEADER_LENGTH: Int32 = 10
     private static let ID_OFFSET: Int32 = 0
     private static let ID_LENGTH: Int32 = 4
@@ -321,8 +320,21 @@ public open class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
      * @return Type of Int64
      * @since 0.32.5
      */
+    @overflowWrapping
     public open func hashCode(): Int64 {
-        return CODE
+        var arr: Array<String> = [
+            compression.toString(),
+            dataLength.toString(),
+            dataLengthIndicator.toString(),
+            encryption.toString(),
+            group.toString(),
+            id.toString(),
+            preserveFile.toString(),
+            preserveTag.toString(),
+            readOnly.toString(),
+            unsynchronisation.toString()
+        ]
+        return 31 * arr.toString().hashCode() + data.toString().hashCode()
     }
 
     /**

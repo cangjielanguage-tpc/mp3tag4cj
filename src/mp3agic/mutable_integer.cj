@@ -56,13 +56,14 @@ public class MutableInteger {
     /**
      * The Function is hashCode
      * 
-     * @return Type of Int32
+     * @return Type of Int64
      * @since 0.31.4
      */
-    public func hashCode(): Int32 {
+    @overflowWrapping
+    public func hashCode(): Int64 {
         let prime: Int32 = 31
         var result: Int32 = 1
         result = prime * result + value
-        return result
+        return Int64(result)
     }
 }
