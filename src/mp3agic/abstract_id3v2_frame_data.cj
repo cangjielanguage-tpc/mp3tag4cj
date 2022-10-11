@@ -52,7 +52,17 @@ public abstract class AbstractID3v2FrameData {
      * @return Type of Int64
      * @since 0.32.5
      */
-    public open func hashCode(): Int64
+    @overflowWrapping
+    public open func hashCode(): Int64 {
+        let prime: Int32 = 31
+        var result: Int32 = 1
+        if (unsynchronisation) {
+            result = prime * result + 1231
+        } else {
+            result = prime * result + 1237
+        }
+        return Int64(result)
+    }
 
     protected func unpackFrameData(bytes: Array<Int8>): Unit
 

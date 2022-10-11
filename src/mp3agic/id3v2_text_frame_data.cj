@@ -15,7 +15,6 @@ from std import random.*
  * @since 0.32.5
  */
 public class ID3v2TextFrameData <: AbstractID3v2FrameData & Hashable & Equatable<ID3v2TextFrameData> {
-    protected let CODE = Random().nextInt64()
     protected var text: Option<EncodedText> = Option<EncodedText>.None
 
     /**
@@ -109,8 +108,16 @@ public class ID3v2TextFrameData <: AbstractID3v2FrameData & Hashable & Equatable
      * @return Type of Int64
      * @since 0.32.5
      */
+    @overflowWrapping
     public func hashCode(): Int64 {
-        return CODE
+        let prime: Int32 = 31
+        var result: Int32 = Int32(super.hashCode())
+        if (text == Option<EncodedText>.None) {
+            result = prime * result + 0
+        } else {
+            result = prime * result + Int32(text.getOrThrow().hashCode())
+        }
+        return Int64(result)
     }
 
     public operator func ==(rhs: ID3v2TextFrameData): Bool {
