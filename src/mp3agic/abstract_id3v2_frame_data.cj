@@ -42,7 +42,7 @@ public abstract class AbstractID3v2FrameData {
         return bytes
     }
 
-    protected open func toBytes(): Array<Int8> {
+    public open func toBytes(): Array<Int8> {
         return packAndUnsynchroniseFrameData()
     }
 
@@ -66,7 +66,7 @@ public abstract class AbstractID3v2FrameData {
 
     protected func unpackFrameData(bytes: Array<Int8>): Unit
 
-    protected func packFrameData(): Array<Int8>
+    public func packFrameData(): Array<Int8>
 
-    protected func getLength(): Int32
+    public func getLength(): Int32
 }
