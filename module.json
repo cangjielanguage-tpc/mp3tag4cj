@@ -12,7 +12,9 @@
     "charset/charset_charset.singlebyte": "./ci_lib/charset/charset.singlebyte.cjo",
     "charset/charset_charset": "./ci_lib/charset/charset.cjo",
     "charset/charset_charset.traditionchinese": "./ci_lib/charset/charset.traditionchinese.cjo",
-    "charset/charset_charset.unicode": "./ci_lib/charset/charset.unicode.cjo"
+    "charset/charset_charset.unicode": "./ci_lib/charset/charset.unicode.cjo",
+    "okio/okio_nio": "./ci_lib/okio/nio.cjo",
+    "okio/okio_okio": "./ci_lib/okio/okio.cjo"
   },
   "foreign_requires": {},
   "output_type": "dynamic",
