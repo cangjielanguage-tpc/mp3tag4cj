@@ -1551,8 +1551,10 @@ public open class AbstractID3v2Tag <: ID3v2 {
 			    	var frameData: ID3v2CommentFrameData
 			    	try {
 			    		frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
-			    		if (itunes && ITUNES_COMMENT_DESCRIPTION.equals(frameData.getDescription().getOrThrow().toString().getOrThrow())) {
-			    			return frameData
+			    		if (itunes) {
+			    		    if (ITUNES_COMMENT_DESCRIPTION.equals(frameData.getDescription().getOrThrow().toString().getOrThrow())){
+			    		        return frameData
+			    		    }
 			    		} else if (!itunes) {
 			    			return frameData
 			    		}
