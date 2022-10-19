@@ -1353,13 +1353,6 @@ public open class AbstractID3v2Tag <: ID3v2 {
         }
     }
 
-    public open func getComment(): Option<String> {
-        return ""
-    }
-    public open func setComment(comment: Option<String>): Unit {
-        var comment = comment ?? ""
-    }
-
     /**
      * The Function is getCopyright, TCOP or TCR Identify the corresponding data.
      * 
@@ -1451,5 +1444,124 @@ public open class AbstractID3v2Tag <: ID3v2 {
             case None => ()
         }
         return Option<ID3v2TextFrameData>.None
+    }
+
+    /**
+     * The Function is getComment, COMM
+     *
+     * @return Type of Option<String>
+     * @since 0.33.3
+     */
+    public open func getComment (): Option<String> {
+		var frameData: Option<ID3v2CommentFrameData> = extractCommentFrameData(
+		    if (obseleteFormat) {
+		        ID_COMMENT_OBSELETE
+		    } else {
+		        ID_COMMENT },false)
+		if (frameData != Option<ID3v2CommentFrameData>.None && frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
+		    return frameData.getOrThrow().getComment().getOrThrow().toString()
+		}
+		return Option<String>.None
+    }
+
+    public open func setComment (comment: Option<String>): Unit {
+		if (comment != Option<String>.None && comment.getOrThrow().size > 0) {
+			invalidateDataLength()
+			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option<EncodedText>.None, EncodedText(comment.getOrThrow()))
+			addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)
+		}
+    }
+
+    /**
+     * The Function is getItunesComment, COMM
+     *
+     * @return Type of Option<String>
+     * @since 0.33.3
+     */
+    public open func getItunesComment (): Option<String> {
+		var frameData: Option<ID3v2CommentFrameData> = extractCommentFrameData(
+		if (obseleteFormat) {
+		    ID_COMMENT_OBSELETE
+		} else {
+		    ID_COMMENT
+		}, true)
+		if (frameData != Option<ID3v2CommentFrameData>.None && frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
+		    return frameData.getOrThrow().getComment().getOrThrow().toString()
+		}
+		return Option<String>.None
+    }
+
+    public open func setItunesComment (itunesComment: Option<String>): Unit {
+		if (itunesComment != Option<String>.None && itunesComment.getOrThrow().size > 0) {
+			invalidateDataLength()
+			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng",
+			EncodedText(ITUNES_COMMENT_DESCRIPTION), EncodedText(itunesComment.getOrThrow()))
+			addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)
+		}
+    }
+
+    protected open func extractLyricsFrameData (id: String): Option<ID3v2CommentFrameData> {
+		var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+		match (frameSet) {
+		    case Some(x) =>
+			    for (frame in x.getFrames()) {
+			    	var frameData: ID3v2CommentFrameData
+			    	try {
+			    		frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
+			    		return frameData
+			    	} catch (e: InvalidDataException) { }
+			    }
+		    case None => ()
+		}
+		return Option<ID3v2CommentFrameData>.None
+    }
+
+    /**
+     * The Function is getLyrics, USLT
+     *
+     * @return Type of Option<String>
+     * @since 0.33.3
+     */
+    public open func getLyrics (): Option<String> {
+		var frameData : Option<ID3v2CommentFrameData>
+		if (obseleteFormat) {
+			return Option<String>.None
+		}else{
+			frameData = extractLyricsFrameData(ID_TEXT_LYRICS)
+	    }
+		if (frameData != Option<ID3v2CommentFrameData>.None && frameData.getOrThrow().getComment() != Option<EncodedText>.None){
+			return frameData.getOrThrow().getComment().getOrThrow().toString()
+		}
+		return Option<String>.None
+    }
+
+    public open func setLyrics (lyrics: Option<String>): Unit {
+		if (lyrics != Option<String>.None && lyrics.getOrThrow().size > 0) {
+			invalidateDataLength()
+			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option<EncodedText>.None, EncodedText(lyrics.getOrThrow()))
+			addFrame(createFrame(ID_TEXT_LYRICS, frameData.toBytes()), true)
+		}
+    }
+
+    private func extractCommentFrameData (id: String, itunes: Bool): Option<ID3v2CommentFrameData> {
+		var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+		match (frameSet) {
+            case Some(x) =>
+			    for (frame in x.getFrames()) {
+			    	var frameData: ID3v2CommentFrameData
+			    	try {
+			    		frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
+			    		if (itunes) {
+			    		    if (ITUNES_COMMENT_DESCRIPTION.equals(frameData.getDescription().getOrThrow().toString().getOrThrow())){
+			    		        return frameData
+			    		    }
+			    		} else if (!itunes) {
+			    			return frameData
+			    		}
+			    	} catch (e: InvalidDataException) { }
+			    }
+            case None => return Option<ID3v2CommentFrameData>.None
+		}
+		return Option<ID3v2CommentFrameData>.None
     }
 }
