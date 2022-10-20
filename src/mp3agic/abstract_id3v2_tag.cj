@@ -584,10 +584,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_TRACK
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return Option<String>.None
@@ -626,10 +628,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_PART_OF_SET
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return Option<String>.None
@@ -668,10 +672,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_COMPILATION
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return "1".equals(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return "1".equals(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return false;
@@ -714,10 +720,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_GROUPING
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return Option<String>.None
@@ -756,10 +764,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_ARTIST
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return Option<String>.None
@@ -798,10 +808,14 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_ALBUM_ARTIST
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                    match (frameData.getOrThrow().getText()) {
+                        case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                        case None => ()
+                    }
+                }
             }
         }
         return Option<String>.None
@@ -840,10 +854,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_TITLE
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return Option<String>.None
@@ -882,10 +898,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_ALBUM
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return Option<String>.None
@@ -924,10 +942,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_YEAR
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return Option<String>.None
@@ -966,10 +986,12 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_DATE
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            match (frameData.getOrThrow().getText()) {
-                case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                case None => ()
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                match (frameData.getOrThrow().getText()) {
+                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
+                    case None => ()
+                }
             }
         }
         return Option<String>.None
@@ -1250,8 +1272,10 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_COMPOSER
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+            }
         }
         return Option<String>.None
     }
@@ -1289,8 +1313,10 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_PUBLISHER
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+            }
         }
         return Option<String>.None
     }
@@ -1328,8 +1354,10 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_ORIGINAL_ARTIST
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+            }
         }
         return Option<String>.None
     }
@@ -1367,8 +1395,10 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_COPYRIGHT
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+            }
         }
         return Option<String>.None
     }
@@ -1406,8 +1436,10 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_ENCODER
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None && frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-            return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+        if (frameData != Option<ID3v2TextFrameData>.None) {
+            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
+                return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ => ""})
+            }
         }
         return Option<String>.None
     }
@@ -1453,23 +1485,25 @@ public open class AbstractID3v2Tag <: ID3v2 {
      * @since 0.33.3
      */
     public open func getComment (): Option<String> {
-		var frameData: Option<ID3v2CommentFrameData> = extractCommentFrameData(
-		    if (obseleteFormat) {
-		        ID_COMMENT_OBSELETE
-		    } else {
-		        ID_COMMENT },false)
-		if (frameData != Option<ID3v2CommentFrameData>.None && frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
-		    return frameData.getOrThrow().getComment().getOrThrow().toString()
-		}
-		return Option<String>.None
+        var frameData: Option<ID3v2CommentFrameData> = extractCommentFrameData(
+            if (obseleteFormat) {
+                ID_COMMENT_OBSELETE
+            } else {
+                ID_COMMENT },false)
+        if (frameData != Option<ID3v2CommentFrameData>.None) {
+            if (frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
+                return frameData.getOrThrow().getComment().getOrThrow().toString()
+            }
+        }
+        return Option<String>.None
     }
 
     public open func setComment (comment: Option<String>): Unit {
-		if (comment != Option<String>.None && comment.getOrThrow().size > 0) {
-			invalidateDataLength()
-			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option<EncodedText>.None, EncodedText(comment.getOrThrow()))
-			addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)
-		}
+        if (comment != Option<String>.None && comment.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option<EncodedText>.None, EncodedText(comment.getOrThrow()))
+            addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)
+        }
     }
 
     /**
@@ -1479,41 +1513,43 @@ public open class AbstractID3v2Tag <: ID3v2 {
      * @since 0.33.3
      */
     public open func getItunesComment (): Option<String> {
-		var frameData: Option<ID3v2CommentFrameData> = extractCommentFrameData(
-		if (obseleteFormat) {
-		    ID_COMMENT_OBSELETE
-		} else {
-		    ID_COMMENT
-		}, true)
-		if (frameData != Option<ID3v2CommentFrameData>.None && frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
-		    return frameData.getOrThrow().getComment().getOrThrow().toString()
-		}
-		return Option<String>.None
+        var frameData: Option<ID3v2CommentFrameData> = extractCommentFrameData(
+        if (obseleteFormat) {
+            ID_COMMENT_OBSELETE
+        } else {
+            ID_COMMENT
+        }, true)
+        if (frameData != Option<ID3v2CommentFrameData>.None) {
+            if (frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
+                return frameData.getOrThrow().getComment().getOrThrow().toString()
+            }
+        }
+        return Option<String>.None
     }
 
     public open func setItunesComment (itunesComment: Option<String>): Unit {
-		if (itunesComment != Option<String>.None && itunesComment.getOrThrow().size > 0) {
-			invalidateDataLength()
-			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng",
-			EncodedText(ITUNES_COMMENT_DESCRIPTION), EncodedText(itunesComment.getOrThrow()))
-			addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)
-		}
+        if (itunesComment != Option<String>.None && itunesComment.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng",
+            EncodedText(ITUNES_COMMENT_DESCRIPTION), EncodedText(itunesComment.getOrThrow()))
+            addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)
+        }
     }
 
     protected open func extractLyricsFrameData (id: String): Option<ID3v2CommentFrameData> {
-		var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
-		match (frameSet) {
-		    case Some(x) =>
-			    for (frame in x.getFrames()) {
-			    	var frameData: ID3v2CommentFrameData
-			    	try {
-			    		frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
-			    		return frameData
-			    	} catch (e: InvalidDataException) { }
-			    }
-		    case None => ()
-		}
-		return Option<ID3v2CommentFrameData>.None
+        var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+        match (frameSet) {
+            case Some(x) =>
+                for (frame in x.getFrames()) {
+                    var frameData: ID3v2CommentFrameData
+                    try {
+                        frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
+                        return frameData
+                    } catch (e: InvalidDataException) { }
+                }
+            case None => ()
+        }
+        return Option<ID3v2CommentFrameData>.None
     }
 
     /**
@@ -1523,45 +1559,227 @@ public open class AbstractID3v2Tag <: ID3v2 {
      * @since 0.33.3
      */
     public open func getLyrics (): Option<String> {
-		var frameData : Option<ID3v2CommentFrameData>
-		if (obseleteFormat) {
-			return Option<String>.None
-		}else{
-			frameData = extractLyricsFrameData(ID_TEXT_LYRICS)
-	    }
-		if (frameData != Option<ID3v2CommentFrameData>.None && frameData.getOrThrow().getComment() != Option<EncodedText>.None){
-			return frameData.getOrThrow().getComment().getOrThrow().toString()
-		}
-		return Option<String>.None
+        var frameData : Option<ID3v2CommentFrameData>
+        if (obseleteFormat) {
+            return Option<String>.None
+        }else{
+            frameData = extractLyricsFrameData(ID_TEXT_LYRICS)
+        }
+        if (frameData != Option<ID3v2CommentFrameData>.None){
+            if (frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
+                return frameData.getOrThrow().getComment().getOrThrow().toString()
+            }
+        }
+        return Option<String>.None
     }
 
     public open func setLyrics (lyrics: Option<String>): Unit {
-		if (lyrics != Option<String>.None && lyrics.getOrThrow().size > 0) {
-			invalidateDataLength()
-			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option<EncodedText>.None, EncodedText(lyrics.getOrThrow()))
-			addFrame(createFrame(ID_TEXT_LYRICS, frameData.toBytes()), true)
-		}
+        if (lyrics != Option<String>.None && lyrics.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option<EncodedText>.None, EncodedText(lyrics.getOrThrow()))
+            addFrame(createFrame(ID_TEXT_LYRICS, frameData.toBytes()), true)
+        }
     }
 
     private func extractCommentFrameData (id: String, itunes: Bool): Option<ID3v2CommentFrameData> {
-		var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
-		match (frameSet) {
+        var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+        match (frameSet) {
             case Some(x) =>
-			    for (frame in x.getFrames()) {
-			    	var frameData: ID3v2CommentFrameData
-			    	try {
-			    		frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
-			    		if (itunes) {
-			    		    if (ITUNES_COMMENT_DESCRIPTION.equals(frameData.getDescription().getOrThrow().toString().getOrThrow())){
-			    		        return frameData
-			    		    }
-			    		} else if (!itunes) {
-			    			return frameData
-			    		}
-			    	} catch (e: InvalidDataException) { }
-			    }
+                for (frame in x.getFrames()) {
+                    var frameData: ID3v2CommentFrameData
+                    try {
+                        frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
+                        if (itunes) {
+                            if (ITUNES_COMMENT_DESCRIPTION.equals(frameData.getDescription().getOrThrow().toString().getOrThrow())){
+                                return frameData
+                            }
+                        } else if (!itunes) {
+                            return frameData
+                        }
+                    } catch (e: InvalidDataException) { }
+                }
             case None => return Option<ID3v2CommentFrameData>.None
-		}
-		return Option<ID3v2CommentFrameData>.None
+        }
+        return Option<ID3v2CommentFrameData>.None
+    }
+
+    public open func getArtistUrl (): Option<String> {
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_ARTIST_URL)
+        if (frameData != Option<ID3v2WWWFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setArtistUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)
+            addFrame(createFrame(ID_ARTIST_URL, frameData.toBytes()), true)
+        }
+    }
+
+    public open func getCommercialUrl (): Option<String> {
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_COMMERCIAL_URL)
+        if (frameData !=  Option<ID3v2WWWFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setCommercialUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)
+            addFrame(createFrame(ID_COMMERCIAL_URL, frameData.toBytes()), true)
+        }
+    }
+
+    public open func getCopyrightUrl (): Option<String> {
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_COMMERCIAL_URL)
+        if (frameData != Option<ID3v2WWWFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setCopyrightUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)
+            addFrame(createFrame(ID_COPYRIGHT_URL, frameData.toBytes()), true)
+        }
+    }
+
+    public open func getAudiofileUrl (): Option<String> {
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_AUDIOFILE_URL)
+        if (frameData != Option<ID3v2WWWFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setAudiofileUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)
+            addFrame(createFrame(ID_AUDIOFILE_URL, frameData.toBytes()), true)
+        }
+    }
+
+    public open func getAudioSourceUrl (): Option<String> {
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_AUDIOFILE_URL)
+        if (frameData != Option<ID3v2WWWFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setAudioSourceUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)
+            addFrame(createFrame(ID_AUDIOSOURCE_URL, frameData.toBytes()), true)
+        }
+    }
+
+    public open func getRadiostationUrl (): Option<String> {
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_RADIOSTATION_URL)
+        if (frameData != Option<ID3v2WWWFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setRadiostationUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)
+            addFrame(createFrame(ID_RADIOSTATION_URL, frameData.toBytes()), true);
+        }
+    }
+
+    public open func getPaymentUrl (): Option<String> {
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_PAYMENT_URL)
+        if (frameData != Option<ID3v2WWWFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setPaymentUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)
+            addFrame(createFrame(ID_PAYMENT_URL, frameData.toBytes()), true)
+        }
+    }
+
+    public open func getPublisherUrl (): Option<String> {
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_PUBLISHER_URL)
+        if (frameData != Option<ID3v2WWWFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setPublisherUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)
+            addFrame(createFrame(ID_PUBLISHER_URL, frameData.toBytes()), true)
+        }
+    }
+
+    private func extractWWWFrameData (id: String): Option<ID3v2WWWFrameData> {
+        var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+        match (frameSet) {
+            case Some(x) =>
+                var frame: ID3v2Frame = x.getFrames()[0]
+                var frameData: ID3v2WWWFrameData
+                try {
+                    frameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), frame.getData())
+                    return frameData
+                } catch (e: InvalidDataException) { }
+            case None => ()
+        }
+        return Option<ID3v2WWWFrameData>.None
+    }
+
+    public open func getUrl (): Option<String> {
+        var frameData: Option<ID3v2UrlFrameData> = extractUrlFrameData(if (obseleteFormat){ ID_URL_OBSELETE } else { ID_URL })
+        if (frameData != Option<ID3v2UrlFrameData>.None) {
+            return frameData.getOrThrow().getUrl()
+        }
+        return Option<String>.None
+    }
+
+    public open func setUrl (url: Option<String>): Unit {
+        if (url != Option<String>.None && url.getOrThrow().size > 0) {
+            invalidateDataLength()
+            var frameData: ID3v2UrlFrameData = ID3v2UrlFrameData(useFrameUnsynchronisation(), Option<EncodedText>.None, url)
+            addFrame(createFrame(ID_URL, frameData.toBytes()), true)
+        }
+    }
+
+    private func extractUrlFrameData (id: String): Option<ID3v2UrlFrameData> {
+        var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+        match(frameSet) {
+            case Some(x) =>
+                var frame: ID3v2Frame = x.getFrames()[0]
+                var frameData: ID3v2UrlFrameData
+                try {
+                    frameData = ID3v2UrlFrameData(useFrameUnsynchronisation(), frame.getData())
+                    return frameData
+                } catch (e: InvalidDataException) { }
+            case None => ()
+        }
+        return Option<ID3v2UrlFrameData>.None
+    }
+
+    public open func clearFrameSet (id: String): Unit {
+        if (frameSets.remove(id) != Option<ID3v2FrameSet>.None) {
+            invalidateDataLength()
+        }
     }
 }

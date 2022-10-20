@@ -68,7 +68,7 @@ public class ID3v2ChapterFrameData <: AbstractID3v2FrameData {
         super(unsynchronisation)
         synchroniseAndUnpackFrameData(bytes)
     }
-
+    @overflowWrapping
     protected func unpackFrameData(bytes: Array<Int8>): Unit {
         var bb: ByteBuffer = ByteBuffer.wrap(BufferTools.transInt8ArrayToUInt8(bytes))
         id = Option<String>.Some(ByteBufferUtils.extractNullTerminatedString(bb))
@@ -333,6 +333,7 @@ public class ID3v2ChapterFrameData <: AbstractID3v2FrameData {
      * @return Type of Int64
      * @since 0.33.3
      */
+    @overflowWrapping
     public override func hashCode(): Int64 {
         let prime: Int32 = 31
         var result: Int32 = 1
