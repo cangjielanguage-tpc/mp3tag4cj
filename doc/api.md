@@ -2,7 +2,7 @@
 
 主要是核心类和成员函数说明
 
-### 下面为 特性1内容 api前有+为新增 api前有*为有修改 api前有#为有核心接口
+### 下面为 特性1内容 api前有为新增 api前有*为有修改 api前有#为有核心接口
 
 #### class FileWrapper
 
@@ -83,15 +83,15 @@ public init (file: FileInfo, bufferLength: Int32, scanFile: Bool)
  */
 #public func hasId3v1Tag (): Bool
 
-#+ public func hasId3v2Tag(): Bool
-#+ public func getId3v2Tag(): Option<ID3v2>
-#+ public func setId3v2Tag(id3v2Tag: Option<ID3v2>): Unit
-#+ public func removeId3v2Tag(): Unit
+# 转测 public func getId3v2Tag(): Option<ID3v2>
+# 转测 public func setId3v2Tag(id3v2Tag: Option<ID3v2>): Unit
+# 转测 public func removeId3v2Tag(): Unit
+# 转测 public func hasId3v2Tag(): Bool
 
-0923转测#+ public func hasCustomTag(): Bool
-0923转测#+ public func getCustomTag (): Option<Array<Int8>>
-0923转测#+ public func setCustomTag (customTag: Option<Array<Int8>>): Unit
-0923转测#+ public func removeCustomTag (): Unit
+# public func hasCustomTag(): Bool
+# public func getCustomTag (): Option<Array<Int8>>
+# public func setCustomTag (customTag: Option<Array<Int8>>): Unit
+# public func removeCustomTag (): Unit
 
 /**
  * 获得ID3v1标签
@@ -122,116 +122,116 @@ public init (file: FileInfo, bufferLength: Int32, scanFile: Bool)
  *
  * @return Type of Int32
  */
-0923转测+ public func getStartOffset(): Int32 
+ public func getStartOffset(): Int32 
 /**
  * 获得Xing-header开始的偏移量
  *
  * @return Type of Int32
  */
-0923转测#+ public func getXingOffset(): Int32 
+# public func getXingOffset(): Int32 
 /**
  * 获得音频数据帧结束的偏移量，如果有customTag在customTag之前
  *
  * @return Type of Int32
  */
-0923转测#+ public func getEndOffset(): Int32
+# public func getEndOffset(): Int32
 /**
  * 获得音频数据帧的数量
  *
  * @return Type of Int32
  */
-0923转测#+ public func getFrameCount(): Int32
+# public func getFrameCount(): Int32
 /**
  * 获得位率，若是可变位率的音频，该数值为平均位率
  *
  * @return Type of Int32
  */
-0923转测#+ public func getBitrate(): Int32
+# public func getBitrate(): Int32
 /**
  * 获得Xing-header帧的位率
  *
  * @return Type of Int32
  */
-0923转测#+ public func getXingBitrate(): Int32
+# public func getXingBitrate(): Int32
 /**
  * 获得位率集合，若scanfile为false时。该一个size只有1为第一个音频数据真的位率。
  * 集合的key为位率的值，MutableInteger 记录该位率出现的次数
  *
  * @return Type of Map<Int32, MutableInteger>
  */
-0923转测#+ public func getBitrates(): Map<Int32, MutableInteger>
+# public func getBitrates(): Map<Int32, MutableInteger>
 /**
  * 获取渠道模式
  *
  * @return Type of String
  */
-0923转测#+ public func getChannelMode(): String 
+# public func getChannelMode(): String 
 /**
  * 获取强调信息
  *
  * @return Type of String
  */
-0923转测#+ public func getEmphasis(): String
+# public func getEmphasis(): String
 /**
  * 获取压缩级别
  *
  * @return Type of String
  */
-0923转测#+ public func getLayer(): String
+# public func getLayer(): String
 /**
  * 获取MP3长度，单位毫秒
  *
  * @return Type of Int64
  */
-0923转测#+ public func getLengthInMilliseconds(): Int64
+# public func getLengthInMilliseconds(): Int64
 /**
  * 获取MP3长度，单位秒
  *
  * @return Type of Int64
  */
-0923转测#+ public func getLengthInSeconds(): Int64
+# public func getLengthInSeconds(): Int64
 /**
  * 获取模式扩展
  *
  * @return Type of String
  */
-0923转测#+ public func getModeExtension(): String
+# public func getModeExtension(): String
 /**
  * 获取音频采样率
  *
  * @return Type of Int32
  */
-0923转测#+ public func getSampleRate(): Int32
+# public func getSampleRate(): Int32
 /**
  * 获取版本
  *
  * @return Type of String
  */
-0923转测#+ public func getVersion(): String
+# public func getVersion(): String
 /**
  * 是否有版权
  *
  * @return Type of Bool
  */
-0923转测#+ public func isCopyright(): Bool
+# public func isCopyright(): Bool
 /**
  * 是否是原版
  *
  * @return Type of Bool
  */
-0923转测#+ public func isOriginal(): Bool 
+# public func isOriginal(): Bool 
 /**
  * 是否为VBR编码（可变位率），不是为 CBR编码
  *
  * @return Type of Bool
  */
-0923转测#+ public func isVbr(): Bool
+# public func isVbr(): Bool
 /**
  * 判断是否有 xing帧
  *
  * @return Type of Bool
  */
-0923转测#+ public func hasXingFrame(): Bool
+# public func hasXingFrame(): Bool
 
 /**
  * 保存文件，不能保存同名文件
@@ -241,7 +241,7 @@ public init (file: FileInfo, bufferLength: Int32, scanFile: Bool)
  * @return Type of Unit
  * @since 0.31.4
  */
-0923转测#public func save (newFilename: String): Unit
+#public func save (newFilename: String): Unit
 ```
 
 #### class ID3V1Tag
@@ -260,7 +260,7 @@ public init (bytes: Array<Byte>)
  * @return Type of Array<Byte>
  * @since 0.31.4
  */
-0923转测* public func toBytes (): Array<Int8>
+* public func toBytes (): Array<Int8>
 #public func getVersion (): String
 #public func getTrack (): Option<String>
 #public func setTrack (track: Option<String>): Unit
@@ -290,7 +290,7 @@ public init (bytes: Array<Byte>)
  * @return Type of Int32
  * @since 0.31.4
  */
-0923转测* public static func matchGenreDescription (description: Option<String>): Int32
+* public static func matchGenreDescription (description: Option<String>): Int32
 ```
 
 #### class MutableInteger
@@ -513,6 +513,111 @@ public init (bytes: Array<Int8>, obseleteFormat: Bool)
  */
 #public open func getEncoder (): Option<String>
 #public open func setEncoder (encoder: Option<String>): Unit
+/**
+ * COMM or COM 标识对应的数据
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getComment (): Option<String>
+# 转测 public open func setComment (comment: Option<String>): Unit
+/**
+ * COMM or COM 标识且内容包含engiTunNORM的标签帧对应的数据
+ * 
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getItunesComment (): Option<String>
+# 转测 public open func setItunesComment (itunesComment: Option<String>): Unit
+/**
+ * 获取USLT标识对应的，eng后的内容数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getLyrics (): Option<String>
+# 转测 public open func setLyrics (lyrics: Option<String>): Unit
+/**
+ * 获取WOAR标识对应的数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getArtistUrl (): Option<String>
+# 转测 public open func setArtistUrl (url: Option<String>): Unit
+/**
+ * 获取WCOM标识对应的数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getCommercialUrl (): Option<String>
+# 转测 public open func setCommercialUrl (url: Option<String>): Unit
+/**
+ * 获取WCOP标识对应的数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getCopyrightUrl (): Option<String>
+# 转测 public open func setCopyrightUrl (url: Option<String>): Unit
+/**
+ * 获取WOAF标识对应的数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getAudiofileUrl (): Option<String>
+# 转测 public open func setAudiofileUrl (url: Option<String>): Unit
+/**
+ * 获取WOAS标识对应的数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getAudioSourceUrl (): Option<String>
+# 转测 public open func setAudioSourceUrl (url: Option<String>): Unit
+/**
+ * 获取WORS标识对应的数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getRadiostationUrl (): Option<String>
+# 转测 public open func setRadiostationUrl (url: Option<String>): Unit
+/**
+ * 获取WPAY标识对应的数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getPaymentUrl (): Option<String>
+# 转测 public open func setPaymentUrl (url: Option<String>): Unit
+/**
+ * 获取WPUB标识对应的数据，无ob标识
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getPublisherUrl (): Option<String>
+# 转测 public open func setPublisherUrl (url: Option<String>): Unit
+/**
+ * WXXX or WXX 标识对应的数据
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getUrl (): Option<String>
+# 转测 public open func setUrl (url: Option<String>): Unit
+/**
+ * 移除指定标识的标签帧
+ *
+ * @param id of String
+ *
+ * @return Type of Unit
+ * @since 0.33.3
+ */
+# 转测 public open func clearFrameSet (id: String): Unit
 ```
 
 #### class ID3v22Tag <: AbstractID3v2Tag
@@ -571,14 +676,14 @@ public static func sanityCheckTag (bytes: Array<Int8>): Unit
  * @param id of String ，标签帧标识
  * @param data of Array<Int8>，标签帧字节数据
  */
-0923转测public init (id: String, data: Array<Int8>)
+public init (id: String, data: Array<Int8>)
 /**
  * The Function is init constructor,构造完成后需要调用unpackFrame解析标签帧的数据
  *
  * @param buffer of Array<Int8>,整个id3v2标签的字节数据
  * @param offset of Int32，某个标签帧开始的偏移量
  */
-0923转测public init (buffer: Array<Int8>, offset: Int32)
+public init (buffer: Array<Int8>, offset: Int32)
 /**
  * The Function is unpackFrame
  *
@@ -587,26 +692,26 @@ public static func sanityCheckTag (bytes: Array<Int8>): Unit
  *
  * @return Type of Unit
  */
-0923转测public open func unpackFrame (buffer: Array<Int8>, offset: Int32): Unit
+public open func unpackFrame (buffer: Array<Int8>, offset: Int32): Unit
 /**
  * 将对象数据转换成字节数据
  *
  * @return Type of Array<Int8>
  */
-0923转测#public open func toBytes (): Array<Int8>
-0923转测#public open func getId (): String
-0923转测#public open func getDataLength (): Int32
-0923转测#public open func getLength (): Int32
-0923转测#public open func getData (): Array<Int8>
-0923转测#public open func setData (data: Array<Int8>): Unit
-0923转测#public open func hasDataLengthIndicator (): Bool
-0923转测#public open func hasCompression (): Bool
-0923转测#public open func hasEncryption (): Bool
-0923转测#public open func hasGroup (): Bool
-0923转测#public open func hasPreserveFile (): Bool
-0923转测#public open func hasPreserveTag (): Bool
-0923转测#public open func isReadOnly (): Bool
-0923转测#public open func hasUnsynchronisation (): Bool
+#public open func toBytes (): Array<Int8>
+#public open func getId (): String
+#public open func getDataLength (): Int32
+#public open func getLength (): Int32
+#public open func getData (): Array<Int8>
+#public open func setData (data: Array<Int8>): Unit
+#public open func hasDataLengthIndicator (): Bool
+#public open func hasCompression (): Bool
+#public open func hasEncryption (): Bool
+#public open func hasGroup (): Bool
+#public open func hasPreserveFile (): Bool
+#public open func hasPreserveTag (): Bool
+#public open func isReadOnly (): Bool
+#public open func hasUnsynchronisation (): Bool
 ```
 
 #### class ID3v2FrameSet
@@ -617,27 +722,27 @@ public static func sanityCheckTag (bytes: Array<Int8>): Unit
  *
  * @param id of String, 标签帧标识
  */
-0923转测public init (id: String)
-0923转测public open func getId (): String
-0923转测public open func addFrame(frame: ID3v2Frame): Unit
+public init (id: String)
+public open func getId (): String
+public open func addFrame(frame: ID3v2Frame): Unit
 /**
  * 清除标签帧对象集合
  *
  * @return Type of Unit
  */
-0923转测public open func clear (): Unit
+public open func clear (): Unit
 /**
  * 获取对应标识的标签帧对象列表
  *
  * @return Type of ArrayList<ID3v2Frame>
  */
-0923转测public open func getFrames (): ArrayList<ID3v2Frame>
+public open func getFrames (): ArrayList<ID3v2Frame>
 /**
  * 话术格式为 标签标识：该表示下的标签帧对象个数
  *
  * @return Type of String
  */
-0923转测public open func toString (): String
+public open func toString (): String
 ```
 
 #### class MpegFrame
@@ -648,78 +753,78 @@ public static func sanityCheckTag (bytes: Array<Int8>): Unit
  *
  * @param frameData of Array<Int8>, 会取集合中的前4个字节进行解析，音频数据帧的前4个字节，也就是数据帧头，Array长度小于4会报错。
  */
-0923转测public init (frameData: Array<Int8>)
-0923转测public init (frameData1: Int8, frameData2: Int8, frameData3: Int8, frameData4: Int8)
+public init (frameData: Array<Int8>)
+public init (frameData1: Int8, frameData2: Int8, frameData3: Int8, frameData4: Int8)
 /**
  * 获得位率
  *
  * @return Type of Int32
  * @since 0.32.5
  */
-0923转测public func getBitrate (): Int32
+public func getBitrate (): Int32
 /**
  * 获取渠道模式
  *
  * @return Type of String
  * @since 0.32.5
  */
-0923转测public func getChannelMode (): String
+public func getChannelMode (): String
 /**
  * 是否有版权
  *
  * @return Type of Bool
  * @since 0.32.5
  */
-0923转测public func isCopyright (): Bool
+public func isCopyright (): Bool
 /**
  * 获取强调信息
  *
  * @return Type of String
  * @since 0.32.5
  */
-0923转测public func getEmphasis (): String
+public func getEmphasis (): String
 /**
  * 获取压缩级别
  *
  * @return Type of String
  * @since 0.32.5
  */
-0923转测public func getLayer (): String
+public func getLayer (): String
 /**
  * 获取模式扩展
  *
  * @return Type of String
  * @since 0.32.5
  */
-0923转测public func getModeExtension (): String
+public func getModeExtension (): String
 /**
  * 是否是原版
  *
  * @return Type of Bool
  * @since 0.32.5
  */
-0923转测public func isOriginal (): Bool
+public func isOriginal (): Bool
 /**
  * 获取音频采样率
  *
  * @return Type of Int32
  * @since 0.32.5
  */
-0923转测public func getSampleRate (): Int32
+public func getSampleRate (): Int32
 /**
  * 获取版本
  *
  * @return Type of String
  * @since 0.32.5
  */
-0923转测public func getVersion (): String
+public func getVersion (): String
 /**
  * 获得音频数据帧长
  *
  * @return Type of Int32
  * @since 0.32.5
  */
-0923转测public func getLengthInBytes (): Int32
+public func getLengthInBytes (): Int32
 ```
 
 ### 下列api更偏向于过程调用
@@ -766,14 +871,14 @@ public func setText (text: EncodedText): Unit
  * @param textEncoding of Int8，0-CHARSET_ISO_8859_1, 1-CHARSET_UTF_16, 2-CHARSET_UTF_16BE, 3-CHARSET_UTF_8
  * @param value of Array<Int8>，字节数据
  */
-0923转测public init (string: String)
-0923转测public init (textEncoding: Int8, string: String) 
-0923转测public init (value: Array<Int8>)
-0923转测public init (textEncoding: Int8, value: Array<Int8>)
-0923转测public init (string: String, transcodeToTextEncoding: Int8)
-0923转测public func getTextEncoding (): Int8
-0923转测public func setTextEncoding (textEncoding: Int8): Unit
-0923转测public func toBytes (): Array<Int8>
-0923转测public func toString (): Option<String>
-0923转测public func getCharacterSet (): String
+public init (string: String)
+public init (textEncoding: Int8, string: String) 
+public init (value: Array<Int8>)
+public init (textEncoding: Int8, value: Array<Int8>)
+public init (string: String, transcodeToTextEncoding: Int8)
+public func getTextEncoding (): Int8
+public func setTextEncoding (textEncoding: Int8): Unit
+public func toBytes (): Array<Int8>
+public func toString (): Option<String>
+public func getCharacterSet (): String
 ```

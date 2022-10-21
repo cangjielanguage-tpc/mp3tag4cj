@@ -329,6 +329,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
      * @return Type of Int64
      * @since 0.33.3
      */
+    @overflowWrapping
     public override func hashCode(): Int64 {
         let prime: Int32 = 31
         var result: Int32 = Int32(super.hashCode())

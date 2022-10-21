@@ -42,9 +42,11 @@ public class ID3v2CommentFrameData <: AbstractID3v2FrameData & Hashable & Equata
     public init(unsynchronisation: Bool, language: Option<String>, description: Option<EncodedText>, 
         comment: Option<EncodedText>) {
         super(unsynchronisation)
-        if (description != Option<EncodedText>.None && comment != Option<EncodedText>.None) {
-            if (description.getOrThrow().getTextEncoding() != comment.getOrThrow().getTextEncoding()) {
-                throw Exception("description and comment must have same text encoding")
+        if (description != Option<EncodedText>.None) {
+            if (comment != Option<EncodedText>.None) {
+                if (description.getOrThrow().getTextEncoding() != comment.getOrThrow().getTextEncoding()) {
+                    throw Exception("description and comment must have same text encoding")
+                }
             }
         }
         this.language = language
@@ -212,6 +214,7 @@ public class ID3v2CommentFrameData <: AbstractID3v2FrameData & Hashable & Equata
      * @return Type of Int64
      * @since 0.33.3
      */
+    @overflowWrapping
     public override func hashCode(): Int64 {
         let prime: Int32 = 31
         var result: Int32 = Int32(super.hashCode())

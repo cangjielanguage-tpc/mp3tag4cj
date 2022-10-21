@@ -70,10 +70,29 @@ main() {
     if (e1 != e2) {
         return 1
     }
-
     var e3: EncodedText = EncodedText("测试不等3")
     var e4: EncodedText = EncodedText("测试不等4")
     if (e3 == e4) {
+        return 1
+    }
+    var s1: ID3v2FrameSet = ID3v2FrameSet("测试相等")
+    var s2 = s1
+    if (s1 != s2) {
+        return 1
+    }
+    var s3: ID3v2FrameSet = ID3v2FrameSet("测试不等3")
+    var s4: ID3v2FrameSet = ID3v2FrameSet("测试不等4")
+    if (s3 == s4) {
+        return 1
+    }
+    var w1: ID3v2WWWFrameData = ID3v2WWWFrameData(false)
+    var w2 = w1
+    if (w1 != w2) {
+        return 1
+    }
+    var w3: ID3v2WWWFrameData = ID3v2WWWFrameData(false)
+    var w4: ID3v2WWWFrameData = ID3v2WWWFrameData(false)
+    if (w3 == w4) {
         return 1
     }
     0

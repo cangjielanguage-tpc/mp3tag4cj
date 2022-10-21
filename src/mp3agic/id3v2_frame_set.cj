@@ -14,7 +14,7 @@ from std import collection.*
  * The class is ID3v2FrameSet, The whole label frame encapsulates the class
  * @since 0.32.5
  */
-public open class ID3v2FrameSet {
+public open class ID3v2FrameSet <: Equatable<ID3v2FrameSet> {
     private var id: String = ""
     private var frames: ArrayList<ID3v2Frame> = ArrayList<ID3v2Frame>()
 
@@ -93,4 +93,19 @@ public open class ID3v2FrameSet {
     public open func toString(): String {
         return this.id + ": " + frames.size.toString()
     }
+
+    public operator func ==(rhs: ID3v2FrameSet): Bool {
+        return match (rhs as ID3v2FrameSet) {
+            case Some(x) => refEq(this, x)
+            case None => false
+        }
+    }
+
+    public operator func !=(rhs: ID3v2FrameSet): Bool {
+        return match (rhs as ID3v2FrameSet) {
+            case Some(x) => !refEq(this, x)
+            case None => false
+        }
+    }
+
 }

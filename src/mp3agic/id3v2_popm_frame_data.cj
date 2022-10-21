@@ -62,7 +62,7 @@ public class ID3v2PopmFrameData <: AbstractID3v2FrameData {
     public func getLength(): Int32 {
         return Int32(address.getOrThrow().size + 2)
     }
-
+    @overflowWrapping
     public override func hashCode(): Int64 {
         let prime: Int32 = 31
         var result: Int32 = Int32(super.hashCode())

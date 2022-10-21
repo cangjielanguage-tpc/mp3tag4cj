@@ -2,7 +2,7 @@ package mp3agic
 
 from std import io.*
 
-public class ID3v2UrlFrameData <: AbstractID3v2FrameData {
+public class ID3v2UrlFrameData <: AbstractID3v2FrameData & Equatable<ID3v2UrlFrameData> {
     protected var url: Option<String> = Option<String>.None
     protected var description: Option<EncodedText> = Option<EncodedText>.None
 
@@ -109,5 +109,19 @@ public class ID3v2UrlFrameData <: AbstractID3v2FrameData {
             result = prime * result + Int32(url.getOrThrow().hashCode())
         }
         return Int64(result)
+    }
+
+    public operator func ==(rhs: ID3v2UrlFrameData): Bool {
+        return match (rhs as ID3v2UrlFrameData) {
+            case Some(x) => refEq(this, x)
+            case None => false
+        }
+    }
+
+    public operator func !=(rhs: ID3v2UrlFrameData): Bool {
+        return match (rhs as ID3v2UrlFrameData) {
+            case Some(x) => !refEq(this, x)
+            case None => false
+        }
     }
 }
