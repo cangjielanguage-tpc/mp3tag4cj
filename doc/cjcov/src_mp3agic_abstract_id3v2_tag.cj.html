@@ -284,12 +284,12 @@ pre
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2022-09-28 18:51:55</td>
+            <td class="headerValue">2022-10-21 11:29:34</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">500</td>
-            <td class="headerTableEntry">553</td>
-            <td class="headerTableEntry" style="background-color:LightGreen">90.4 %</td>
+            <td class="headerTableEntry">657</td>
+            <td class="headerTableEntry">721</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">91.1 %</td>
           </tr>
           <tr>
             <td class="headerName">Legend:</td>
@@ -1949,8 +1949,8 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>272</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            return ID3v2ObseleteFrame(id, data)</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            return ID3v2ObseleteFrame(id, data)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>273</pre></td>
@@ -8453,599 +8453,2351 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>1356</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    public open func getComment(): Option&lt;String&gt; {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1357</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        return ""</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1358</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1359</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    public open func setComment(comment: Option&lt;String&gt;): Unit {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1360</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        var comment = comment ?? ""</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1361</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1362</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1363</pre></td>
-<td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    /**</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1364</pre></td>
+<td align="right" class="lineno"><pre>1357</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * The Function is getCopyright, TCOP or TCR Identify the corresponding data.</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1365</pre></td>
+<td align="right" class="lineno"><pre>1358</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     *</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1366</pre></td>
+<td align="right" class="lineno"><pre>1359</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @return Type of Option&lt;String&gt;</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1367</pre></td>
+<td align="right" class="lineno"><pre>1360</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @since 0.32.5</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1368</pre></td>
+<td align="right" class="lineno"><pre>1361</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     */</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1369</pre></td>
+<td align="right" class="lineno"><pre>1362</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>    public open func getCopyright(): Option&lt;String&gt; {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1370</pre></td>
+<td align="right" class="lineno"><pre>1363</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        var frameData: Option&lt;ID3v2TextFrameData&gt; = extractTextFrameData(</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1371</pre></td>
+<td align="right" class="lineno"><pre>1364</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            if (obseleteFormat) {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1372</pre></td>
+<td align="right" class="lineno"><pre>1365</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>                ID_COPYRIGHT_OBSELETE</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1373</pre></td>
+<td align="right" class="lineno"><pre>1366</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>            } else {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1374</pre></td>
+<td align="right" class="lineno"><pre>1367</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>                ID_COPYRIGHT</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1375</pre></td>
+<td align="right" class="lineno"><pre>1368</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>            }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1369</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        )</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1370</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        if (frameData != Option&lt;ID3v2TextFrameData&gt;.None &amp;&amp; frameData.getOrThrow().getText() != Option&lt;EncodedText&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1371</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ =&gt; ""})</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1372</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1373</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1374</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1375</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>1376</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        )</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1377</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        if (frameData != Option&lt;ID3v2TextFrameData&gt;.None &amp;&amp; frameData.getOrThrow().getText() != Option&lt;EncodedText&gt;.None) {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1378</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ =&gt; ""})</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1379</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1380</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        return Option&lt;String&gt;.None</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1381</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1382</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>1383</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    /**</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1384</pre></td>
+<td align="right" class="lineno"><pre>1377</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * The Function is setCopyright</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1385</pre></td>
+<td align="right" class="lineno"><pre>1378</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     *</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1386</pre></td>
+<td align="right" class="lineno"><pre>1379</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @param copyright of Option&lt;String&gt;</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1387</pre></td>
+<td align="right" class="lineno"><pre>1380</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     *</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1388</pre></td>
+<td align="right" class="lineno"><pre>1381</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @return Type of Unit</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1389</pre></td>
+<td align="right" class="lineno"><pre>1382</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @since 0.32.5</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1390</pre></td>
+<td align="right" class="lineno"><pre>1383</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     */</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1391</pre></td>
+<td align="right" class="lineno"><pre>1384</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>    public open func setCopyright(copyright: Option&lt;String&gt;): Unit {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1392</pre></td>
+<td align="right" class="lineno"><pre>1385</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        if (copyright != Option&lt;String&gt;.None &amp;&amp; copyright.getOrThrow().size &gt; 0) {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1393</pre></td>
+<td align="right" class="lineno"><pre>1386</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            invalidateDataLength()</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1394</pre></td>
+<td align="right" class="lineno"><pre>1387</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            var frameData: ID3v2TextFrameData = ID3v2TextFrameData(</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1395</pre></td>
+<td align="right" class="lineno"><pre>1388</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>                useFrameUnsynchronisation(),</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1396</pre></td>
+<td align="right" class="lineno"><pre>1389</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>                EncodedText(copyright.getOrThrow())</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1397</pre></td>
+<td align="right" class="lineno"><pre>1390</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>            )</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1398</pre></td>
+<td align="right" class="lineno"><pre>1391</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            addFrame(createFrame(ID_COPYRIGHT, frameData.toBytes()), true)</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1399</pre></td>
+<td align="right" class="lineno"><pre>1392</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1400</pre></td>
+<td align="right" class="lineno"><pre>1393</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1401</pre></td>
+<td align="right" class="lineno"><pre>1394</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1402</pre></td>
+<td align="right" class="lineno"><pre>1395</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    /**</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1403</pre></td>
+<td align="right" class="lineno"><pre>1396</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * The Function is getEncoder, TENC or TEN Identify the corresponding data.</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1404</pre></td>
+<td align="right" class="lineno"><pre>1397</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     *</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1405</pre></td>
+<td align="right" class="lineno"><pre>1398</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @return Type of Option&lt;String&gt;</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1406</pre></td>
+<td align="right" class="lineno"><pre>1399</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @since 0.32.5</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1407</pre></td>
+<td align="right" class="lineno"><pre>1400</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     */</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1408</pre></td>
+<td align="right" class="lineno"><pre>1401</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>    public open func getEncoder(): Option&lt;String&gt; {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1409</pre></td>
+<td align="right" class="lineno"><pre>1402</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        var frameData: Option&lt;ID3v2TextFrameData&gt; = extractTextFrameData(</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1410</pre></td>
+<td align="right" class="lineno"><pre>1403</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            if (obseleteFormat) {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1411</pre></td>
+<td align="right" class="lineno"><pre>1404</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>                ID_ENCODER_OBSELETE</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1412</pre></td>
+<td align="right" class="lineno"><pre>1405</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>            } else {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1413</pre></td>
+<td align="right" class="lineno"><pre>1406</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>                ID_ENCODER</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1414</pre></td>
+<td align="right" class="lineno"><pre>1407</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>            }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1415</pre></td>
+<td align="right" class="lineno"><pre>1408</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>        )</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1416</pre></td>
+<td align="right" class="lineno"><pre>1409</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        if (frameData != Option&lt;ID3v2TextFrameData&gt;.None &amp;&amp; frameData.getOrThrow().getText() != Option&lt;EncodedText&gt;.None) {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1417</pre></td>
+<td align="right" class="lineno"><pre>1410</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            return frameData.getOrThrow().getText().getOrThrow().toString().getOrDefault({ =&gt; ""})</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1418</pre></td>
+<td align="right" class="lineno"><pre>1411</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1419</pre></td>
+<td align="right" class="lineno"><pre>1412</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        return Option&lt;String&gt;.None</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1420</pre></td>
+<td align="right" class="lineno"><pre>1413</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1421</pre></td>
+<td align="right" class="lineno"><pre>1414</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1422</pre></td>
+<td align="right" class="lineno"><pre>1415</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    /**</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1423</pre></td>
+<td align="right" class="lineno"><pre>1416</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * The Function is setEncoder</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1424</pre></td>
+<td align="right" class="lineno"><pre>1417</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     *</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1425</pre></td>
+<td align="right" class="lineno"><pre>1418</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @param encoder of Option&lt;String&gt;</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1426</pre></td>
+<td align="right" class="lineno"><pre>1419</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     *</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1427</pre></td>
+<td align="right" class="lineno"><pre>1420</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @return Type of Unit</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1428</pre></td>
+<td align="right" class="lineno"><pre>1421</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     * @since 0.32.5</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1429</pre></td>
+<td align="right" class="lineno"><pre>1422</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>     */</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1430</pre></td>
+<td align="right" class="lineno"><pre>1423</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>    public open func setEncoder(encoder: Option&lt;String&gt;): Unit {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1431</pre></td>
+<td align="right" class="lineno"><pre>1424</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        if (encoder != Option&lt;String&gt;.None &amp;&amp; encoder.getOrThrow().size &gt; 0) {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1432</pre></td>
+<td align="right" class="lineno"><pre>1425</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            invalidateDataLength()</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1433</pre></td>
+<td align="right" class="lineno"><pre>1426</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            var frameData: ID3v2TextFrameData = ID3v2TextFrameData(</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1434</pre></td>
+<td align="right" class="lineno"><pre>1427</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>                useFrameUnsynchronisation(),</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1435</pre></td>
+<td align="right" class="lineno"><pre>1428</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>                EncodedText(encoder.getOrThrow())</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1436</pre></td>
+<td align="right" class="lineno"><pre>1429</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>            )</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1437</pre></td>
+<td align="right" class="lineno"><pre>1430</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            addFrame(createFrame(ID_ENCODER, frameData.toBytes()), true)</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1438</pre></td>
+<td align="right" class="lineno"><pre>1431</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1439</pre></td>
+<td align="right" class="lineno"><pre>1432</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1440</pre></td>
+<td align="right" class="lineno"><pre>1433</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1441</pre></td>
+<td align="right" class="lineno"><pre>1434</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>    protected open func extractTextFrameData(id: String): Option&lt;ID3v2TextFrameData&gt; {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1442</pre></td>
+<td align="right" class="lineno"><pre>1435</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        var frameSet: Option&lt;ID3v2FrameSet&gt; = frameSets.get(id)</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1443</pre></td>
+<td align="right" class="lineno"><pre>1436</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        match (frameSet) {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1444</pre></td>
+<td align="right" class="lineno"><pre>1437</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            case Some(x) =&gt;</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1445</pre></td>
+<td align="right" class="lineno"><pre>1438</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>                var frame: ID3v2Frame = x.getFrames()[0]</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1446</pre></td>
+<td align="right" class="lineno"><pre>1439</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>                var frameData: ID3v2TextFrameData</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1447</pre></td>
+<td align="right" class="lineno"><pre>1440</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>                try {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1448</pre></td>
+<td align="right" class="lineno"><pre>1441</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>                    frameData = ID3v2TextFrameData(useFrameUnsynchronisation(), frame.getData())</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1449</pre></td>
+<td align="right" class="lineno"><pre>1442</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>                    return frameData</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1450</pre></td>
+<td align="right" class="lineno"><pre>1443</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
 <td align="left" class="src uncoveredLine"><pre>                } catch (e: InvalidDataException) {}</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1451</pre></td>
+<td align="right" class="lineno"><pre>1444</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>            case None =&gt; ()</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1452</pre></td>
+<td align="right" class="lineno"><pre>1445</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1453</pre></td>
+<td align="right" class="lineno"><pre>1446</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        return Option&lt;ID3v2TextFrameData&gt;.None</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>1454</pre></td>
+<td align="right" class="lineno"><pre>1447</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
+<td align="right" class="lineno"><pre>1448</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1449</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1450</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * The Function is getComment, COMM</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1451</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1452</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @return Type of Option&lt;String&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1453</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @since 0.33.3</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1454</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
 <td align="right" class="lineno"><pre>1455</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getComment (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1456</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2CommentFrameData&gt; = extractCommentFrameData(</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1457</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    if (obseleteFormat) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1458</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		        ID_COMMENT_OBSELETE</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1459</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		    } else {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1460</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		        ID_COMMENT },false)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1461</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2CommentFrameData&gt;.None &amp;&amp; frameData.getOrThrow().getComment() != Option&lt;EncodedText&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1462</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getComment().getOrThrow().toString()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1463</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1464</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1465</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1466</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1467</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setComment (comment: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1468</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (comment != Option&lt;String&gt;.None &amp;&amp; comment.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1469</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1470</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option&lt;EncodedText&gt;.None, EncodedText(comment.getOrThrow()))</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1471</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1472</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1473</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1474</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1475</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1476</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * The Function is getItunesComment, COMM</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1477</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1478</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @return Type of Option&lt;String&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1479</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @since 0.33.3</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1480</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1481</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getItunesComment (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1482</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2CommentFrameData&gt; = extractCommentFrameData(</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1483</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (obseleteFormat) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1484</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		    ID_COMMENT_OBSELETE</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1485</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		} else {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1486</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		    ID_COMMENT</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1487</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}, true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1488</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2CommentFrameData&gt;.None &amp;&amp; frameData.getOrThrow().getComment() != Option&lt;EncodedText&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1489</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getComment().getOrThrow().toString()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1490</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1491</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1492</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1493</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1494</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setItunesComment (itunesComment: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1495</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (itunesComment != Option&lt;String&gt;.None &amp;&amp; itunesComment.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1496</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1497</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng",</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1498</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			EncodedText(ITUNES_COMMENT_DESCRIPTION), EncodedText(itunesComment.getOrThrow()))</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1499</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1500</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1501</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1502</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1503</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    protected open func extractLyricsFrameData (id: String): Option&lt;ID3v2CommentFrameData&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1504</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameSet: Option&lt;ID3v2FrameSet&gt; = frameSets.get(id)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1505</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		match (frameSet) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1506</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    case Some(x) =&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1507</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    for (frame in x.getFrames()) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1508</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    	var frameData: ID3v2CommentFrameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1509</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    	try {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1510</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    		frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1511</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    		return frameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1512</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>			    	} catch (e: InvalidDataException) { }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1513</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1514</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>		    case None =&gt; ()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1515</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1516</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>		return Option&lt;ID3v2CommentFrameData&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1517</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1518</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1519</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    /**</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1520</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * The Function is getLyrics, USLT</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1521</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     *</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1522</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @return Type of Option&lt;String&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1523</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     * @since 0.33.3</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1524</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>     */</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1525</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getLyrics (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1526</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		var frameData : Option&lt;ID3v2CommentFrameData&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1527</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (obseleteFormat) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1528</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>			return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1529</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}else{</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1530</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			frameData = extractLyricsFrameData(ID_TEXT_LYRICS)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1531</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>	    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1532</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2CommentFrameData&gt;.None &amp;&amp; frameData.getOrThrow().getComment() != Option&lt;EncodedText&gt;.None){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1533</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			return frameData.getOrThrow().getComment().getOrThrow().toString()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1534</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1535</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1536</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1537</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1538</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setLyrics (lyrics: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1539</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (lyrics != Option&lt;String&gt;.None &amp;&amp; lyrics.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1540</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1541</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option&lt;EncodedText&gt;.None, EncodedText(lyrics.getOrThrow()))</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1542</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_TEXT_LYRICS, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1543</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1544</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1545</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1546</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    private func extractCommentFrameData (id: String, itunes: Bool): Option&lt;ID3v2CommentFrameData&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1547</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameSet: Option&lt;ID3v2FrameSet&gt; = frameSets.get(id)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1548</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		match (frameSet) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1549</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case Some(x) =&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1550</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    for (frame in x.getFrames()) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1551</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    	var frameData: ID3v2CommentFrameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1552</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    	try {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1553</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    		frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1554</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    		if (itunes) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1555</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    		    if (ITUNES_COMMENT_DESCRIPTION.equals(frameData.getDescription().getOrThrow().toString().getOrThrow())){</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1556</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    		        return frameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1557</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    		    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1558</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    		} else if (!itunes) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1559</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    			return frameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1560</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1561</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>			    	} catch (e: InvalidDataException) { }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1562</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1563</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>            case None =&gt; return Option&lt;ID3v2CommentFrameData&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1564</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1565</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>		return Option&lt;ID3v2CommentFrameData&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1566</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1567</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1568</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getArtistUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1569</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2WWWFrameData&gt; = extractWWWFrameData(ID_ARTIST_URL)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1570</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2WWWFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1571</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1572</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1573</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1574</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1575</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1576</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setArtistUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1577</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1578</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1579</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1580</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_ARTIST_URL, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1581</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1582</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1583</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1584</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getCommercialUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1585</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2WWWFrameData&gt; = extractWWWFrameData(ID_COMMERCIAL_URL)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1586</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData !=  Option&lt;ID3v2WWWFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1587</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1588</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1589</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1590</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1591</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1592</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setCommercialUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1593</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1594</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1595</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1596</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_COMMERCIAL_URL, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1597</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1598</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1599</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1600</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getCopyrightUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1601</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2WWWFrameData&gt; = extractWWWFrameData(ID_COMMERCIAL_URL)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1602</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2WWWFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1603</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1604</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1605</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1606</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1607</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1608</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setCopyrightUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1609</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1610</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1611</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1612</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_COPYRIGHT_URL, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1613</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1614</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1615</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1616</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getAudiofileUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1617</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2WWWFrameData&gt; = extractWWWFrameData(ID_AUDIOFILE_URL)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1618</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2WWWFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1619</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1620</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1621</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1622</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1623</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1624</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setAudiofileUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1625</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1626</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1627</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1628</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_AUDIOFILE_URL, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1629</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1630</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1631</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1632</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getAudioSourceUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1633</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2WWWFrameData&gt; = extractWWWFrameData(ID_AUDIOFILE_URL)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1634</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2WWWFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1635</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1636</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1637</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1638</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1639</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1640</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setAudioSourceUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1641</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1642</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1643</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1644</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_AUDIOSOURCE_URL, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1645</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1646</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1647</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1648</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getRadiostationUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1649</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2WWWFrameData&gt; = extractWWWFrameData(ID_RADIOSTATION_URL)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1650</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2WWWFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1651</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1652</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1653</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1654</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1655</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1656</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setRadiostationUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1657</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1658</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1659</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1660</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_RADIOSTATION_URL, frameData.toBytes()), true);</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1661</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1662</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1663</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1664</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getPaymentUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1665</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2WWWFrameData&gt; = extractWWWFrameData(ID_PAYMENT_URL)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1666</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2WWWFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1667</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1668</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1669</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1670</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1671</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1672</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setPaymentUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1673</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1674</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1675</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1676</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_PAYMENT_URL, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1677</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1678</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1679</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1680</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getPublisherUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1681</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2WWWFrameData&gt; = extractWWWFrameData(ID_PUBLISHER_URL)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1682</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2WWWFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1683</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1684</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1685</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1686</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1687</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1688</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setPublisherUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1689</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1690</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1691</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2WWWFrameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1692</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_PUBLISHER_URL, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1693</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1694</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1695</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1696</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    private func extractWWWFrameData (id: String): Option&lt;ID3v2WWWFrameData&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1697</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameSet: Option&lt;ID3v2FrameSet&gt; = frameSets.get(id)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1698</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        match (frameSet) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1699</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case Some(x) =&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1700</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    var frame: ID3v2Frame = x.getFrames()[0]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1701</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    var frameData: ID3v2WWWFrameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1702</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    try {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1703</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    	frameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), frame.getData())</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1704</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    	return frameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1705</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>			    } catch (e: InvalidDataException) { }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1706</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case None =&gt; ()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1707</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1708</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;ID3v2WWWFrameData&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1709</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1710</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1711</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func getUrl (): Option&lt;String&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1712</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameData: Option&lt;ID3v2UrlFrameData&gt; = extractUrlFrameData(if (obseleteFormat){ ID_URL_OBSELETE } else { ID_URL })</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1713</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameData != Option&lt;ID3v2UrlFrameData&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1714</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    return frameData.getOrThrow().getUrl()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1715</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1716</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;String&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1717</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1718</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1719</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func setUrl (url: Option&lt;String&gt;): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1720</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (url != Option&lt;String&gt;.None &amp;&amp; url.getOrThrow().size &gt; 0) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1721</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1722</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			var frameData: ID3v2UrlFrameData = ID3v2UrlFrameData(useFrameUnsynchronisation(), Option&lt;EncodedText&gt;.None, url)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1723</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			addFrame(createFrame(ID_URL, frameData.toBytes()), true)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1724</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1725</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1726</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1727</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    private func extractUrlFrameData (id: String): Option&lt;ID3v2UrlFrameData&gt; {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1728</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		var frameSet: Option&lt;ID3v2FrameSet&gt; = frameSets.get(id)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1729</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		match(frameSet) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1730</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    case Some(x) =&gt;</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1731</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    var frame: ID3v2Frame = x.getFrames()[0]</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1732</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    var frameData: ID3v2UrlFrameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1733</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>			    try {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1734</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    	frameData = ID3v2UrlFrameData(useFrameUnsynchronisation(), frame.getData())</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1735</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			    	return frameData</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1736</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>			    } catch (e: InvalidDataException) { }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1737</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		    case None =&gt; ()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1738</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1739</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		return Option&lt;ID3v2UrlFrameData&gt;.None</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1740</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1741</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1742</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public open func clearFrameSet (id: String): Unit {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1743</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>		if (frameSets.remove(id) != Option&lt;ID3v2FrameSet&gt;.None) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1744</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>			invalidateDataLength()</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1745</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>		}</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1746</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>1747</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>}</pre></td>
