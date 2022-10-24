@@ -284,12 +284,12 @@ pre
           </tr>
           <tr>
             <td class="headerName">Date:</td>
-            <td class="headerValue">2022-09-28 18:51:55</td>
+            <td class="headerValue">2022-10-21 11:29:34</td>
             <td></td>
             <td class="headerName">Lines:</td>
-            <td class="headerTableEntry">151</td>
-            <td class="headerTableEntry">177</td>
-            <td class="headerTableEntry" style="background-color:Yellow">85.3 %</td>
+            <td class="headerTableEntry">164</td>
+            <td class="headerTableEntry">181</td>
+            <td class="headerTableEntry" style="background-color:LightGreen">90.6 %</td>
           </tr>
           <tr>
             <td class="headerName">Legend:</td>
@@ -989,14 +989,14 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>112</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>    public init(value: Array&lt;Int8&gt;) {</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public init(value: Array&lt;Int8&gt;) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>113</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>        this(textEncodingForBytesFromBOM(value), value)</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        this(textEncodingForBytesFromBOM(value), value)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>114</pre></td>
@@ -1277,8 +1277,8 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>160</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                        trailingCharsToRemove = Int32(terminator.size)</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                        trailingCharsToRemove = Int32(terminator.size)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>161</pre></td>
@@ -1871,8 +1871,8 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>259</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                    includeTerminatorNum = Int32(getTerminator().size)</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                    includeTerminatorNum = Int32(getTerminator().size)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>260</pre></td>
@@ -2039,20 +2039,20 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>287</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                        var terminator: Array&lt;Int8&gt; = getTerminator()</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                        var terminator: Array&lt;Int8&gt; = getTerminator()</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>288</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                        if (terminator.size &gt; 0) {</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                        if (terminator.size &gt; 0) {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>289</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>                            BufferTools.arraycopys(terminator, 0, bytes, Int64(i), terminator.size);</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>                            BufferTools.arraycopys(terminator, 0, bytes, Int64(i), terminator.size);</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>290</pre></td>
@@ -2537,107 +2537,137 @@ pre
 <tr>
 <td align="right" class="lineno"><pre>370</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>    public func hashCode(): Int64 {</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    @overflowWrapping</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>371</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>        return CODE</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public func hashCode(): Int64 {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>372</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        let prime: Int32 = 31</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>373</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        var result: Int32 = 1</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>374</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    public operator func ==(rhs: EncodedText): Bool {</pre></td>
+<td align="left" class="src coveredLine"><pre>        result = prime * result + Int32(textEncoding)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>375</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>        return match (rhs as EncodedText) {</pre></td>
+<td align="left" class="src coveredLine"><pre>        result = prime * result + Int32(value.toString().hashCode())</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>376</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            case Some(x) =&gt; refEq(this, x)</pre></td>
+<td align="left" class="src coveredLine"><pre>        return Int64(result)</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>377</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
-<td align="left" class="src uncoveredLine"><pre>            case None =&gt; false</pre></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>378</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>        }</pre></td>
+<td align="left" class="src "><pre></pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>379</pre></td>
 <td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre>    }</pre></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public operator func ==(rhs: EncodedText): Bool {</pre></td>
 </tr>
 <tr>
 <td align="right" class="lineno"><pre>380</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount "><pre></pre></td>
-<td align="left" class="src "><pre></pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>381</pre></td>
-<td align="right" class="linebranch"></td>
-<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>    public operator func !=(rhs: EncodedText): Bool {</pre></td>
-</tr>
-<tr>
-<td align="right" class="lineno"><pre>382</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
 <td align="left" class="src coveredLine"><pre>        return match (rhs as EncodedText) {</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>383</pre></td>
+<td align="right" class="lineno"><pre>381</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount coveredLine"><pre>Y</pre></td>
-<td align="left" class="src coveredLine"><pre>            case Some(x) =&gt; !refEq(this, x)</pre></td>
+<td align="left" class="src coveredLine"><pre>            case Some(x) =&gt; refEq(this, x)</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>384</pre></td>
+<td align="right" class="lineno"><pre>382</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
 <td align="left" class="src uncoveredLine"><pre>            case None =&gt; false</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>385</pre></td>
+<td align="right" class="lineno"><pre>383</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>        }</pre></td>
 </tr>
 <tr>
-<td align="right" class="lineno"><pre>386</pre></td>
+<td align="right" class="lineno"><pre>384</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>    }</pre></td>
 </tr>
 <tr>
+<td align="right" class="lineno"><pre>385</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre></pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>386</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>    public operator func !=(rhs: EncodedText): Bool {</pre></td>
+</tr>
+<tr>
 <td align="right" class="lineno"><pre>387</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>        return match (rhs as EncodedText) {</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>388</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount coveredLine"><pre>Y</pre></td>
+<td align="left" class="src coveredLine"><pre>            case Some(x) =&gt; !refEq(this, x)</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>389</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount uncoveredLine"><pre>N</pre></td>
+<td align="left" class="src uncoveredLine"><pre>            case None =&gt; false</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>390</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>        }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>391</pre></td>
+<td align="right" class="linebranch"></td>
+<td align="center" class="linecount "><pre></pre></td>
+<td align="left" class="src "><pre>    }</pre></td>
+</tr>
+<tr>
+<td align="right" class="lineno"><pre>392</pre></td>
 <td align="right" class="linebranch"></td>
 <td align="center" class="linecount "><pre></pre></td>
 <td align="left" class="src "><pre>}</pre></td>

@@ -8,4 +8,6 @@
 - 获取音频数据帧帧头相关数据。
 - 适配cjc 0.32.5
 - 适配cjc 0.33.3
+## 0.0.3
+- 添加ID3v2标签urlFrame，wwwFrame,commentFrame相干api
 
