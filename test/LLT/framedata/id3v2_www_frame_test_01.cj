@@ -39,9 +39,9 @@ func check01(id3v24tag: AbstractID3v2Tag): Int64{
     var url = id3v24tag.getUrl()
     if (artistUrl != "OFFICIALARTISTURL23456789012345") { return 1 }
     if (commercialUrl != "COMMERCIALURL234567890123456789") { return 1 }
-    if (copyrightUrl != "COMMERCIALURL234567890123456789") { return 1 }
+    if (copyrightUrl != "COPYRIGHTURL2345678901234567890") { return 1 }
     if (audiofileUrl != "OFFICIALAUDIOFILE23456789012345") { return 1 }
-    if (audioSourceUrl != "OFFICIALAUDIOFILE23456789012345") { return 1 }
+    if (audioSourceUrl != "OFFICIALAUDIOSOURCE234567890123") { return 1 }
     if (radiostationUrl != "INTERNETRADIOSTATIONURL23456783") { return 1 }
     if (paymentUrl != "PAYMENTURL234567890123456789012") { return 1 }
     if (publisherUrl != "PUBLISHERURL2345678901234567890") { return 1 }

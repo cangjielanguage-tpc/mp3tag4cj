@@ -78,4 +78,50 @@ public interface ID3v2 <: ID3v1 {
     func getObseleteFormat(): Bool
 
     func getFrameSets(): HashMap<String, ID3v2FrameSet>
+
+    func getItunesComment (): Option<String>
+
+    func setItunesComment (itunesComment: Option<String>): Unit
+
+    func getLyrics (): Option<String>
+
+    func setLyrics (lyrics: Option<String>): Unit
+
+    func getArtistUrl (): Option<String>
+
+    func setArtistUrl (url: Option<String>): Unit
+
+    func getCommercialUrl (): Option<String>
+
+    func setCommercialUrl (url: Option<String>): Unit
+
+    func getCopyrightUrl (): Option<String>
+
+    func setCopyrightUrl (url: Option<String>): Unit
+
+    func getAudiofileUrl (): Option<String>
+
+    func setAudiofileUrl (url: Option<String>): Unit
+
+    func getAudioSourceUrl (): Option<String>
+
+    func setAudioSourceUrl (url: Option<String>): Unit
+
+    func getRadiostationUrl (): Option<String>
+
+    func setRadiostationUrl (url: Option<String>): Unit
+
+    func getPaymentUrl (): Option<String>
+
+    func setPaymentUrl (url: Option<String>): Unit
+
+    func getPublisherUrl (): Option<String>
+
+    func setPublisherUrl (url: Option<String>): Unit
+
+    func getUrl (): Option<String>
+
+    func setUrl (url: Option<String>): Unit
+
+    func clearFrameSet (id: String): Unit
 }
