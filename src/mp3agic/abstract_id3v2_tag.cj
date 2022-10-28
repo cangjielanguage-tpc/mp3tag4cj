@@ -1636,7 +1636,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
     }
 
     public open func getCopyrightUrl (): Option<String> {
-        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_COMMERCIAL_URL)
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_COPYRIGHT_URL)
         if (frameData != Option<ID3v2WWWFrameData>.None) {
             return frameData.getOrThrow().getUrl()
         }
@@ -1668,7 +1668,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
     }
 
     public open func getAudioSourceUrl (): Option<String> {
-        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_AUDIOFILE_URL)
+        var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_AUDIOSOURCE_URL)
         if (frameData != Option<ID3v2WWWFrameData>.None) {
             return frameData.getOrThrow().getUrl()
         }
