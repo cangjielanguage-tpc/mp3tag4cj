@@ -786,4 +786,4 @@ bitrates val ===> 1
 
 ## <img alt="" src="./doc/assets/readme-icon-contribute.png" style="display: inline-block;" width=3%/>参与贡献
 
-[@sygaowork](https://gitee.com/sygaowork)
+欢迎给我们提交PR，欢迎给我们提交Issue，欢迎参与任何形式的贡献。
