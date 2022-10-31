@@ -1232,11 +1232,11 @@ public open class AbstractID3v2Tag <: ID3v2 {
         return Option<Int64>.Some(Int64.parse(value))
     }
 
-    /*
+    /* 
      * The Function is extractGenreDescription
-     *
+     * 
      * @param genreValue of String
-     *
+     * 
      * @return Type of Option<String>
      * @since 0.32.5
      */
@@ -1480,16 +1480,19 @@ public open class AbstractID3v2Tag <: ID3v2 {
 
     /**
      * The Function is getComment, COMM
-     *
+     * 
      * @return Type of Option<String>
      * @since 0.33.3
      */
-    public open func getComment (): Option<String> {
+    public open func getComment(): Option<String> {
         var frameData: Option<ID3v2CommentFrameData> = extractCommentFrameData(
             if (obseleteFormat) {
                 ID_COMMENT_OBSELETE
             } else {
-                ID_COMMENT },false)
+                ID_COMMENT
+            },
+            false
+        )
         if (frameData != Option<ID3v2CommentFrameData>.None) {
             if (frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
                 return frameData.getOrThrow().getComment().getOrThrow().toString()
@@ -1501,24 +1504,27 @@ public open class AbstractID3v2Tag <: ID3v2 {
     public open func setComment (comment: Option<String>): Unit {
         if (comment != Option<String>.None && comment.getOrThrow().size > 0) {
             invalidateDataLength()
-            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option<EncodedText>.None, EncodedText(comment.getOrThrow()))
+            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng",
+                Option<EncodedText>.None, EncodedText(comment.getOrThrow()))
             addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)
         }
     }
 
     /**
      * The Function is getItunesComment, COMM
-     *
+     * 
      * @return Type of Option<String>
      * @since 0.33.3
      */
-    public open func getItunesComment (): Option<String> {
+    public open func getItunesComment(): Option<String> {
         var frameData: Option<ID3v2CommentFrameData> = extractCommentFrameData(
-        if (obseleteFormat) {
-            ID_COMMENT_OBSELETE
-        } else {
-            ID_COMMENT
-        }, true)
+            if (obseleteFormat) {
+                ID_COMMENT_OBSELETE
+            } else {
+                ID_COMMENT
+            },
+            true
+        )
         if (frameData != Option<ID3v2CommentFrameData>.None) {
             if (frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
                 return frameData.getOrThrow().getComment().getOrThrow().toString()
@@ -1530,13 +1536,17 @@ public open class AbstractID3v2Tag <: ID3v2 {
     public open func setItunesComment (itunesComment: Option<String>): Unit {
         if (itunesComment != Option<String>.None && itunesComment.getOrThrow().size > 0) {
             invalidateDataLength()
-            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng",
-            EncodedText(ITUNES_COMMENT_DESCRIPTION), EncodedText(itunesComment.getOrThrow()))
+            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(
+                useFrameUnsynchronisation(),
+                "eng",
+                EncodedText(ITUNES_COMMENT_DESCRIPTION),
+                EncodedText(itunesComment.getOrThrow())
+            )
             addFrame(createFrame(ID_COMMENT, frameData.toBytes()), true)
         }
     }
 
-    protected open func extractLyricsFrameData (id: String): Option<ID3v2CommentFrameData> {
+    protected open func extractLyricsFrameData(id: String): Option<ID3v2CommentFrameData> {
         var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
         match (frameSet) {
             case Some(x) =>
@@ -1545,7 +1555,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                     try {
                         frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
                         return frameData
-                    } catch (e: InvalidDataException) { }
+                    } catch (e: InvalidDataException) {}
                 }
             case None => ()
         }
@@ -1554,18 +1564,18 @@ public open class AbstractID3v2Tag <: ID3v2 {
 
     /**
      * The Function is getLyrics, USLT
-     *
+     * 
      * @return Type of Option<String>
      * @since 0.33.3
      */
-    public open func getLyrics (): Option<String> {
-        var frameData : Option<ID3v2CommentFrameData>
+    public open func getLyrics(): Option<String> {
+        var frameData: Option<ID3v2CommentFrameData>
         if (obseleteFormat) {
             return Option<String>.None
-        }else{
+        } else {
             frameData = extractLyricsFrameData(ID_TEXT_LYRICS)
         }
-        if (frameData != Option<ID3v2CommentFrameData>.None){
+        if (frameData != Option<ID3v2CommentFrameData>.None) {
             if (frameData.getOrThrow().getComment() != Option<EncodedText>.None) {
                 return frameData.getOrThrow().getComment().getOrThrow().toString()
             }
@@ -1576,12 +1586,13 @@ public open class AbstractID3v2Tag <: ID3v2 {
     public open func setLyrics (lyrics: Option<String>): Unit {
         if (lyrics != Option<String>.None && lyrics.getOrThrow().size > 0) {
             invalidateDataLength()
-            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng", Option<EncodedText>.None, EncodedText(lyrics.getOrThrow()))
+            var frameData: ID3v2CommentFrameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), "eng",
+                Option<EncodedText>.None, EncodedText(lyrics.getOrThrow()))
             addFrame(createFrame(ID_TEXT_LYRICS, frameData.toBytes()), true)
         }
     }
 
-    private func extractCommentFrameData (id: String, itunes: Bool): Option<ID3v2CommentFrameData> {
+    private func extractCommentFrameData(id: String, itunes: Bool): Option<ID3v2CommentFrameData> {
         var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
         match (frameSet) {
             case Some(x) =>
@@ -1590,13 +1601,14 @@ public open class AbstractID3v2Tag <: ID3v2 {
                     try {
                         frameData = ID3v2CommentFrameData(useFrameUnsynchronisation(), frame.getData())
                         if (itunes) {
-                            if (ITUNES_COMMENT_DESCRIPTION.equals(frameData.getDescription().getOrThrow().toString().getOrThrow())){
+                            if (ITUNES_COMMENT_DESCRIPTION.equals(
+                                frameData.getDescription().getOrThrow().toString().getOrThrow())) {
                                 return frameData
                             }
                         } else if (!itunes) {
                             return frameData
                         }
-                    } catch (e: InvalidDataException) { }
+                    } catch (e: InvalidDataException) {}
                 }
             case None => return Option<ID3v2CommentFrameData>.None
         }
@@ -1621,7 +1633,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
 
     public open func getCommercialUrl (): Option<String> {
         var frameData: Option<ID3v2WWWFrameData> = extractWWWFrameData(ID_COMMERCIAL_URL)
-        if (frameData !=  Option<ID3v2WWWFrameData>.None) {
+        if (frameData != Option<ID3v2WWWFrameData>.None) {
             return frameData.getOrThrow().getUrl()
         }
         return Option<String>.None
@@ -1731,7 +1743,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
         }
     }
 
-    private func extractWWWFrameData (id: String): Option<ID3v2WWWFrameData> {
+    private func extractWWWFrameData(id: String): Option<ID3v2WWWFrameData> {
         var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
         match (frameSet) {
             case Some(x) =>
@@ -1740,7 +1752,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 try {
                     frameData = ID3v2WWWFrameData(useFrameUnsynchronisation(), frame.getData())
                     return frameData
-                } catch (e: InvalidDataException) { }
+                } catch (e: InvalidDataException) {}
             case None => ()
         }
         return Option<ID3v2WWWFrameData>.None
@@ -1757,21 +1769,22 @@ public open class AbstractID3v2Tag <: ID3v2 {
     public open func setUrl (url: Option<String>): Unit {
         if (url != Option<String>.None && url.getOrThrow().size > 0) {
             invalidateDataLength()
-            var frameData: ID3v2UrlFrameData = ID3v2UrlFrameData(useFrameUnsynchronisation(), Option<EncodedText>.None, url)
+            var frameData: ID3v2UrlFrameData = ID3v2UrlFrameData(useFrameUnsynchronisation(), Option<EncodedText>.None,
+                url)
             addFrame(createFrame(ID_URL, frameData.toBytes()), true)
         }
     }
 
-    private func extractUrlFrameData (id: String): Option<ID3v2UrlFrameData> {
+    private func extractUrlFrameData(id: String): Option<ID3v2UrlFrameData> {
         var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
-        match(frameSet) {
+        match (frameSet) {
             case Some(x) =>
                 var frame: ID3v2Frame = x.getFrames()[0]
                 var frameData: ID3v2UrlFrameData
                 try {
                     frameData = ID3v2UrlFrameData(useFrameUnsynchronisation(), frame.getData())
                     return frameData
-                } catch (e: InvalidDataException) { }
+                } catch (e: InvalidDataException) {}
             case None => ()
         }
         return Option<ID3v2UrlFrameData>.None
@@ -1781,5 +1794,307 @@ public open class AbstractID3v2Tag <: ID3v2 {
         if (frameSets.remove(id) != Option<ID3v2FrameSet>.None) {
             invalidateDataLength()
         }
+    }
+
+    /**
+     * The Function is getAlbumImage, Get the byte data of the picture.
+     * 
+     * @return Type of Option<Array<Int8>>
+     * @since 0.33.3
+     */
+    public open func getAlbumImage(): Option<Array<Int8>> {
+        var frameData: Option<ID3v2PictureFrameData> = createPictureFrameData(
+            if (obseleteFormat) {
+                ID_IMAGE_OBSELETE
+            } else {
+                ID_IMAGE
+            }
+        )
+        if (frameData != Option<ID3v2PictureFrameData>.None) {
+            return frameData.getOrThrow().getImageData()
+        }
+        return Option<Array<Int8>>.None
+    }
+
+    /**
+     * The Function is setAlbumImage
+     * 
+     * @param albumImage of Option<Array<Int8>>, Byte data of picture.
+     * @param mimeType of Option<String>, Mime type and subtype the image.For example: image/png, image/jpeg.
+     * 
+     * @return Type of Unit
+     * @since 0.33.3
+     */
+    public open func setAlbumImage(albumImage: Option<Array<Int8>>, mimeType: Option<String>): Unit {
+        setAlbumImage(albumImage, mimeType, 0, Option<String>.None)
+    }
+
+    /**
+     * The Function is setAlbumImage
+     * 
+     * @param albumImage of Option<Array<Int8>>, Byte data of picture.
+     * @param mimeType of Option<String>, Mime type and subtype the image.For example: image/png, image/jpeg.
+     * @param pictureType of Int8 Image usage type
+     * Picture type:  $00  Other
+     * $01  32x32 pixels 'file icon' (PNG only)
+     * $02  Other file icon
+     * $03  Cover (front)
+     * $04  Cover (back)
+     * $05  Leaflet page
+     * $06  Media (e.g. label side of CD)
+     * $07  Lead artist/lead performer/soloist
+     * $08  Artist/performer
+     * $09  Conductor
+     * $0A  Band/Orchestra
+     * $0B  Composer
+     * $0C  Lyricist/text writer
+     * $0D  Recording Location
+     * $0E  During recording
+     * $0F  During performance
+     * $10  Movie/video screen capture
+     * $11  A bright coloured fish
+     * $12  Illustration
+     * $13  Band/artist logotype
+     * $14  Publisher/Studio logotype
+     * @param imageDescription of Option<String>, Short description of the picture.
+     * 
+     * @return Type of Unit
+     * @since 0.33.3
+     */
+    public open func setAlbumImage(albumImage: Option<Array<Int8>>, mimeType: Option<String>, imageType: Int8, 
+        imageDescription: Option<String>): Unit {
+        if (albumImage != Option<Array<Int8>>.None) {
+            if (mimeType != Option<String>.None) {
+                if (albumImage.getOrThrow().size > 0 && mimeType.getOrThrow().size > 0) {
+                    invalidateDataLength()
+                    var frameData: ID3v2PictureFrameData = ID3v2PictureFrameData(
+                        useFrameUnsynchronisation(),
+                        mimeType,
+                        imageType,
+                        if (Option<String>.None == imageDescription) {
+                            Option<EncodedText>.None
+                        } else {
+                            EncodedText(imageDescription.getOrThrow())
+                        },
+                        albumImage
+                    )
+                    addFrame(createFrame(ID_IMAGE, frameData.toBytes()), true)
+                }
+            }
+        }
+    }
+
+    /**
+     * The Function is getAlbumImageMimeType, Mime type and subtype the image.For example: image/png, image/jpeg.
+     * 
+     * @return Type of Option<String>
+     * @since 0.33.3
+     */
+    public open func getAlbumImageMimeType(): Option<String> {
+        var frameData: Option<ID3v2PictureFrameData> = createPictureFrameData(
+            if (obseleteFormat) {
+                ID_IMAGE_OBSELETE
+            } else {
+                ID_IMAGE
+            }
+        )
+        if (frameData != Option<ID3v2PictureFrameData>.None) {
+            if (frameData.getOrThrow().getMimeType() != Option<String>.None) {
+                return frameData.getOrThrow().getMimeType()
+            }
+        }
+        return Option<String>.None
+    }
+
+    /**
+     * The Function is clearAlbumImage, Clear APIC or PIC label frame content
+     * 
+     * @return Type of Unit
+     * @since 0.33.3
+     */
+    public open func clearAlbumImage(): Unit {
+        clearFrameSet(if (obseleteFormat) {
+                ID_IMAGE_OBSELETE
+            } else {
+                ID_IMAGE
+            })
+    }
+
+    private func createPictureFrameData(id: String): Option<ID3v2PictureFrameData> {
+        var frameSet: Option<ID3v2FrameSet> = frameSets.get(id);
+        match (frameSet) {
+            case Some(x) =>
+                var frame: ID3v2Frame = x.getFrames()[0]
+                var frameData: ID3v2PictureFrameData
+                try {
+                    if (obseleteFormat) {
+                        frameData = ID3v2ObseletePictureFrameData(useFrameUnsynchronisation(), frame.getData())
+                    } else {
+                        frameData = ID3v2PictureFrameData(useFrameUnsynchronisation())
+                        frameData.initFunc(frame.getData())
+                    }
+                    return frameData
+                } catch (e: InvalidDataException) {}
+            case None => ()
+        }
+        return Option<ID3v2PictureFrameData>.None
+    }
+
+    /**
+     * The Function is getChapters, CHAP
+     * 
+     * @return Type of Option<ArrayList<ID3v2ChapterFrameData>>
+     * @since 0.33.3
+     */
+    public open func getChapters(): Option<ArrayList<ID3v2ChapterFrameData>> {
+        if (obseleteFormat) {
+            return Option<ArrayList<ID3v2ChapterFrameData>>.None
+        }
+        return extractChapterFrameData(ID_CHAPTER)
+    }
+
+    /**
+     * The Function is setChapters, CHAP
+     * 
+     * @param chapters of Option<ArrayList<ID3v2ChapterFrameData>>, Provide CHAP data frame encapsulation type
+     * 
+     * @return Type of Unit
+     * @since 0.33.3
+     */
+    public open func setChapters(chapters: Option<ArrayList<ID3v2ChapterFrameData>>): Unit {
+        if (chapters != Option<ArrayList<ID3v2ChapterFrameData>>.None) {
+            invalidateDataLength()
+            var first: Bool = true
+            for (chapter in chapters.getOrThrow()) {
+                if (first) {
+                    first = false
+                    addFrame(createFrame(ID_CHAPTER, chapter.toBytes()), true)
+                } else {
+                    addFrame(createFrame(ID_CHAPTER, chapter.toBytes()), false)
+                }
+            }
+        }
+    }
+
+    private func extractChapterFrameData(id: String): Option<ArrayList<ID3v2ChapterFrameData>> {
+        var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+        match (frameSet) {
+            case Some(x) =>
+                var chapterData: ArrayList<ID3v2ChapterFrameData> = ArrayList<ID3v2ChapterFrameData>()
+                var frames: ArrayList<ID3v2Frame> = x.getFrames()
+                for (frame in frames) {
+                    var frameData: ID3v2ChapterFrameData
+                    try {
+                        frameData = ID3v2ChapterFrameData(useFrameUnsynchronisation(), frame.getData())
+                        chapterData.append(frameData)
+                    } catch (e: InvalidDataException) {}
+                }
+                return chapterData
+            case None => ()
+        }
+        return Option<ArrayList<ID3v2ChapterFrameData>>.None
+    }
+
+    /**
+     * The Function is getChapterTOC, CTOC
+     * 
+     * @return Type of Option<ArrayList<ID3v2ChapterTOCFrameData>>
+     * @since 0.33.3
+     */
+    public open func getChapterTOC(): Option<ArrayList<ID3v2ChapterTOCFrameData>> {
+        if (obseleteFormat) {
+            return Option<ArrayList<ID3v2ChapterTOCFrameData>>.None
+        }
+        return extractChapterTOCFrameData(ID_CHAPTER_TOC)
+    }
+
+    /**
+     * The Function is setChapterTOC, CTOC
+     * 
+     * @param toc of Option<ArrayList<ID3v2ChapterTOCFrameData>>, Provide CTOC data frame encapsulation type
+     * 
+     * @return Type of Unit
+     * @since 0.33.3
+     */
+    public open func setChapterTOC(toc: Option<ArrayList<ID3v2ChapterTOCFrameData>>): Unit {
+        if (toc != Option<ArrayList<ID3v2ChapterTOCFrameData>>.None) {
+            invalidateDataLength()
+            var first: Bool = true
+            for (ct in toc.getOrThrow()) {
+                if (first) {
+                    first = false
+                    addFrame(createFrame(ID_CHAPTER_TOC, ct.toBytes()), true)
+                } else {
+                    addFrame(createFrame(ID_CHAPTER_TOC, ct.toBytes()), false)
+                }
+            }
+        }
+    }
+
+    private func extractChapterTOCFrameData(id: String): Option<ArrayList<ID3v2ChapterTOCFrameData>> {
+        var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+        match (frameSet) {
+            case Some(x) =>
+                var chapterData = ArrayList<ID3v2ChapterTOCFrameData>()
+                var frames = x.getFrames()
+                for (frame in frames) {
+                    var frameData: ID3v2ChapterTOCFrameData
+                    try {
+                        frameData = ID3v2ChapterTOCFrameData(useFrameUnsynchronisation(), frame.getData())
+                        chapterData.append(frameData)
+                    } catch (e: Exception) {}
+                }
+                return chapterData
+            case None => ()
+        }
+        return Option<ArrayList<ID3v2ChapterTOCFrameData>>.None
+    }
+
+    /**
+     * The Function is getWmpRating, POPM
+     * 
+     * @return Type of Int32
+     * @since 0.33.3
+     */
+    public open func getWmpRating(): Int32 {
+        var frameData: Option<ID3v2PopmFrameData> = extractPopmFrameData(ID_RATING)
+        if (frameData != Option<ID3v2PopmFrameData>.None) {
+            if (frameData.getOrThrow().getAddress() != Option<String>.None) {
+                return frameData.getOrThrow().getRating()
+            }
+        }
+        return -1
+    }
+
+    /**
+     * The Function is setWmpRating, POPM
+     * 
+     * @param rating of Int32
+     * 
+     * @return Type of Unit
+     * @since 0.33.3
+     */
+    public open func setWmpRating(rating: Int32): Unit {
+        if (rating >= 0 && rating < 6) {
+            invalidateDataLength()
+            var frameData: ID3v2PopmFrameData = ID3v2PopmFrameData(useFrameUnsynchronisation(), rating)
+            var bytes: Array<Int8> = frameData.toBytes()
+            addFrame(createFrame(ID_RATING, bytes), true)
+        }
+    }
+
+    private func extractPopmFrameData(id: String): Option<ID3v2PopmFrameData> {
+        var frameSet: Option<ID3v2FrameSet> = frameSets.get(id)
+        match (frameSet) {
+            case Some(x) =>
+                var frame: ID3v2Frame = x.getFrames()[0]
+                var frameData: ID3v2PopmFrameData
+                try {
+                    frameData = ID3v2PopmFrameData(useFrameUnsynchronisation(), frame.getData())
+                    return frameData
+                } catch (e: Exception) {}
+            case None => ()
+        }
+        return Option<ID3v2PopmFrameData>.None
     }
 }

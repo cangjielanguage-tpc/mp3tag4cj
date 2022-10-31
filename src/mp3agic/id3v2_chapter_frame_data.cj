@@ -12,7 +12,7 @@ from std import collection.*
 from okio import okio.*
 from okio import nio.ByteBuffer
 
-public class ID3v2ChapterFrameData <: AbstractID3v2FrameData {
+public class ID3v2ChapterFrameData <: AbstractID3v2FrameData & Equatable<ID3v2ChapterFrameData> {
     protected var id: Option<String> = Option<String>.None
     protected var startTime: Int32 = 0
     protected var endTime: Int32 = 0
@@ -68,6 +68,7 @@ public class ID3v2ChapterFrameData <: AbstractID3v2FrameData {
         super(unsynchronisation)
         synchroniseAndUnpackFrameData(bytes)
     }
+
     @overflowWrapping
     protected func unpackFrameData(bytes: Array<Int8>): Unit {
         var bb: ByteBuffer = ByteBuffer.wrap(BufferTools.transInt8ArrayToUInt8(bytes))
@@ -117,22 +118,22 @@ public class ID3v2ChapterFrameData <: AbstractID3v2FrameData {
         bb.put(id.getOrDefault({ => ""}).toUtf8Array())
         bb.put(UInt8(0))
 
-        bb.put(UInt8((startTime & 0x7F000000) >> 24))
+        bb.put(UInt8((startTime & Int32(0xFF000000)) >> 24))
         bb.put(UInt8((startTime & 0x00FF0000) >> 16))
         bb.put(UInt8((startTime & 0x0000FF00) >> 8))
         bb.put(UInt8(startTime & 0x000000FF))
 
-        bb.put(UInt8((endTime & 0x7F000000) >> 24))
+        bb.put(UInt8((endTime & Int32(0xFF000000)) >> 24))
         bb.put(UInt8((endTime & 0x00FF0000) >> 16))
         bb.put(UInt8((endTime & 0x0000FF00) >> 8))
         bb.put(UInt8(endTime & 0x000000FF))
 
-        bb.put(UInt8((startOffset & 0x7F000000) >> 24))
+        bb.put(UInt8((startOffset & Int32(0xFF000000)) >> 24))
         bb.put(UInt8((startOffset & 0x00FF0000) >> 16))
         bb.put(UInt8((startOffset & 0x0000FF00) >> 8))
         bb.put(UInt8(startOffset & 0x000000FF))
 
-        bb.put(UInt8((endOffset & 0x7F000000) >> 24))
+        bb.put(UInt8((endOffset & Int32(0xFF000000)) >> 24))
         bb.put(UInt8((endOffset & 0x00FF0000) >> 16))
         bb.put(UInt8((endOffset & 0x0000FF00) >> 8))
         bb.put(UInt8(endOffset & 0x000000FF))
@@ -358,5 +359,35 @@ public class ID3v2ChapterFrameData <: AbstractID3v2FrameData {
             result = prime * result + Int32(subframesStr.hashCode())
         }
         return Int64(result)
+    }
+
+    /**
+     * The Function is ==
+     * 
+     * @param rhs of ID3v2CommentFrameData
+     * 
+     * @return Type of Bool
+     * @since 0.33.3
+     */
+    public operator func ==(rhs: ID3v2ChapterFrameData): Bool {
+        return match (rhs as ID3v2ChapterFrameData) {
+            case Some(x) => refEq(this, x)
+            case None => false
+        }
+    }
+
+    /**
+     * The Function is !=
+     * 
+     * @param rhs of ID3v2CommentFrameData
+     * 
+     * @return Type of Bool
+     * @since 0.33.3
+     */
+    public operator func !=(rhs: ID3v2ChapterFrameData): Bool {
+        return match (rhs as ID3v2ChapterFrameData) {
+            case Some(x) => !refEq(this, x)
+            case None => false
+        }
     }
 }
