@@ -9,5 +9,31 @@
 - 适配cjc 0.32.5
 - 适配cjc 0.33.3
 ## 0.0.3
-- 添加ID3v2标签urlFrame，wwwFrame,commentFrame相干api
-
+- 添加ID3v2标签urlFrame，wwwFrame,commentFrame类型
+## 0.0.4
+- 添加ID3v2标签API
+- getComment (): Option<String>
+- setComment (comment: Option<String>): Unit
+- getItunesComment (): Option<String>
+- setItunesComment (itunesComment: Option<String>): Unit
+- getLyrics (): Option<String>
+- setLyrics (lyrics: Option<String>): Unit
+- getArtistUrl (): Option<String>
+- setArtistUrl (url: Option<String>): Unit
+- getCommercialUrl (): Option<String>
+- setCommercialUrl (url: Option<String>): Unit
+- getCopyrightUrl (): Option<String>
+- setCopyrightUrl (url: Option<String>): Unit
+- getAudiofileUrl (): Option<String>
+- setAudiofileUrl (url: Option<String>): Unit
+- getAudioSourceUrl (): Option<String>
+- setAudioSourceUrl (url: Option<String>): Unit
+- getRadiostationUrl (): Option<String>
+- setRadiostationUrl (url: Option<String>): Unit
+- getPaymentUrl (): Option<String>
+- setPaymentUrl (url: Option<String>): Unit
+- getPublisherUrl (): Option<String>
+- setPublisherUrl (url: Option<String>): Unit
+- getUrl (): Option<String>
+- setUrl (url: Option<String>): Unit
+- clearFrameSet (id: String): Unit
