@@ -57,8 +57,13 @@ public class ID3v2ObseletePictureFrameData <: ID3v2PictureFrameData {
      * @param imageData of Option<Array<Int8>> Byte data of picture
      * @since 0.33.3
      */
-    public init(unsynchronisation: Bool, mimeType: Option<String>, pictureType: Int8, 
-        description: Option<EncodedText>, imageData: Option<Array<Int8>>) {
+    public init(
+        unsynchronisation: Bool,
+        mimeType: Option<String>,
+        pictureType: Int8,
+        description: Option<EncodedText>,
+        imageData: Option<Array<Int8>>
+    ) {
         super(unsynchronisation, mimeType, pictureType, description, imageData)
     }
 

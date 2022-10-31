@@ -614,8 +614,10 @@ public class Mp3File <: FileWrapper {
             isExist = false
             ()
         }
-        if (isExist && FileInfo(newFilename).path.toCanonical().toString() == super.path) {
-            throw IllegalArgumentException("Save filename same as source filename")
+        if (isExist) {
+            if (FileInfo(newFilename).path.toCanonical().toString() == super.path) {
+                throw IllegalArgumentException("Save filename same as source filename")
+            }
         }
         var saveFile: File = File(newFilename, OpenOption.CreateOrTruncate(true))
         if (hasId3v2Tag()) {

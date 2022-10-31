@@ -79,49 +79,73 @@ public interface ID3v2 <: ID3v1 {
 
     func getFrameSets(): HashMap<String, ID3v2FrameSet>
 
-    func getItunesComment (): Option<String>
+    func getItunesComment(): Option<String>
 
-    func setItunesComment (itunesComment: Option<String>): Unit
+    func setItunesComment(itunesComment: Option<String>): Unit
 
-    func getLyrics (): Option<String>
+    func getLyrics(): Option<String>
 
-    func setLyrics (lyrics: Option<String>): Unit
+    func setLyrics(lyrics: Option<String>): Unit
 
-    func getArtistUrl (): Option<String>
+    func getArtistUrl(): Option<String>
 
-    func setArtistUrl (url: Option<String>): Unit
+    func setArtistUrl(url: Option<String>): Unit
 
-    func getCommercialUrl (): Option<String>
+    func getCommercialUrl(): Option<String>
 
-    func setCommercialUrl (url: Option<String>): Unit
+    func setCommercialUrl(url: Option<String>): Unit
 
-    func getCopyrightUrl (): Option<String>
+    func getCopyrightUrl(): Option<String>
 
-    func setCopyrightUrl (url: Option<String>): Unit
+    func setCopyrightUrl(url: Option<String>): Unit
 
-    func getAudiofileUrl (): Option<String>
+    func getAudiofileUrl(): Option<String>
 
-    func setAudiofileUrl (url: Option<String>): Unit
+    func setAudiofileUrl(url: Option<String>): Unit
 
-    func getAudioSourceUrl (): Option<String>
+    func getAudioSourceUrl(): Option<String>
 
-    func setAudioSourceUrl (url: Option<String>): Unit
+    func setAudioSourceUrl(url: Option<String>): Unit
 
-    func getRadiostationUrl (): Option<String>
+    func getRadiostationUrl(): Option<String>
 
-    func setRadiostationUrl (url: Option<String>): Unit
+    func setRadiostationUrl(url: Option<String>): Unit
 
-    func getPaymentUrl (): Option<String>
+    func getPaymentUrl(): Option<String>
 
-    func setPaymentUrl (url: Option<String>): Unit
+    func setPaymentUrl(url: Option<String>): Unit
 
-    func getPublisherUrl (): Option<String>
+    func getPublisherUrl(): Option<String>
 
-    func setPublisherUrl (url: Option<String>): Unit
+    func setPublisherUrl(url: Option<String>): Unit
 
-    func getUrl (): Option<String>
+    func getUrl(): Option<String>
 
-    func setUrl (url: Option<String>): Unit
+    func setUrl(url: Option<String>): Unit
 
-    func clearFrameSet (id: String): Unit
+    func clearFrameSet(id: String): Unit
+
+    func getChapters(): Option<ArrayList<ID3v2ChapterFrameData>>
+
+    func setChapters(chapters: Option<ArrayList<ID3v2ChapterFrameData>>): Unit
+
+    func getChapterTOC(): Option<ArrayList<ID3v2ChapterTOCFrameData>>
+
+    func setChapterTOC(toc: Option<ArrayList<ID3v2ChapterTOCFrameData>>): Unit
+
+    func getWmpRating(): Int32
+
+    func setWmpRating(rating: Int32): Unit
+
+    func getAlbumImage(): Option<Array<Int8>>
+
+    func setAlbumImage(albumImage: Option<Array<Int8>>, mimeType: Option<String>): Unit
+
+    func setAlbumImage(albumImage: Option<Array<Int8>>, mimeType: Option<String>, imageType: Int8, 
+        imageDescription: Option<String>): Unit
+
+    func getAlbumImageMimeType(): Option<String>
+
+    func clearAlbumImage(): Unit
 }
+

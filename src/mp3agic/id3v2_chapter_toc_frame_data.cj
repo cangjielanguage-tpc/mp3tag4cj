@@ -1,4 +1,4 @@
-/*
+/* 
  * Copyright (c) Cangjie Library Team 2022-2022. All rights resvered.
  */
 
@@ -12,7 +12,7 @@ from std import collection.*
 from okio import okio.*
 from okio import nio.ByteBuffer
 
-public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
+public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData & Equatable<ID3v2ChapterTOCFrameData> {
     protected var isRoots: Bool = false
     protected var isOrdereds: Bool = false
     protected var id: Option<String> = Option<String>.None
@@ -21,7 +21,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is init constructor
-     *
+     * 
      * @param unsynchronisation of Bool
      * @since 0.33.3
      */
@@ -31,7 +31,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is init constructor
-     *
+     * 
      * @param unsynchronisation of Bool
      * @param isRoot of Bool
      * @param isOrdered of Bool
@@ -39,8 +39,13 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
      * @param children of Option<Array<String>>
      * @since 0.33.3
      */
-    public init(unsynchronisation: Bool, isRoot: Bool, isOrdered: Bool, id: Option<String>, 
-        children: Option<Array<String>>) {
+    public init(
+        unsynchronisation: Bool,
+        isRoot: Bool,
+        isOrdered: Bool,
+        id: Option<String>,
+        children: Option<Array<String>>
+    ) {
         super(unsynchronisation)
         this.isRoots = isRoot
         this.isOrdereds = isOrdered
@@ -50,7 +55,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is init constructor
-     *
+     * 
      * @param unsynchronisation of Bool
      * @param bytes of Array<Int8>
      * @since 0.33.3
@@ -60,11 +65,11 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
         synchroniseAndUnpackFrameData(bytes)
     }
 
-    /*
+    /* 
      * The Function is unpackFrameData
-     *
+     * 
      * @param bytes of Array<Int8>
-     *
+     * 
      * @return Type of Unit
      * @since 0.33.3
      */
@@ -101,10 +106,10 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is addSubframe
-     *
+     * 
      * @param id of String
      * @param frame of AbstractID3v2FrameData
-     *
+     * 
      * @return Type of Unit
      * @since 0.33.3
      */
@@ -112,9 +117,9 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
         subframes.getOrThrow().append(ID3v2Frame(id, frame.toBytes()))
     }
 
-    /*
+    /* 
      * The Function is packFrameData
-     *
+     * 
      * @return Type of Array<Int8>
      * @since 0.33.3
      */
@@ -140,9 +145,9 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
         return BufferTools.transUInt8ArrayToInt8(bb.array())
     }
 
-    /*
+    /* 
      * The Function is getFlags
-     *
+     * 
      * @return Type of Int8
      * @since 0.33.3
      */
@@ -159,7 +164,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is isRoot
-     *
+     * 
      * @return Type of Bool
      * @since 0.33.3
      */
@@ -169,9 +174,9 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is setRoot
-     *
+     * 
      * @param isRoot of Bool
-     *
+     * 
      * @return Type of Unit
      * @since 0.33.3
      */
@@ -181,7 +186,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is isOrdered
-     *
+     * 
      * @return Type of Bool
      * @since 0.33.3
      */
@@ -191,9 +196,9 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is setOrdered
-     *
+     * 
      * @param isOrdered of Bool
-     *
+     * 
      * @return Type of Unit
      * @since 0.33.3
      */
@@ -203,7 +208,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is getId
-     *
+     * 
      * @return Type of Option<String>
      * @since 0.33.3
      */
@@ -213,9 +218,9 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is setId
-     *
+     * 
      * @param id of Option<String>
-     *
+     * 
      * @return Type of Unit
      * @since 0.33.3
      */
@@ -225,7 +230,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is getChildren
-     *
+     * 
      * @return Type of Option<Array<String>>
      * @since 0.33.3
      */
@@ -235,9 +240,9 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is setChildren
-     *
+     * 
      * @param children of Option<Array<String>>
-     *
+     * 
      * @return Type of Unit
      * @since 0.33.3
      */
@@ -247,7 +252,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is getSubframes
-     *
+     * 
      * @return Type of Option<ArrayList<ID3v2Frame>>
      * @since 0.33.3
      */
@@ -257,9 +262,9 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is setSubframes
-     *
+     * 
      * @param subframes of Option<ArrayList<ID3v2Frame>>
-     *
+     * 
      * @return Type of Unit
      * @since 0.33.3
      */
@@ -269,7 +274,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is getLength
-     *
+     * 
      * @return Type of Int32
      * @since 0.33.3
      */
@@ -294,7 +299,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is toString
-     *
+     * 
      * @return Type of String
      * @since 0.33.3
      */
@@ -325,7 +330,7 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
 
     /**
      * The Function is hashCode
-     *
+     * 
      * @return Type of Int64
      * @since 0.33.3
      */
@@ -367,5 +372,35 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData {
             result = prime * result + Int32(subframesStr.hashCode())
         }
         return Int64(result)
+    }
+
+    /**
+     * The Function is ==
+     * 
+     * @param rhs of ID3v2CommentFrameData
+     * 
+     * @return Type of Bool
+     * @since 0.33.3
+     */
+    public operator func ==(rhs: ID3v2ChapterTOCFrameData): Bool {
+        return match (rhs as ID3v2ChapterTOCFrameData) {
+            case Some(x) => refEq(this, x)
+            case None => false
+        }
+    }
+
+    /**
+     * The Function is !=
+     * 
+     * @param rhs of ID3v2CommentFrameData
+     * 
+     * @return Type of Bool
+     * @since 0.33.3
+     */
+    public operator func !=(rhs: ID3v2ChapterTOCFrameData): Bool {
+        return match (rhs as ID3v2ChapterTOCFrameData) {
+            case Some(x) => !refEq(this, x)
+            case None => false
+        }
     }
 }

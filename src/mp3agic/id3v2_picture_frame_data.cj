@@ -15,7 +15,7 @@ from std import collection.*
  * The class is ID3v2PictureFrameData inherited from AbstractID3v2FrameData
  * @since 0.33.3
  */
-public open class ID3v2PictureFrameData <: AbstractID3v2FrameData {
+public open class ID3v2PictureFrameData <: AbstractID3v2FrameData & Equatable<ID3v2PictureFrameData> {
     protected var mimeType: Option<String> = Option<String>.None
     protected var pictureType: Int8 = 0
     protected var description: Option<EncodedText> = Option<EncodedText>.None
@@ -63,8 +63,13 @@ public open class ID3v2PictureFrameData <: AbstractID3v2FrameData {
      * @param imageData of Option<Array<Int8>> Byte data of picture
      * @since 0.33.3
      */
-    public init(unsynchronisation: Bool, mimeType: Option<String>, pictureType: Int8, 
-        description: Option<EncodedText>, imageData: Option<Array<Int8>>) {
+    public init(
+        unsynchronisation: Bool,
+        mimeType: Option<String>,
+        pictureType: Int8,
+        description: Option<EncodedText>,
+        imageData: Option<Array<Int8>>
+    ) {
         super(unsynchronisation)
         this.mimeType = mimeType
         this.pictureType = pictureType
@@ -302,4 +307,35 @@ public open class ID3v2PictureFrameData <: AbstractID3v2FrameData {
         result = prime * result + Int32(pictureType)
         return Int64(result)
     }
+
+    /**
+     * The Function is ==
+     * 
+     * @param rhs of ID3v2CommentFrameData
+     * 
+     * @return Type of Bool
+     * @since 0.33.3
+     */
+    public operator func ==(rhs: ID3v2PictureFrameData): Bool {
+        return match (rhs as ID3v2PictureFrameData) {
+            case Some(x) => refEq(this, x)
+            case None => false
+        }
+    }
+
+    /**
+     * The Function is !=
+     * 
+     * @param rhs of ID3v2CommentFrameData
+     * 
+     * @return Type of Bool
+     * @since 0.33.3
+     */
+    public operator func !=(rhs: ID3v2PictureFrameData): Bool {
+        return match (rhs as ID3v2PictureFrameData) {
+            case Some(x) => !refEq(this, x)
+            case None => false
+        }
+    }
 }
+

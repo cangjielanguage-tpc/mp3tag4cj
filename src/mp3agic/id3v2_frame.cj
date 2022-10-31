@@ -28,7 +28,7 @@ public open class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
     private static let UNSYNCHRONISATION_BIT: Int32 = 1
     private static let DATA_LENGTH_INDICATOR_BIT: Int32 = 0
 
-    protected var id: String = ""
+    public var id: String = ""
     protected var dataLength: Int32 = 0
     protected var data: Array<Int8> = Array<Int8>()
     private var preserveTag: Bool = false

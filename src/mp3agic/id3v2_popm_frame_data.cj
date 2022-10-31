@@ -3,7 +3,7 @@ package mp3agic
 from std import io.*
 from std import collection.*
 
-public class ID3v2PopmFrameData <: AbstractID3v2FrameData {
+public class ID3v2PopmFrameData <: AbstractID3v2FrameData & Equatable<ID3v2PopmFrameData> {
     protected static let WMP9_ADDRESS: Option<String> = "Windows Media Player 9 Series"
     protected var address: Option<String> = Option<String>.Some("")
     protected var rating: Int32 = -1
@@ -62,6 +62,7 @@ public class ID3v2PopmFrameData <: AbstractID3v2FrameData {
     public func getLength(): Int32 {
         return Int32(address.getOrThrow().size + 2)
     }
+
     @overflowWrapping
     public override func hashCode(): Int64 {
         let prime: Int32 = 31
@@ -74,4 +75,35 @@ public class ID3v2PopmFrameData <: AbstractID3v2FrameData {
         result = prime * result + rating
         return Int64(result)
     }
+
+    /**
+     * The Function is ==
+     * 
+     * @param rhs of ID3v2CommentFrameData
+     * 
+     * @return Type of Bool
+     * @since 0.33.3
+     */
+    public operator func ==(rhs: ID3v2PopmFrameData): Bool {
+        return match (rhs as ID3v2PopmFrameData) {
+            case Some(x) => refEq(this, x)
+            case None => false
+        }
+    }
+
+    /**
+     * The Function is !=
+     * 
+     * @param rhs of ID3v2CommentFrameData
+     * 
+     * @return Type of Bool
+     * @since 0.33.3
+     */
+    public operator func !=(rhs: ID3v2PopmFrameData): Bool {
+        return match (rhs as ID3v2PopmFrameData) {
+            case Some(x) => !refEq(this, x)
+            case None => false
+        }
+    }
 }
+
