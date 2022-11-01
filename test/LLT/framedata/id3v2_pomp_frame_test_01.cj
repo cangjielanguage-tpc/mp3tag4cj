@@ -26,22 +26,22 @@ main() {
     69, 82, 0, 0, 0, 5, 0, 0, 0, 50, 48, 48, 49, 87, 88, 88, 88, 0, 0, 0, 33, 0, 0, 0, 0, 85, 82, 76, 50, 51, 52, 53, 54,
     55, 56, 57, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57]
     var mp3File: Mp3File = Mp3File("../../../../test/LLT/framedata/testfiles/v23tagwithwmprating.mp3")
-	var id3v2Tag: ID3v2 = mp3File.getId3v2Tag().getOrThrow()
-	var wmpRating: Int32 = id3v2Tag.getWmpRating()
-	if (wmpRating != 3) {
-	    return 1
-	}
-	id3v2Tag.setWmpRating(5)  //0~5
-	mp3File.save("../../../../test/LLT/framedata/testfiles/save_v23tagwithwmprating.mp3")
+    var id3v2Tag: ID3v2 = mp3File.getId3v2Tag().getOrThrow()
+    var wmpRating: Int32 = id3v2Tag.getWmpRating()
+    if (wmpRating != 3) {
+        return 1
+    }
+    id3v2Tag.setWmpRating(5)  //0~5
+    mp3File.save("../../../../test/LLT/framedata/testfiles/save_v23tagwithwmprating.mp3")
     var mp3FileSave: Mp3File = Mp3File("../../../../test/LLT/framedata/testfiles/save_v23tagwithwmprating.mp3")
-	var id3v2TagSave: ID3v2 = mp3FileSave.getId3v2Tag().getOrThrow()
-	wmpRating = id3v2Tag.getWmpRating()
-	if (wmpRating != 5) {
-	    return 1
-	}
-	if (id3v2TagSave.toBytes() != expBuffer) {
-	    return 1
-	}
+    var id3v2TagSave: ID3v2 = mp3FileSave.getId3v2Tag().getOrThrow()
+    wmpRating = id3v2Tag.getWmpRating()
+    if (wmpRating != 5) {
+        return 1
+    }
+    if (id3v2TagSave.toBytes() != expBuffer) {
+        return 1
+    }
     0
 }
 
