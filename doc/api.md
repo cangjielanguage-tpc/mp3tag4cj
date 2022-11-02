@@ -83,10 +83,10 @@ public init (file: FileInfo, bufferLength: Int32, scanFile: Bool)
  */
 #public func hasId3v1Tag (): Bool
 
-# 转测 public func getId3v2Tag(): Option<ID3v2>
-# 转测 public func setId3v2Tag(id3v2Tag: Option<ID3v2>): Unit
-# 转测 public func removeId3v2Tag(): Unit
-# 转测 public func hasId3v2Tag(): Bool
+# public func getId3v2Tag(): Option<ID3v2>
+# public func setId3v2Tag(id3v2Tag: Option<ID3v2>): Unit
+# public func removeId3v2Tag(): Unit
+# public func hasId3v2Tag(): Bool
 
 # public func hasCustomTag(): Bool
 # public func getCustomTag (): Option<Array<Int8>>
@@ -519,96 +519,96 @@ public init (bytes: Array<Int8>, obseleteFormat: Bool)
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getComment (): Option<String>
-# 转测 public open func setComment (comment: Option<String>): Unit
+# public open func getComment (): Option<String>
+# public open func setComment (comment: Option<String>): Unit
 /**
  * COMM or COM 标识且内容包含engiTunNORM的标签帧对应的数据
  * 
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getItunesComment (): Option<String>
-# 转测 public open func setItunesComment (itunesComment: Option<String>): Unit
+# public open func getItunesComment (): Option<String>
+# public open func setItunesComment (itunesComment: Option<String>): Unit
 /**
  * 获取USLT标识对应的，eng后的内容数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getLyrics (): Option<String>
-# 转测 public open func setLyrics (lyrics: Option<String>): Unit
+# public open func getLyrics (): Option<String>
+# public open func setLyrics (lyrics: Option<String>): Unit
 /**
  * 获取WOAR标识对应的数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getArtistUrl (): Option<String>
-# 转测 public open func setArtistUrl (url: Option<String>): Unit
+# public open func getArtistUrl (): Option<String>
+# public open func setArtistUrl (url: Option<String>): Unit
 /**
  * 获取WCOM标识对应的数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getCommercialUrl (): Option<String>
-# 转测 public open func setCommercialUrl (url: Option<String>): Unit
+# public open func getCommercialUrl (): Option<String>
+# public open func setCommercialUrl (url: Option<String>): Unit
 /**
  * 获取WCOP标识对应的数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getCopyrightUrl (): Option<String>
-# 转测 public open func setCopyrightUrl (url: Option<String>): Unit
+# public open func getCopyrightUrl (): Option<String>
+# public open func setCopyrightUrl (url: Option<String>): Unit
 /**
  * 获取WOAF标识对应的数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getAudiofileUrl (): Option<String>
-# 转测 public open func setAudiofileUrl (url: Option<String>): Unit
+# public open func getAudiofileUrl (): Option<String>
+# public open func setAudiofileUrl (url: Option<String>): Unit
 /**
  * 获取WOAS标识对应的数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getAudioSourceUrl (): Option<String>
-# 转测 public open func setAudioSourceUrl (url: Option<String>): Unit
+# public open func getAudioSourceUrl (): Option<String>
+# public open func setAudioSourceUrl (url: Option<String>): Unit
 /**
  * 获取WORS标识对应的数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getRadiostationUrl (): Option<String>
-# 转测 public open func setRadiostationUrl (url: Option<String>): Unit
+# public open func getRadiostationUrl (): Option<String>
+# public open func setRadiostationUrl (url: Option<String>): Unit
 /**
  * 获取WPAY标识对应的数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getPaymentUrl (): Option<String>
-# 转测 public open func setPaymentUrl (url: Option<String>): Unit
+# public open func getPaymentUrl (): Option<String>
+# public open func setPaymentUrl (url: Option<String>): Unit
 /**
  * 获取WPUB标识对应的数据，无ob标识
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getPublisherUrl (): Option<String>
-# 转测 public open func setPublisherUrl (url: Option<String>): Unit
+# public open func getPublisherUrl (): Option<String>
+# public open func setPublisherUrl (url: Option<String>): Unit
 /**
  * WXXX or WXX 标识对应的数据
  *
  * @return Type of Option<String>
  * @since 0.33.3
  */
-# 转测 public open func getUrl (): Option<String>
-# 转测 public open func setUrl (url: Option<String>): Unit
+# public open func getUrl (): Option<String>
+# public open func setUrl (url: Option<String>): Unit
 /**
  * 移除指定标识的标签帧
  *
@@ -617,7 +617,106 @@ public init (bytes: Array<Int8>, obseleteFormat: Bool)
  * @return Type of Unit
  * @since 0.33.3
  */
-# 转测 public open func clearFrameSet (id: String): Unit
+# public open func clearFrameSet (id: String): Unit
+
+/**
+ * 获得APIC标识中的图片数据.
+ *
+ * @return Type of Option<Array<Int8>>
+ * @since 0.33.3
+ */
+# 转测 public open func getAlbumImage(): Option<Array<Int8>>
+/**
+ * 获得APIC标识中的MimeType数据，一般为image/png, image/jpeg.
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
+# 转测 public open func getAlbumImageMimeType(): Option<String>
+/**
+ * 设置APIC标识中的数据
+ *
+ * @param albumImage of Option<Array<Int8>> 图片的字节数据
+ * @param mimeType of Option<String>，一般设置为image/png, image/jpeg
+ *
+ * @return Type of Unit
+ * @since 0.33.3
+ */
+# 转测 public open func setAlbumImage(albumImage: Option<Array<Int8>>, mimeType: Option<String>): Unit
+/**
+ * 设置APIC标识中的数据
+ *
+ * @param albumImage of Option<Array<Int8>> 图片的字节数据
+ * @param mimeType of Option<String> 一般设置为image/png, image/jpeg
+ * @param imageType of Int8 下面是图片类型数据的含义
+ * Picture type: 
+ * $00  Other
+ * $01  32x32 pixels 'file icon' (PNG only)
+ * $02  Other file icon
+ * $03  Cover (front)
+ * $04  Cover (back)
+ * $05  Leaflet page
+ * $06  Media (e.g. label side of CD)
+ * $07  Lead artist/lead performer/soloist
+ * $08  Artist/performer
+ * $09  Conductor
+ * $0A  Band/Orchestra
+ * $0B  Composer
+ * $0C  Lyricist/text writer
+ * $0D  Recording Location
+ * $0E  During recording
+ * $0F  During performance
+ * $10  Movie/video screen capture
+ * $11  A bright coloured fish
+ * $12  Illustration
+ * $13  Band/artist logotype
+ * $14  Publisher/Studio logotype
+ * @param imageDescription of Option<String> 为图片提供简单描述
+ *
+ * @return Type of Unit
+ * @since 0.33.3
+ */
+# 转测 public open func setAlbumImage(albumImage: Option<Array<Int8>>, mimeType: Option<String>, imageType: Int8, imageDescription: Option<String>): Unit
+
+/**
+ * 得到CHAP标识数据，ID3v2ChapterFrameData为一个集合。参考ID3v2ChapterFrameData 提供的api。
+ *
+ * @return Type of Option<ArrayList<ID3v2ChapterFrameData>>
+ * @since 0.33.3
+ */
+# 转测 public open func getChapters(): Option<ArrayList<ID3v2ChapterFrameData>>
+# 转测 public open func setChapters(chapters: Option<ArrayList<ID3v2ChapterFrameData>>): Unit
+
+/**
+ * 得到CTOC标识数据，ID3v2ChapterFrameData为一个集合。参考ID3v2ChapterTOCFrameData提供的api。
+ * 
+ * @return Type of Option<ArrayList<ID3v2ChapterTOCFrameData>>
+ * @since 0.33.3
+ */
+# 转测 public open func getChapterTOC(): Option<ArrayList<ID3v2ChapterTOCFrameData>> 
+# 转测 public open func setChapterTOC(toc: Option<ArrayList<ID3v2ChapterTOCFrameData>>): Unit
+
+/**
+ * 得到POPM标识数据
+ *
+ * @return Type of Int32
+ * @since 0.33.3
+ */
+# 转测 public open func getWmpRating(): Int32
+/**
+ * 设置POPM标识数据, 有效值[0,5] 
+ *
+ * @param rating of Int32
+ *
+ * @return Type of Unit
+ * @since 0.33.3
+ */
+# 转测 public open func setWmpRating(rating: Int32): Unit
+
+# 转测 public open func clearAlbumImage(): Unit
+
+
+
 ```
 
 #### class ID3v22Tag <: AbstractID3v2Tag
@@ -860,6 +959,51 @@ public init (unsynchronisation: Bool, text: EncodedText)
 public init (unsynchronisation: Bool, bytes: Array<Int8>)
 public func getText (): Option<EncodedText>
 public func setText (text: EncodedText): Unit
+```
+
+#### class ID3v2ChapterFrameData
+
+```
+转测 public init(unsynchronisation: Bool)
+转测 public init(unsynchronisation: Bool, isRoot: Bool, isOrdered: Bool, id: Option<String>, children: Option<Array<String>>)
+转测 public init(unsynchronisation: Bool, bytes: Array<Int8>)
+转测 public func addSubframe(id: String, frame: AbstractID3v2FrameData): Unit
+转测 public func getId(): Option<String>
+转测 public func setId(id: String): Unit
+转测 public func getStartTime(): Int32
+转测 public func setStartTime(startTime: Int32): Unit
+转测 public func getEndTime(): Int32
+转测 public func setEndTime(endTime: Int32): Unit
+转测 public func getStartOffset(): Int32
+转测 public func setStartOffset(startOffset: Int32): Unit
+转测 public func getEndOffset(): Int32
+转测 public func setEndOffset(endOffset: Int32): Unit
+转测 public func getSubframes(): Option<ArrayList<ID3v2Frame>>
+转测 public func setSubframes(subframes: Option<ArrayList<ID3v2Frame>>): Unit
+转测 public func getLength(): Int32
+转测 public func toString(): String
+```
+
+#### class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData
+
+```
+转测 public init(unsynchronisation: Bool)
+转测 public init(unsynchronisation: Bool, isRoot: Bool, isOrdered: Bool, id: Option<String>, children: Option<Array<String>>)
+转测 public init(unsynchronisation: Bool, bytes: Array<Int8>)
+转测 public func addSubframe(id: String, frame: AbstractID3v2FrameData): Unit
+转测 public func isRoot(): Bool
+转测 public func setRoot(isRoot: Bool): Unit
+转测 public func isOrdered(): Bool
+转测 public func setOrdered(isOrdered: Bool): Unit
+转测 public func getId(): Option<String>
+转测 public func setId(id: Option<String>): Unit
+转测 public func getChildren(): Option<Array<String>>
+转测 public func setChildren(children: Option<Array<String>>): Unit
+转测 public func getSubframes(): Option<ArrayList<ID3v2Frame>>
+转测 public func setSubframes(subframes: Option<ArrayList<ID3v2Frame>>): Unit
+转测 public func getLength(): Int32
+转测 public func toString(): String
+
 ```
 
 #### class EncodedText

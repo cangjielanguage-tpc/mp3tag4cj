@@ -1,9 +1,9 @@
 {
-  "cjc_version": "0.33.3",
+  "cjc_version": "0.34.3",
   "organization": "mp3agic",
   "name": "mp3agic",
   "description": "nothing here",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "requires": {},
   "package_requires": {
     "charset/charset_charset.encoding": "./ci_lib/charset/charset.encoding.cjo",
