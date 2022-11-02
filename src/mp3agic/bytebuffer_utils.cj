@@ -10,7 +10,8 @@ public class ByteBufferUtils {
         var start: Int64 = bb.position()
         var buffer: Array<UInt8> = Array<UInt8>(bb.remaining(), {i => 0})
         bb.get(buffer)
-        var s: String = String.fromUtf8(buffer)
+        var s: String
+        unsafe { s = String.fromUtf8Unchecked(buffer) }
         var nullPos: Option<Int64> = s.indexOf(Char(0))
         s = s.substring(0, nullPos.getOrDefault({ => -1}))
         bb.position(start + s.size + 1)

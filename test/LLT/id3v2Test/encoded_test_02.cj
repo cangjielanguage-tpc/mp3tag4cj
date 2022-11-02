@@ -95,5 +95,45 @@ main() {
     if (w3 == w4) {
         return 1
     }
+    var pm1: ID3v2PopmFrameData = ID3v2PopmFrameData(false, 0)
+    var pm2 = pm1
+    if (pm1 != pm2) {
+        return 1
+    }
+    var pm3: ID3v2PopmFrameData = ID3v2PopmFrameData(false, 0)
+    var pm4: ID3v2PopmFrameData = ID3v2PopmFrameData(false, 0)
+    if (pm3 == pm4) {
+        return 1
+    }
+    var p1: ID3v2PictureFrameData = ID3v2PictureFrameData(false)
+    var p2 = p1
+    if (p1 != p2) {
+        return 1
+    }
+    var p3: ID3v2PictureFrameData = ID3v2PictureFrameData(false)
+    var p4: ID3v2PictureFrameData = ID3v2PictureFrameData(false)
+    if (p3 == p4) {
+        return 1
+    }
+    var u1: ID3v2UrlFrameData = ID3v2UrlFrameData(false)
+    var u2 = u1
+    if (u1 != u2) {
+        return 1
+    }
+    var u3: ID3v2UrlFrameData = ID3v2UrlFrameData(false)
+    var u4: ID3v2UrlFrameData = ID3v2UrlFrameData(false)
+    if (u3 == u4) {
+        return 1
+    }
+    var co1: ID3v2CommentFrameData = ID3v2CommentFrameData(false)
+    var co2 = co1
+    if (co1 != co2) {
+        return 1
+    }
+    var co3: ID3v2CommentFrameData = ID3v2CommentFrameData(false)
+    var co4: ID3v2CommentFrameData = ID3v2CommentFrameData(false)
+    if (co3 == co4) {
+        return 1
+    }
     0
 }

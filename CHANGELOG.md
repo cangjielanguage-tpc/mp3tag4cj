@@ -11,6 +11,7 @@
 ## 0.0.3
 - 添加ID3v2标签urlFrame，wwwFrame,commentFrame类型
 ## 0.0.4
+- 適配cjc 0.34.3
 - 添加ID3v2标签API
 - getComment (): Option<String>
 - setComment (comment: Option<String>): Unit
