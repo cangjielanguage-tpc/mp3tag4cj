@@ -17,18 +17,18 @@ public class Mp3agic_FileWrapper {
     func mp3agicFileWrapper(): Unit {
         var path: String = getcwd()
         println(path)
-        let fileWrapper: FileWrapper = FileWrapper("../../mp3agic_idv1/v1tag.mp3") //正确的构造
+        let fileWrapper: FileWrapper = FileWrapper("v1tag.mp3") //正确的构造
         @Assert(fileWrapper.getLength(),2997)
 
         try {
-            let fileWrapper: FileWrapper = FileWrapper("../../mp3agic_idv1/v1ta.mp3") //错误的路径构造
+            let fileWrapper: FileWrapper = FileWrapper("v1ta.mp3") //错误的路径构造
         } catch (e: Exception) {
             @Assert(e.toString(),"FSException: The `path` is invalid!")
         }
         try {
             let fileWrapper: FileWrapper = FileWrapper("") //空路径构造
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `rawPath` cannot be an empty string!")
+            @Assert(e.toString(),"FSException: The `path` is invalid!")
         }
     }
 }

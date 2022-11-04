@@ -12,7 +12,7 @@ from std import fs.*
 public class mp3agic_FileInfo_003 {
     @TestCase
     func mp3agic_FileInfo_003(): Unit {
-        var file13 = FileInfo("../../mp3agic_idv1/v1tag.mp3") //设置全部标签内容
+        var file13 = FileInfo("v1tag.mp3") //设置全部标签内容
         var file14 = Mp3File(file13, 300, true)
         var id3v1: ID3v1Tag = ID3v1Tag()
         id3v1.setTrack(Option<String>.Some(""))
@@ -33,7 +33,7 @@ public class mp3agic_FileInfo_003 {
         @Assert(ID3V103.getGenre().toString(),"Some(20)")
         @Assert(ID3V103.getComment().toString(),"Some(NEWCOMMENT123456)")
 
-        var file16 = FileInfo("../../mp3agic_idv1/v1tag.mp3") //设置部分标签内容
+        var file16 = FileInfo("v1tag.mp3") //设置部分标签内容
         var file17 = Mp3File(file16, 300, true)
         var id3v10: ID3v1Tag = ID3v1Tag()
         id3v10.setTrack(Option<String>.Some(""))
@@ -52,7 +52,7 @@ public class mp3agic_FileInfo_003 {
         @Assert(ID3V4.getGenre().toString(),"Some(20)")
         @Assert(ID3V4.getComment().toString(),"Some(NEWCOMMENT123456)")
 
-        var file23 = FileInfo("../../mp3agic_idv1/v1tag.mp3") //移除标签
+        var file23 = FileInfo("v1tag.mp3") //移除标签
         var file24 = Mp3File(file23, 300, true)
         var ID3V6 = file24.getId3v1Tag().getOrThrow()
         file24.removeId3v1Tag()

@@ -13,7 +13,7 @@ from charset import charset.encoding.*
 public class Mp3agic_Filename_001 {
     @TestCase
     func filEname_001(): Unit {
-        var mp3file: Mp3File = Mp3File("../../mp3agic_mpeg/dummyframes.mp3") //不同的文件
+        var mp3file: Mp3File = Mp3File("dummyframes.mp3") //不同的文件
         @Assert(mp3file.getVersion(),"1.0")
         @Assert(mp3file.getLayer(),"III")
         @Assert(mp3file.getSampleRate(),44100)
@@ -23,7 +23,7 @@ public class Mp3agic_Filename_001 {
         @Assert(mp3file.isOriginal(),true)
         @Assert(mp3file.getEmphasis(),"None")
 
-        var mp3file1: Mp3File = Mp3File("../../mp3agic_mpeg/luomanshi.mp3")
+        var mp3file1: Mp3File = Mp3File("luomanshi.mp3")
         @Assert(mp3file1.getVersion(),"1.0")
         @Assert(mp3file1.getLayer(),"III")
         @Assert(mp3file1.getSampleRate(),44100)
@@ -34,7 +34,7 @@ public class Mp3agic_Filename_001 {
         @Assert(mp3file1.getEmphasis(),"None")
 
         try {
-            var mp3file2: Mp3File = Mp3File("../../mp3agic_mpeg/notanmp3.mp3") //没有音频的文件 
+            var mp3file2: Mp3File = Mp3File("notanmp3.mp3") //没有音频的文件 
             @Assert(mp3file2.getVersion(),"No mpegs frames found")
             @Assert(mp3file2.getLayer(),"III")
             @Assert(mp3file2.getSampleRate(),44100)
@@ -46,7 +46,7 @@ public class Mp3agic_Filename_001 {
         } catch (e: Exception) {
             @Assert(e.toString(),"Exception: No mpegs frames found")
         }
-        var mp3file3: Mp3File = Mp3File("../../mp3agic_mpeg/obsolete-noimage.mp3")
+        var mp3file3: Mp3File = Mp3File("obsolete-noimage.mp3")
         @Assert(mp3file3.getVersion(),"1.0")
         @Assert(mp3file3.getLayer(),"III")
         @Assert(mp3file3.getSampleRate(),44100)
