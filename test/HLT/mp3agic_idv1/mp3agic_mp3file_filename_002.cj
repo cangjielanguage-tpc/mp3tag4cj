@@ -11,7 +11,7 @@ from std import io.*
 public class Mp3agic_Filename_002 {
     @TestCase
     func mp3agic_Filename_002(): Unit {
-        var mp3File06: Mp3File = Mp3File("../../mp3agic_idv1/v1tag.mp3", true) //正确的路径进行文件扫描      
+        var mp3File06: Mp3File = Mp3File("v1tag.mp3", true) //正确的路径进行文件扫描      
         var ID3V106 = mp3File06.getId3v1Tag().getOrThrow()
         @Assert(mp3File06.hasId3v1Tag().toString(),"true")
         @Assert(ID3V106.getVersion(),"1")
@@ -24,7 +24,7 @@ public class Mp3agic_Filename_002 {
         @Assert(ID3V106.getGenre().toString(),"Some(13)")
         @Assert(ID3V106.getGenreDescription(),"Pop")
 
-        var mp3File07: Mp3File = Mp3File("../../mp3agic_idv1/v1tag.mp3", false) //正确的路径不进行文件扫描      
+        var mp3File07: Mp3File = Mp3File("v1tag.mp3", false) //正确的路径不进行文件扫描      
         var ID3V107 = mp3File07.getId3v1Tag().getOrThrow()
         @Assert(mp3File07.hasId3v1Tag().toString(),"true")
         @Assert(ID3V107.getVersion(),"1")

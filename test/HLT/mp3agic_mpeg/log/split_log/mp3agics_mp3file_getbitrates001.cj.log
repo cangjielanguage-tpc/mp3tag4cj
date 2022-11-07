@@ -1,0 +1,18 @@
+[2022-11-04 11:22:24,417] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/build/mp3agic']
+[2022-11-04 11:22:24,417] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/ci_lib/charset']
+[2022-11-04 11:22:24,418] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/ci_lib/okio']
+[2022-11-04 11:22:24,418] [INFO] ************************Start to run case file: mp3agics_mp3file_getbitrates001.cj************************
+[2022-11-04 11:22:24,418] [INFO] Start to copy data files
+[2022-11-04 11:22:24,418] [INFO] copy ./dummyframes.mp3 to tmp/./dummyframes.mp3
+[2022-11-04 11:22:24,418] [INFO] copy ./notags.mp3 to tmp/./notags.mp3
+[2022-11-04 11:22:24,418] [INFO] copy ./notanmp3.mp3 to tmp/./notanmp3.mp3
+[2022-11-04 11:22:24,418] [INFO] [Run CMD]cjc --import-path /home/jwb/project/mp3agic/build/mp3agic/.. -L /home/jwb/project/mp3agic/build/mp3agic -l mp3agic_mp3agic  --import-path /home/jwb/project/mp3agic/ci_lib/charset/.. -L /home/jwb/project/mp3agic/ci_lib/charset -l charset_charset.encoding -l charset_charset.simplechinese -l charset_charset.singlebyte -l charset_charset.korean -l charset_charset -l charset_charset.japanese -l charset_charset.unicode -l charset_charset.traditionchinese  --import-path /home/jwb/project/mp3agic/ci_lib/okio/.. -L /home/jwb/project/mp3agic/ci_lib/okio -l okio_okio -l okio_nio   mp3agics_mp3file_getbitrates001.cj  -o tmp/mp3agics_mp3file_getbitrates001.cj.out --test
+[2022-11-04 11:22:27,721] [INFO] [Run CMD]cd tmp;./mp3agics_mp3file_getbitrates001.cj.out  
+[2022-11-04 11:22:27,737] [INFO] --------------------------------------------------------------------------------------------------
+[2022-11-04 11:22:27,737] [INFO] TP: [33mdefault[0m, time elapsed: 6841296 ns, Result:
+[2022-11-04 11:22:27,737] [INFO]     TCS: [33mMp3agic_Getbitrate[0m, time elapsed: 6840365 ns, RESULT:
+[2022-11-04 11:22:27,737] [INFO]     [[32m PASSED [0m] CASE: getBitrate (6835497 ns)
+[2022-11-04 11:22:27,737] [INFO] Summary: TOTAL: 1
+[2022-11-04 11:22:27,737] [INFO]     [32mPASSED[0m: 1, [32mSKIPPED[0m: 0, ERROR: 0
+[2022-11-04 11:22:27,737] [INFO]     [31mFAILED[0m: 0
+[2022-11-04 11:22:27,737] [INFO] --------------------------------------------------------------------------------------------------

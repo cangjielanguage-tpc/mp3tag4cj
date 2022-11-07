@@ -13,7 +13,7 @@ from charset import charset.encoding.*
 public class Mp3agic_Getbitrate {
     @TestCase
     func getBitrate(): Unit {
-        var mp3file: Mp3File = Mp3File("../../mp3agic_mpeg/dummyframes.mp3") //获取有xing-header并有标签偏移量                  
+        var mp3file: Mp3File = Mp3File("dummyframes.mp3") //获取有xing-header并有标签偏移量                  
 
         //for ( (key, val) in mp3file.getBitrates()){                        
         //println("key ==> ${key}")
@@ -30,7 +30,7 @@ public class Mp3agic_Getbitrate {
         @Assert(mp3file.getFrameCount(),6)
         @Assert(mp3file.getBitrate(),125)
 
-        var mp3file1: Mp3File = Mp3File("../../mp3agic_mpeg/notags.mp3") //获取有xing-header没有标签偏移量
+        var mp3file1: Mp3File = Mp3File("notags.mp3") //获取有xing-header没有标签偏移量
 
         //for ( (key1, val1) in mp3file1.getBitrates()){                         
         //println("key ==> ${key1}")
@@ -48,7 +48,7 @@ public class Mp3agic_Getbitrate {
         @Assert(mp3file1.getBitrate(),125)
 
         try {
-            var mp3file2: Mp3File = Mp3File("../../mp3agic_mpeg/notanmp3.mp3") //没有xing-header没有音频标签          
+            var mp3file2: Mp3File = Mp3File("notanmp3.mp3") //没有xing-header没有音频标签          
 
             //for ( (key2, val2) in mp3file2.getBitrates()){                         
             //println("key ==> ${key2}")

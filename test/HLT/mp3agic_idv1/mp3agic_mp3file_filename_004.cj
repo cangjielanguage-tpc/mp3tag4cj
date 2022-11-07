@@ -11,13 +11,13 @@ from std import io.*
 public class Mp3agic_Filename_004 {
     @TestCase
     func mp3agic_Filename_004(): Unit {
-        var mp3File010: Mp3File = Mp3File("../../mp3agic_idv1/v1tag.mp3", 300, false) //移除ID3V1标签    
+        var mp3File010: Mp3File = Mp3File("v1tag.mp3", 300, false) //移除ID3V1标签    
         var ID3V10 = mp3File010.getId3v1Tag().getOrThrow()
         mp3File010.removeId3v1Tag()
         var biaoqian10 = mp3File010.hasId3v1Tag()
         @Assert(biaoqian10,false)
 
-        var mp3File011: Mp3File = Mp3File("../../mp3agic_idv1/v1tag.mp3", 300, false) //设置全部ID3V1标签
+        var mp3File011: Mp3File = Mp3File("v1tag.mp3", 300, false) //设置全部ID3V1标签
         var ID3V111 = mp3File011.getId3v1Tag().getOrThrow()
         var id3v1: ID3v1Tag = ID3v1Tag()
         id3v1.setTrack(Option<String>.Some(""))
@@ -32,7 +32,7 @@ public class Mp3agic_Filename_004 {
         @Assert(ID3V112.getYear(),"19940821")
         @Assert(ID3V112.getArtist(),"NEWARTIST12345678901234567890")
 
-        var mp3File012: Mp3File = Mp3File("../../mp3agic_idv1/v1tag.mp3", 300, false) //设置部分ID3V1标签
+        var mp3File012: Mp3File = Mp3File("v1tag.mp3", 300, false) //设置部分ID3V1标签
         var ID3V13 = mp3File012.getId3v1Tag().getOrThrow()
         var id3v101: ID3v1Tag = ID3v1Tag()
         id3v101.setTrack(Option<String>.Some(""))

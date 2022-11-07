@@ -16,12 +16,12 @@ from std import fs.*
 public class Mp3agic_FileInfo {
     @TestCase
     func mp3agic_FileInfo(): Unit {
-        var file = FileInfo("../../mp3agic_idv1/v1tag.mp3") //fileinfo正确路径构造                       
+        var file = FileInfo("v1tag.mp3")    //fileinfo正确路径构造                       
         let fileWrapper1: FileWrapper = FileWrapper(file)
         @Assert(fileWrapper1.getLength(),2997)
 
         try { //fileinfo错误路径构造             
-            var file = FileInfo("../../mp3agic_idv1/v1ta.mp3")
+            var file = FileInfo("v1ta.mp3")
             let fileWrapper: FileWrapper = FileWrapper(file)
             @Assert(fileWrapper.getLength(),2997)
         } catch (e: Exception) {
@@ -32,7 +32,7 @@ public class Mp3agic_FileInfo {
             let fileWrapper3: FileWrapper = FileWrapper(file)
             @Assert(fileWrapper3.getLength(),2997)
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `rawPath` cannot be an empty string!")
+            @Assert(e.toString(),"FSException: The `path` is invalid!")
         }
     }
 }

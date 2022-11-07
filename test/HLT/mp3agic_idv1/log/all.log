@@ -1,16 +1,16 @@
-[2022-11-01 15:26:01,224] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/build/mp3agic']
-[2022-11-01 15:26:01,225] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/ci_lib/charset']
-[2022-11-01 15:26:01,225] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/ci_lib/okio']
-[2022-11-01 15:26:01,225] [INFO] ************************Start to run case file: mp3agic_fileinfo.cj************************
-[2022-11-01 15:26:01,225] [INFO] Start to copy data files
-[2022-11-01 15:26:01,225] [INFO] copy ./v1tag.mp3 to tmp/./v1tag.mp3
-[2022-11-01 15:26:01,225] [INFO] [Run CMD]cjc --import-path /home/jwb/project/mp3agic/build/mp3agic/.. -L /home/jwb/project/mp3agic/build/mp3agic -l mp3agic_mp3agic  --import-path /home/jwb/project/mp3agic/ci_lib/charset/.. -L /home/jwb/project/mp3agic/ci_lib/charset -l charset_charset.encoding -l charset_charset.simplechinese -l charset_charset.singlebyte -l charset_charset.korean -l charset_charset -l charset_charset.japanese -l charset_charset.unicode -l charset_charset.traditionchinese  --import-path /home/jwb/project/mp3agic/ci_lib/okio/.. -L /home/jwb/project/mp3agic/ci_lib/okio -l okio_okio -l okio_nio   mp3agic_fileinfo.cj  -o tmp/mp3agic_fileinfo.cj.out --test
-[2022-11-01 15:26:04,388] [INFO] [Run CMD]cd tmp;./mp3agic_fileinfo.cj.out  
-[2022-11-01 15:26:04,404] [INFO] --------------------------------------------------------------------------------------------------
-[2022-11-01 15:26:04,404] [INFO] TP: [33mdefault[0m, time elapsed: 84426 ns, Result:
-[2022-11-01 15:26:04,404] [INFO]     TCS: [33mMp3agic_FileInfo[0m, time elapsed: 83604 ns, RESULT:
-[2022-11-01 15:26:04,404] [INFO]     [[32m PASSED [0m] CASE: mp3agic_FileInfo (81257 ns)
-[2022-11-01 15:26:04,404] [INFO] Summary: TOTAL: 1
-[2022-11-01 15:26:04,405] [INFO]     [32mPASSED[0m: 1, [32mSKIPPED[0m: 0, ERROR: 0
-[2022-11-01 15:26:04,405] [INFO]     [31mFAILED[0m: 0
-[2022-11-01 15:26:04,405] [INFO] --------------------------------------------------------------------------------------------------
+[2022-11-04 11:20:15,688] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/build/mp3agic']
+[2022-11-04 11:20:15,689] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/ci_lib/charset']
+[2022-11-04 11:20:15,689] [INFO] find 3rd party libs in ['/home/jwb/project/mp3agic/ci_lib/okio']
+[2022-11-04 11:20:15,689] [INFO] ************************Start to run case file: smp3agic_mp3file_filename_005.cj************************
+[2022-11-04 11:20:15,689] [INFO] Start to copy data files
+[2022-11-04 11:20:15,689] [INFO] copy ./v1tag.mp3 to tmp/./v1tag.mp3
+[2022-11-04 11:20:15,689] [INFO] [Run CMD]cjc --import-path /home/jwb/project/mp3agic/build/mp3agic/.. -L /home/jwb/project/mp3agic/build/mp3agic -l mp3agic_mp3agic  --import-path /home/jwb/project/mp3agic/ci_lib/charset/.. -L /home/jwb/project/mp3agic/ci_lib/charset -l charset_charset.encoding -l charset_charset.simplechinese -l charset_charset.singlebyte -l charset_charset.korean -l charset_charset -l charset_charset.japanese -l charset_charset.unicode -l charset_charset.traditionchinese  --import-path /home/jwb/project/mp3agic/ci_lib/okio/.. -L /home/jwb/project/mp3agic/ci_lib/okio -l okio_okio -l okio_nio   smp3agic_mp3file_filename_005.cj  -o tmp/smp3agic_mp3file_filename_005.cj.out --test
+[2022-11-04 11:20:19,019] [INFO] [Run CMD]cd tmp;./smp3agic_mp3file_filename_005.cj.out  
+[2022-11-04 11:20:19,035] [INFO] --------------------------------------------------------------------------------------------------
+[2022-11-04 11:20:19,035] [INFO] TP: [33mdefault[0m, time elapsed: 3143651 ns, Result:
+[2022-11-04 11:20:19,035] [INFO]     TCS: [33mMp3agic_Filename_005[0m, time elapsed: 3142529 ns, RESULT:
+[2022-11-04 11:20:19,035] [INFO]     [[32m PASSED [0m] CASE: mp3agic_Filename_005 (3136925 ns)
+[2022-11-04 11:20:19,035] [INFO] Summary: TOTAL: 1
+[2022-11-04 11:20:19,035] [INFO]     [32mPASSED[0m: 1, [32mSKIPPED[0m: 0, ERROR: 0
+[2022-11-04 11:20:19,035] [INFO]     [31mFAILED[0m: 0
+[2022-11-04 11:20:19,035] [INFO] --------------------------------------------------------------------------------------------------
