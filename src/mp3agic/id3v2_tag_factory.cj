@@ -31,8 +31,7 @@ public class ID3v2TagFactory {
         if (bytes.size < Int64(AbstractID3v2Tag.HEADER_LENGTH)) {
             throw NoSuchTagException("Buffer too short")
         }
-        var tempStr: String = match (BufferTools.byteBufferToStringIgnoringEncodingIssues(
-            BufferTools.transInt8ArrayToUInt8(bytes), 0, Int32(AbstractID3v2Tag.TAG.size))) {
+        var tempStr: String = match (BufferTools.byteBufferToStringIgnoringEncodingIssues(bytes, 0, Int32(AbstractID3v2Tag.TAG.size))) {
             case Some(x) => x
             case None => ""
         }

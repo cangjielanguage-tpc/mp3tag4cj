@@ -12,6 +12,7 @@ from std import io.*
 from std import math.*
 from std import convert.*
 from std import collection.*
+from std import time.*
 
 /**
  * The class is ID3v1Tag inherited from ID3v1
@@ -127,9 +128,9 @@ public class ID3v1Tag <: ID3v1 {
      * @since 0.31.4
      */
     public func toBytes(): Array<Int8> {
-        var bytes: Array<Byte> = Array<Byte>(Int64(TAG_LENGTH), {i => 0})
+        var bytes: Array<Int8> = Array<Int8>(Int64(TAG_LENGTH), {i => 0})
         packTag(bytes)
-        return BufferTools.transUInt8ArrayToInt8(bytes)
+        return bytes
     }
 
     /**
@@ -140,7 +141,7 @@ public class ID3v1Tag <: ID3v1 {
      * @return Type of Unit
      * @since 0.31.4
      */
-    public func toBytes(bytes: Array<Byte>): Unit {
+    public func toBytes(bytes: Array<Int8>): Unit {
         packTag(bytes)
     }
 
@@ -153,7 +154,7 @@ public class ID3v1Tag <: ID3v1 {
      * @since 0.31.4
      */
     @overflowWrapping
-    public func packTag(bytes: Array<Byte>): Unit {
+    public func packTag(bytes: Array<Int8>): Unit {
         try {
             BufferTools.stringIntoByteBuffer(TAG, 0, 3, bytes, 0)
         } catch (e: Exception) {
@@ -166,9 +167,9 @@ public class ID3v1Tag <: ID3v1 {
         match (genre) {
             case Some(x) =>
                 if (x < 128) {
-                    bytes[Int64(GENRE_OFFSET)] = UInt8(x)
+                    bytes[Int64(GENRE_OFFSET)] = Int8(x)
                 } else {
-                    bytes[Int64(GENRE_OFFSET)] = UInt8(x - 256)
+                    bytes[Int64(GENRE_OFFSET)] = Int8(x - 256)
                 }
             case None => ()
         }
@@ -179,16 +180,17 @@ public class ID3v1Tag <: ID3v1 {
                 if (trackTemp.size > 0) {
                     var trackInt: Int64 = Int64.parse(trackTemp)
                     if (trackInt < 128) {
-                        bytes[Int64(TRACK_OFFSET)] = UInt8(trackInt)
+                        bytes[Int64(TRACK_OFFSET)] = Int8(trackInt)
                     } else {
-                        bytes[Int64(TRACK_OFFSET)] = UInt8(trackInt - 256)
+                        bytes[Int64(TRACK_OFFSET)] = Int8(trackInt - 256)
                     }
                 }
-            case None => packField(bytes, comment, COMMENT_LENGTH_V1_0, COMMENT_OFFSET)
+            case None =>
+                packField(bytes, comment, COMMENT_LENGTH_V1_0, COMMENT_OFFSET)
         }
     }
 
-    private func packField(bytes: Array<Byte>, value: Option<String>, maxLength: Int32, offset: Int32): Unit {
+    private func packField(bytes: Array<Int8>, value: Option<String>, maxLength: Int32, offset: Int32): Unit {
         match (value) {
             case Some(x) => BufferTools.stringIntoByteBuffer(x, 0, min(x.size, Int64(maxLength)), bytes, Int64(offset))
             case None => ()

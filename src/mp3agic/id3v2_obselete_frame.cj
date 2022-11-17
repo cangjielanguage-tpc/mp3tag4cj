@@ -43,7 +43,7 @@ public class ID3v2ObseleteFrame <: ID3v2Frame {
 
     protected override func unpackHeader(buffer: Array<Int8>, offset: Int32): Int32 {
         match (BufferTools.byteBufferToStringIgnoringEncodingIssues(
-            BufferTools.transInt8ArrayToUInt8(buffer),
+            buffer,
             offset + ID_OFFSET,
             ID_LENGTH
         )) {
