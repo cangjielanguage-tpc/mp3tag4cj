@@ -213,13 +213,13 @@ public open class AbstractID3v2Tag <: ID3v2 {
             bytes[Int64(offset) + 2],
             bytes[Int64(offset) + 3]
         ) + 4
-        extendedHeaderData = BufferTools.transUInt8ArrayToInt8(
+        extendedHeaderData =
             BufferTools.copyBuffer(
-                BufferTools.transInt8ArrayToUInt8(bytes),
+                bytes,
                 Int64(offset) + 4,
                 Int64(extendedHeaderLength)
             )
-        )
+
         return extendedHeaderLength
     }
 
@@ -277,7 +277,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
 
     private func unpackFooter(bytes: Array<Int8>, offset: Int32): Int32 {
         match (BufferTools.byteBufferToStringIgnoringEncodingIssues(
-            BufferTools.transInt8ArrayToUInt8(bytes),
+            bytes,
             offset,
             Int32(FOOTER_TAG.size)
         )) {

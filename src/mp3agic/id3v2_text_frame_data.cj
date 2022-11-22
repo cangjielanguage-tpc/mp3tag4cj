@@ -54,8 +54,7 @@ public class ID3v2TextFrameData <: AbstractID3v2FrameData & Hashable & Equatable
     protected func unpackFrameData(bytes: Array<Int8>): Unit {
         text = EncodedText(
             bytes[0],
-            BufferTools.transUInt8ArrayToInt8(
-                BufferTools.copyBuffer(BufferTools.transInt8ArrayToUInt8(bytes), 1, bytes.size - 1))
+            BufferTools.copyBuffer(bytes, 1, bytes.size - 1)
         )
     }
 

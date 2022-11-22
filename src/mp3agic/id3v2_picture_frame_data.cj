@@ -140,6 +140,9 @@ public open class ID3v2PictureFrameData <: AbstractID3v2FrameData & Equatable<ID
                 var descriptionBytes: Array<Int8> = description.getOrThrow().toBytes(true, true)
                 BufferTools.copyIntoByteBuffer(descriptionBytes, 0, descriptionBytes.size, bytes, marker)
                 marker += descriptionBytes.size
+            }else {
+                marker++
+                bytes[marker] = 0
             }
         } else {
             marker++

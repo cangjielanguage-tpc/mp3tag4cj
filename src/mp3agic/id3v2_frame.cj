@@ -77,15 +77,14 @@ public open class ID3v2Frame <: Hashable & Equatable<ID3v2Frame> {
     public open func unpackFrame(buffer: Array<Int8>, offset: Int32): Unit {
         var dataOffset: Int32 = unpackHeader(buffer, offset) //解析标签帧，帧头数据
         sanityCheckUnpackedHeader() //检查标签帧 帧头标志的合法性
-        data = BufferTools.transUInt8ArrayToInt8(
-            BufferTools.copyBuffer(BufferTools.transInt8ArrayToUInt8(buffer), Int64(dataOffset), Int64(dataLength)))
+        data = BufferTools.copyBuffer(buffer, Int64(dataOffset), Int64(dataLength))
     }
 
     protected open func unpackHeader(buffer: Array<Int8>, offset: Int32): Int32 {
         //标签帧前4个字符 代表标签帧的标识
         //给成员id赋值
         match (BufferTools.byteBufferToStringIgnoringEncodingIssues(
-            BufferTools.transInt8ArrayToUInt8(buffer),
+            buffer,
             offset + ID_OFFSET,
             ID_LENGTH
         )) {

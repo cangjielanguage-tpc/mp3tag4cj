@@ -228,7 +228,7 @@ public class BufferTools {
         var srcBytes: Array<UInt8> = charSet.newEncoder().encode(stringToCopy)
         var destOffsets = destOffset
         if (srcBytes.size > 0) {
-            arraycopys(srcBytes, offset, bytes, destOffset, Int64(srcBytes.size))
+            srcBytes.copyTo(bytes, offset, destOffset, Int64(srcBytes.size))
         }
     }
 
@@ -248,7 +248,7 @@ public class BufferTools {
         var srcBytes: Array<UInt8> = charSet.newEncoder().encode(stringToCopy)
         var destOffsets = destOffset
         if (srcBytes.size > 0) {
-            arraycopys(transUInt8ArrayToInt8(srcBytes), offset, bytes, destOffset, Int64(srcBytes.size))
+            transUInt8ArrayToInt8(srcBytes).copyTo(bytes, offset, destOffset, Int64(srcBytes.size))
         }
     }
 
@@ -515,14 +515,14 @@ public class BufferTools {
     public static func copyBuffer(bytes: Array<Byte>, offset: Int64, length: Int64): Array<Byte> {
         var copy: Array<Byte> = Array<Byte>(length, {i => 0})
         if (length > 0) {
-            arraycopys(bytes, offset, copy, 0, length)
+            bytes.copyTo(copy, offset, 0, length)
         }
         return copy
     }
     public static func copyBuffer(bytes: Array<Int8>, offset: Int64, length: Int64): Array<Int8> {
         var copy: Array<Int8> = Array<Int8>(length, {i => 0})
         if (length > 0) {
-            arraycopys(bytes, offset, copy, 0, length)
+            bytes.copyTo(copy, offset, 0, length)
         }
         return copy
     }
@@ -548,7 +548,7 @@ public class BufferTools {
         destOffset: Int64
     ): Unit {
         if (length > 0) {
-            arraycopys(bytes, offset, destBuffer, destOffset, length)
+            bytes.copyTo(destBuffer, offset, destOffset, length)
         }
     }
 
@@ -561,7 +561,7 @@ public class BufferTools {
         destOffset: Int64
     ): Unit {
         if (length > 0) {
-            arraycopys(bytes, offset, destBuffer, destOffset, length)
+            bytes.copyTo(destBuffer, offset, destOffset, length)
         }
     }
 

@@ -18,5 +18,5 @@
   },
   "foreign_requires": {},
   "output_type": "dynamic",
-  "command_option": ""
+  "command_option": "-O2"
 }
