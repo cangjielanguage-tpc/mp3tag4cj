@@ -16,7 +16,8 @@ main() {
     var id3v1Tag: ID3v1Tag = ID3v1Tag()
     id3v1Tag.setArtist("我是谁我在哪")
     var bytes: Array<Int8> = id3v1Tag.toBytes()
-    if (bytes[34] != 26){
+    println("bytes[34] ==> ${bytes[34]}")
+    if (bytes[34] != -120){
         return -1
     }
     var id3v1Tag2: ID3v1Tag = ID3v1Tag()

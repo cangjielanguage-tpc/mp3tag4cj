@@ -85,28 +85,24 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func byteBufferToString(bytes: Array<Byte>, offset: Int32, length: Int32, charsetName: String): String {
+        var charsetNames = charsetName
         if (length < 1) {
             return ""
         }
-        var buffer: Array<Char> = Array<Char>(Int64(length), {i => ' '})
-        var charSet: Charset = match (Charsets.forName(charsetName)) {
-            case Some(x) => x
-            case None => throw BaseException("Character set not found")
+        unsafe {
+        return String.fromUtf8Unchecked(bytes.slice(Int64(offset), Int64(length)))
         }
-        return charSet.newDecoder().decode(bytes.slice(Int64(offset), Int64(length)))
     }
 
     @overflowWrapping
     public static func byteBufferToString(bytes: Array<Int8>, offset: Int32, length: Int32, charsetName: String): String {
+        var charsetNames = charsetName
         if (length < 1) {
             return ""
         }
-        var buffer: Array<Char> = Array<Char>(Int64(length), {i => ' '})
-        var charSet: Charset = match (Charsets.forName(charsetName)) {
-            case Some(x) => x
-            case None => throw BaseException("Character set not found")
+        unsafe {
+        return String.fromUtf8Unchecked(BufferTools.transInt8ArrayToUInt8(bytes.slice(Int64(offset), Int64(length))))
         }
-        return charSet.newDecoder().decode(BufferTools.transInt8ArrayToUInt8(bytes.slice(Int64(offset), Int64(length))))
     }
 
     /**
@@ -157,12 +153,9 @@ public class BufferTools {
      */
     @overflowWrapping
     public static func stringToByteBuffer(s: String, offset: Int64, length: Int64, charsetName: String): Array<Byte> {
+        var charsetNames = charsetName
         var stringToCopy: String = s.substring(Int64(offset), Int64(length))
-        var charSet: Charset = match (Charsets.forName(charsetName)) {
-            case Some(x) => x
-            case None => throw BaseException("Character set not found")
-        }
-        return charSet.newEncoder().encode(stringToCopy)
+        return stringToCopy.toUtf8Array()
     }
 
     /**
@@ -221,17 +214,15 @@ public class BufferTools {
         charsetName: String
     ): Unit {
         var stringToCopy: String = s.substring(offset, length)
-        var charSet: Charset = match (Charsets.forName(charsetName)) {
-            case Some(x) => x
-            case None => throw BaseException("Character set not found")
-        }
-        var srcBytes: Array<UInt8> = charSet.newEncoder().encode(stringToCopy)
+        var srcBytes: Array<UInt8> = stringToCopy.toUtf8Array()
         var destOffsets = destOffset
+        var charsetNames = charsetName
         if (srcBytes.size > 0) {
             srcBytes.copyTo(bytes, offset, destOffset, Int64(srcBytes.size))
         }
     }
 
+    @overflowWrapping
     public static func stringIntoByteBuffer(
         s: String,
         offset: Int64,
@@ -241,12 +232,9 @@ public class BufferTools {
         charsetName: String
     ): Unit {
         var stringToCopy: String = s.substring(offset, length)
-        var charSet: Charset = match (Charsets.forName(charsetName)) {
-            case Some(x) => x
-            case None => throw BaseException("Character set not found")
-        }
-        var srcBytes: Array<UInt8> = charSet.newEncoder().encode(stringToCopy)
+        var srcBytes: Array<UInt8> = stringToCopy.toUtf8Array()
         var destOffsets = destOffset
+        var charsetNames = charsetName
         if (srcBytes.size > 0) {
             transUInt8ArrayToInt8(srcBytes).copyTo(bytes, offset, destOffset, Int64(srcBytes.size))
         }
