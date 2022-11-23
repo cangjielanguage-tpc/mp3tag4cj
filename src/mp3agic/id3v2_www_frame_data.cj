@@ -40,7 +40,7 @@ public class ID3v2WWWFrameData <: AbstractID3v2FrameData & Equatable<ID3v2WWWFra
     protected func getLength(): Int32 {
         var length: Int32 = 0
         if (url != Option<String>.None) {
-            length = Int32(url.getOrThrow().size)
+            length = Int32(url.getOrThrow().toUtf8Array().size)
         }
         return length
     }

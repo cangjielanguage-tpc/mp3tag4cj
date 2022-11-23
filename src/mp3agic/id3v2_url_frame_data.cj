@@ -73,7 +73,7 @@ public class ID3v2UrlFrameData <: AbstractID3v2FrameData & Equatable<ID3v2UrlFra
             length++
         }
         if (url != Option<String>.None) {
-            length += Int32(url.getOrThrow().size)
+            length += Int32(url.getOrThrow().toUtf8Array().size)
         }
         return length
     }
