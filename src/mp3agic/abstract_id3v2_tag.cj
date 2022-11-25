@@ -327,14 +327,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
             BufferTools.stringIntoByteBuffer(TAG, 0, TAG.size, bytes, Int64(offset))
         } catch (e: Exception) {}
         var s: Array<String> = version.split(".")
-        if (s.size > 0) {
-            var majorVersion: Int8 = Int8(Int64.parse(s[0]))
-            bytes[Int64(offset) + Int64(MAJOR_VERSION_OFFSET)] = majorVersion
-        }
-        if (s.size > 1) {
-            var minorVersion: Int8 = Int8(Int64.parse(s[1]))
-            bytes[Int64(offset) + Int64(MINOR_VERSION_OFFSET)] = minorVersion
-        }
+        getMajorMinor(s, offset, bytes)
         packFlags(bytes, offset)
         BufferTools.packSynchsafeInteger(getDataLength(), bytes, offset + DATA_LENGTH_OFFSET)
         return offset + HEADER_LENGTH
@@ -417,6 +410,13 @@ public open class AbstractID3v2Tag <: ID3v2 {
             BufferTools.stringIntoByteBuffer(FOOTER_TAG, 0, FOOTER_TAG.size, bytes, Int64(offset))
         } catch (e: Exception) {}
         var s: Array<String> = version.split(".")
+        getMajorMinor(s, offset, bytes)
+        packFlags(bytes, offset)
+        BufferTools.packSynchsafeInteger(getDataLength(), bytes, offset + DATA_LENGTH_OFFSET)
+        return offset + FOOTER_LENGTH
+    }
+
+    private func getMajorMinor(s: Array<String>, offset: Int32, bytes: Array<Int8>) {
         if (s.size > 0) {
             var majorVersion: Int8 = Int8(Int64.parse(s[0]))
             bytes[Int64(offset) + Int64(MAJOR_VERSION_OFFSET)] = majorVersion
@@ -425,9 +425,6 @@ public open class AbstractID3v2Tag <: ID3v2 {
             var minorVersion: Int8 = Int8(Int64.parse(s[1]))
             bytes[Int64(offset) + Int64(MINOR_VERSION_OFFSET)] = minorVersion
         }
-        packFlags(bytes, offset)
-        BufferTools.packSynchsafeInteger(getDataLength(), bytes, offset + DATA_LENGTH_OFFSET)
-        return offset + FOOTER_LENGTH
     }
 
     private func calculateDataLength(): Int32 {
@@ -584,6 +581,10 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_TRACK
             }
         )
+        return getID3v2TextFrameDataValue(frameData)
+    }
+
+    private func getID3v2TextFrameDataValue(frameData: Option<ID3v2TextFrameData>): Option<String> {
         if (frameData != Option<ID3v2TextFrameData>.None) {
             if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
                 match (frameData.getOrThrow().getText()) {
@@ -628,15 +629,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_PART_OF_SET
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None) {
-            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-                match (frameData.getOrThrow().getText()) {
-                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                    case None => ()
-                }
-            }
-        }
-        return Option<String>.None
+        return getID3v2TextFrameDataValue(frameData)
     }
 
     /**
@@ -720,15 +713,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_GROUPING
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None) {
-            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-                match (frameData.getOrThrow().getText()) {
-                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                    case None => ()
-                }
-            }
-        }
-        return Option<String>.None
+        return getID3v2TextFrameDataValue(frameData)
     }
 
     /**
@@ -764,15 +749,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_ARTIST
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None) {
-            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-                match (frameData.getOrThrow().getText()) {
-                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                    case None => ()
-                }
-            }
-        }
-        return Option<String>.None
+        return getID3v2TextFrameDataValue(frameData)
     }
 
     /**
@@ -854,15 +831,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_TITLE
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None) {
-            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-                match (frameData.getOrThrow().getText()) {
-                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                    case None => ()
-                }
-            }
-        }
-        return Option<String>.None
+        return getID3v2TextFrameDataValue(frameData)
     }
 
     /**
@@ -898,15 +867,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_ALBUM
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None) {
-            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-                match (frameData.getOrThrow().getText()) {
-                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                    case None => ()
-                }
-            }
-        }
-        return Option<String>.None
+        return getID3v2TextFrameDataValue(frameData)
     }
 
     /**
@@ -942,15 +903,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_YEAR
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None) {
-            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-                match (frameData.getOrThrow().getText()) {
-                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                    case None => ()
-                }
-            }
-        }
-        return Option<String>.None
+        return getID3v2TextFrameDataValue(frameData)
     }
 
     /**
@@ -986,15 +939,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                 ID_DATE
             }
         )
-        if (frameData != Option<ID3v2TextFrameData>.None) {
-            if (frameData.getOrThrow().getText() != Option<EncodedText>.None) {
-                match (frameData.getOrThrow().getText()) {
-                    case Some(x) => return Option<String>.Some(x.toString().getOrDefault({ => ""}))
-                    case None => ()
-                }
-            }
-        }
-        return Option<String>.None
+        return getID3v2TextFrameDataValue(frameData)
     }
 
     /**

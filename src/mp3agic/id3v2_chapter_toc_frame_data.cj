@@ -97,24 +97,11 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData & Equatable<ID3v
 
         var offset: Int64 = bb.position()
         while (offset < bytes.size) {
-            var frame: ID3v2Frame = ID3v2Frame(bytes, Int32(offset))
-            frame.unpackFrame(bytes, Int32(offset))
-            offset += Int64(frame.getLength())
-            subframes.getOrDefault({ => ArrayList<ID3v2Frame>()}).append(frame)
+            var frameSrc: ID3v2Frame = ID3v2Frame(bytes, Int32(offset))
+            frameSrc.unpackFrame(bytes, Int32(offset))
+            offset += Int64(frameSrc.getLength())
+            subframes.getOrDefault({ => ArrayList<ID3v2Frame>()}).append(frameSrc)
         }
-    }
-
-    /**
-     * The Function is addSubframe
-     * 
-     * @param id of String
-     * @param frame of AbstractID3v2FrameData
-     * 
-     * @return Type of Unit
-     * @since 0.33.3
-     */
-    public func addSubframe(id: String, frame: AbstractID3v2FrameData): Unit {
-        subframes.getOrThrow().append(ID3v2Frame(id, frame.toBytes()))
     }
 
     /* 
@@ -170,6 +157,19 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData & Equatable<ID3v
      */
     public func isRoot(): Bool {
         return isRoots
+    }
+
+    /**
+     * The Function is addSubframe
+     *
+     * @param id of String
+     * @param frame of AbstractID3v2FrameData
+     *
+     * @return Type of Unit
+     * @since 0.34.3
+     */
+    public func addSubframe(id: String, frame: AbstractID3v2FrameData): Unit {
+        subframes.getOrThrow().append(ID3v2Frame(id, frame.toBytes()))
     }
 
     /**
@@ -361,15 +361,15 @@ public class ID3v2ChapterTOCFrameData <: AbstractID3v2FrameData & Equatable<ID3v
             result = prime * result + 1237
         }
         if (subframes == Option<ArrayList<ID3v2Frame>>.None) {
-            result = prime * result + 0
+            result = (prime * result) + 0
         } else {
-            var subframesStr = ""
+            var subframesStrs = ""
             if (subframes != Option<ArrayList<ID3v2Frame>>.None) {
                 for (frame in subframes.getOrThrow()) {
-                    subframesStr += frame.getData().toString()
+                    subframesStrs += frame.getData().toString()
                 }
             }
-            result = prime * result + Int32(subframesStr.hashCode())
+            result = (prime * result) + Int32(subframesStrs.hashCode())
         }
         return Int64(result)
     }

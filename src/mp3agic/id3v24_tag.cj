@@ -20,49 +20,60 @@ public class ID3v24Tag <: AbstractID3v2Tag {
     /**
      * The Function is init constructor
      * 
-     * @since 0.32.5
+     * @since 0.34.3
      */
     public init() {
         super()
         version = VERSION
     }
 
-    /**
-     * The Function is init constructor
-     * 
-     * @param buffer of Array<Int8>
-     * @since 0.32.5
-     */
     public init(buffer: Array<Int8>) {
         super(buffer)
         super.unpackTag(buffer)
     }
 
-    protected func unpackFlags(buffer: Array<Int8>): Unit {
+    /*
+     * The Function is unpackFlags
+     *
+     * @param buffer of Array<Int8>
+     *
+     * @return Type of Unit
+     * @since 0.34.3
+     */
+    protected func unpackFlags (buffer: Array<Int8>): Unit {
         unsynchronisation = BufferTools.checkBit(buffer[Int64(FLAGS_OFFSET)], Int64(UNSYNCHRONISATION_BIT))
         extendedHeader = BufferTools.checkBit(buffer[Int64(FLAGS_OFFSET)], Int64(EXTENDED_HEADER_BIT))
         experimental = BufferTools.checkBit(buffer[Int64(FLAGS_OFFSET)], Int64(EXPERIMENTAL_BIT))
         footer = BufferTools.checkBit(buffer[Int64(FLAGS_OFFSET)], Int64(FOOTER_BIT))
     }
 
-    protected func packFlags(bytes: Array<Int8>, offset: Int32): Unit {
-        bytes[Int64(offset) + Int64(FLAGS_OFFSET)] = BufferTools.setBit(
-            bytes[Int64(offset) + Int64(FLAGS_OFFSET)],
+    /*
+     * The Function is packFlags
+     *
+     * @param bytes of Array<Int8>
+     * @param offset of Int32
+     *
+     * @return Type of Unit
+     * @since 0.34.3
+     */
+    protected func packFlags(bytesDes: Array<Int8>, offset: Int32): Unit {
+        bytesDes[Int64(offset) + Int64(FLAGS_OFFSET)] = BufferTools.setBit(
+            bytesDes[Int64(offset) + Int64(FLAGS_OFFSET)],
             Int64(UNSYNCHRONISATION_BIT),
             unsynchronisation
         )
-        bytes[Int64(offset) + Int64(FLAGS_OFFSET)] = BufferTools.setBit(
-            bytes[Int64(offset) + Int64(FLAGS_OFFSET)],
+        bytesDes[Int64(offset) + Int64(FLAGS_OFFSET)] = BufferTools.setBit(
+            bytesDes[Int64(offset) + Int64(FLAGS_OFFSET)],
             Int64(EXTENDED_HEADER_BIT),
             extendedHeader
         )
-        bytes[Int64(offset) + Int64(FLAGS_OFFSET)] = BufferTools.setBit(
-            bytes[Int64(offset) + Int64(FLAGS_OFFSET)],
+        bytesDes[Int64(offset) + Int64(FLAGS_OFFSET)] = BufferTools.setBit(
+            bytesDes[Int64(offset) + Int64(FLAGS_OFFSET)],
             Int64(EXPERIMENTAL_BIT),
             experimental
         )
-        bytes[Int64(offset) + Int64(FLAGS_OFFSET)] = BufferTools.setBit(
-            bytes[Int64(offset) + Int64(FLAGS_OFFSET)],
+        bytesDes[Int64(offset) + Int64(FLAGS_OFFSET)] = BufferTools.setBit(
+            bytesDes[Int64(offset) + Int64(FLAGS_OFFSET)],
             Int64(FOOTER_BIT),
             footer
         )
