@@ -242,33 +242,6 @@ public class BufferTools {
 
     @overflowWrapping
     public static func arraycopys(
-        srcBytes: Array<UInt8>,
-        offset: Int64,
-        bytes: Array<Byte>,
-        destOffset: Int64,
-        length: Int64
-    ) {
-        var times: Int64 = 0
-        var flag: Bool = false
-        var isOffSet: Bool = false
-        var destOffsets = destOffset
-        for (index in 0..bytes.size) {
-            if (index >= destOffsets && !isOffSet) {
-                flag = true
-                isOffSet = true
-            }
-            if (flag) {
-                for (i in offset..length + offset) {
-                    bytes[destOffsets] = srcBytes[i]
-                    destOffsets++
-                }
-                flag = false
-            }
-        }
-    }
-
-    @overflowWrapping
-    public static func arraycopys(
         srcBytes: Array<Int8>,
         offset: Int64,
         bytes: Array<Int8>,
