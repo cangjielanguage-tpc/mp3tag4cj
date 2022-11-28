@@ -124,9 +124,9 @@ public open class ID3v2PictureFrameData <: AbstractID3v2FrameData & Equatable<ID
         var mimeTypeLength: Int64 = 0
         if (mimeType != Option<String>.None) {
             if (mimeType.getOrThrow().size > 0) {
-                mimeTypeLength = mimeType.getOrThrow().size
+                mimeTypeLength = mimeType.getOrThrow().toUtf8Array().size
                 try {
-                    BufferTools.stringIntoByteBuffer(mimeType.getOrThrow(), 0, mimeTypeLength, bytes, 1)
+                    BufferTools.stringIntoByteBuffer(mimeType.getOrThrow(), 0, mimeType.getOrThrow().size, bytes, 1)
                 } catch (e: Exception) {}
             }
         }
@@ -160,7 +160,7 @@ public open class ID3v2PictureFrameData <: AbstractID3v2FrameData & Equatable<ID
     protected open func getLength(): Int32 {
         var length: Int32 = 3
         if (mimeType != Option<String>.None) {
-            length += Int32(mimeType.getOrThrow().size)
+            length += Int32(mimeType.getOrThrow().toUtf8Array().size)
         }
         if (description != Option<EncodedText>.None) {
             length += Int32(description.getOrThrow().toBytes(true, true).size)
