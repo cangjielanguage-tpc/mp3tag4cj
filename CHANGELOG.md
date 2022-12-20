@@ -38,3 +38,6 @@
 - getUrl (): Option<String>
 - setUrl (url: Option<String>): Unit
 - clearFrameSet (id: String): Unit
+## 0.0.5
+- 添加图片的设置、获取方法
+- 適配cjc 0.35.6

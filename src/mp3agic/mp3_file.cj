@@ -187,8 +187,8 @@ public class Mp3File <: FileWrapper {
         }
     }
 
-    private func scanBlock(bytes: Array<Int8>, bytesRead: Int32, absoluteOffset: Int32, offsets: Int32): Int32 {
-        var offsets: Int32 = offsets
+    private func scanBlock(bytes: Array<Int8>, bytesRead: Int32, absoluteOffset: Int32, offsetSrc: Int32): Int32 {
+        var offsets: Int32 = offsetSrc
         while (offsets < bytesRead - MINIMUM_BUFFER_LENGTH) {
             var frame: MpegFrame = MpegFrame(
                 bytes[Int64(offsets)],
