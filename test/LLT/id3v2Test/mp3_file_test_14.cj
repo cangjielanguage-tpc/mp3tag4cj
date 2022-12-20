@@ -13,7 +13,7 @@ main() {
     try {
         var mp3File: FileWrapper = FileWrapper("../../../../test/LLT/id3v2Test/testv2File/nofile.mp3")
     }catch (e: Exception){
-        if (e.toString() != "FSException: The `path` is invalid!"){
+        if (e.toString() != "FSException: The path `../../../../test/LLT/id3v2Test/testv2File/nofile.mp3` does not exist"){
             return 1
         }
     }

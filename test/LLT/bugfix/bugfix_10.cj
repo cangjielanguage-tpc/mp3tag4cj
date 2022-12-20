@@ -12,7 +12,7 @@ main() {
     try {
         mp3file.save("../../../../test/LLT/nodir/testfiles/save_v1andv24tags.mp3")
     } catch(e: Exception){
-        if (e.toString() != "FSException: Failed to open the file!"){
+        if (e.toString() != "FSException: The path `../../../../test/LLT/nodir/testfiles` does not exist."){
             return 1
         }
     }
