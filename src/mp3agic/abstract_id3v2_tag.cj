@@ -507,6 +507,13 @@ public open class AbstractID3v2Tag <: ID3v2 {
         return padding
     }
 
+    public open func setPadding(padding: Bool): Unit {
+        if (this.padding != padding) {
+            invalidateDataLength()
+            this.padding = padding
+        }
+    }
+
     /**
      * The Function is hasFooter, Whether there is a label foot.
      * 

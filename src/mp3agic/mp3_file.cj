@@ -99,6 +99,15 @@ public class Mp3File <: FileWrapper {
 
     /**
      * The Function is init constructor
+     *
+     * @param path of Path
+     */
+    public init(path: Path) {
+        this(path, DEFAULT_BUFFER_LENGTH, true)
+    }
+
+    /**
+     * The Function is init constructor
      * 
      * @param file of FileInfo
      * @param bufferLength of Int32
@@ -106,6 +115,16 @@ public class Mp3File <: FileWrapper {
      */
     public init(file: FileInfo, bufferLength: Int32) {
         this(file, bufferLength, true)
+    }
+
+    /**
+     * The Function is init constructor
+     *
+     * @param path of Path
+     * @param bufferLength of Int32
+     */
+    public init(path: Path, bufferLength: Int32) {
+        this(path, bufferLength, true)
     }
 
     /**
@@ -118,6 +137,18 @@ public class Mp3File <: FileWrapper {
      */
     public init(file: FileInfo, bufferLength: Int32, scanFile: Bool) {
         super(file)
+        initFunc(bufferLength, scanFile)
+    }
+
+    /**
+     * The Function is init constructor
+     *
+     * @param path of Path
+     * @param bufferLength of Int32
+     * @param scanFile of Bool
+     */
+    public init(path: Path, bufferLength: Int32, scanFile: Bool) {
+        super(path.toString())
         initFunc(bufferLength, scanFile)
     }
 
