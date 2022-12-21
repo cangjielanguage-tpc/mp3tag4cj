@@ -1,6 +1,7 @@
 // 3rd_party_lib:mp3agic/build/mp3agic
 // 3rd_party_lib:mp3agic/ci_lib/charset
 // 3rd_party_lib:mp3agic/ci_lib/okio
+// 3rd_party_lib:mp3agic/ci_lib/cryptocj
 // data_file:./v1tag.mp3
 from std import collection.*
 from std import unittest.*

@@ -1,6 +1,7 @@
 // 3rd_party_lib:mp3agic/build/mp3agic
 // 3rd_party_lib:mp3agic/ci_lib/charset
 // 3rd_party_lib:mp3agic/ci_lib/okio
+// 3rd_party_lib:mp3agic/ci_lib/cryptocj
 // data_file:./dummyframes.mp3:./notags.mp3:./notanmp3.mp3
 from mp3agic import mp3agic.*
 from std import io.*

@@ -2,6 +2,7 @@
 // 3rd_party_lib:mp3agic/charset/build/charset
 // data_file:test_01.mp3
 // 3rd_party_lib:mp3agic/ci_lib/okio
+// 3rd_party_lib:mp3agic/ci_lib/cryptocj
 package test
 
 from std import unittest.*

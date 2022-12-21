@@ -1,6 +1,7 @@
 // 3rd_party_lib:mp3agic/ci_lib/okio
 // 3rd_party_lib:mp3agic/build/mp3agic
 // 3rd_party_lib:mp3agic/ci_lib/charset
+// 3rd_party_lib:mp3agic/ci_lib/cryptocj
 from std import unittest.*
 from std import unittest.testmacro.*
 from std import io.*
