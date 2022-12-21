@@ -1,6 +1,7 @@
 // 3rd_party_lib:mp3agic/build/mp3agic
 // 3rd_party_lib:mp3agic/ci_lib/charset
 // 3rd_party_lib:mp3agic/ci_lib/okio
+// 3rd_party_lib:mp3agic/ci_lib/cryptocj
 // data_file:./v1andv23tagswithalbumimage.mp3
 // data_file:./qinggewang.mp3
 // data_file:./v1tag.mp3
@@ -462,7 +463,7 @@ public class Mp3agic_AlbumImage {
         println(id3V2Tag1.getAlbumImage())
         println(id3V2Tag1.getAlbumImageMimeType())
         } catch (e: Exception) {
-        @Assert(e.toString(),"FSException: The `path` is invalid!")
+        @Assert(e.toString(),"FSException: The path `../../HLT/save_pic_v23tagwithchapters.mp3` does not exist")
         }
     }
 

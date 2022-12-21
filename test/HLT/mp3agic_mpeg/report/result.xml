@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<testsuites errors="0" failures="0" skipped="0" tests="1">
+    <testsuite errors="0" failures="0" name="mp3agic_idv1tag.Mp3agic_ID3V1Tag" skipped="0" tests="1" time="0.000208681">
+        <testcase class_name="mp3agic_idv1tag.Mp3agic_ID3V1Tag" name="id3v1Tag" time="0.00020550100000000002"/>
+    </testsuite>
+</testsuites>

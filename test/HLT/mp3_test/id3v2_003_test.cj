@@ -1,6 +1,7 @@
 // 3rd_party_lib:mp3agic/build/mp3agic
 // 3rd_party_lib:mp3agic/charset/build/charset
 // 3rd_party_lib:mp3agic/ci_lib/okio
+// 3rd_party_lib:mp3agic/ci_lib/cryptocj
 // data_file:剑网3-当战.mp3
 // data_file:notanmp3.mp3
 package test
