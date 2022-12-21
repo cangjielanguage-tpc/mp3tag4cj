@@ -13,6 +13,8 @@ from std import collection.*
 public interface ID3v2 <: ID3v1 {
     func getPadding(): Bool
 
+    func setPadding(padding: Bool): Unit
+
     func hasFooter(): Bool
 
     func setFooter(footer: Bool): Unit
