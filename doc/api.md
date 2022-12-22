@@ -75,6 +75,9 @@ public init (filename: String, bufferLength: Int32, scanFile: Bool)
 public init (file: FileInfo)
 public init (file: FileInfo, bufferLength: Int32)
 public init (file: FileInfo, bufferLength: Int32, scanFile: Bool)
+1222转测 public init (path: Path)
+1222转测 public init (path: Path, bufferLength: Int32)
+1222转测 public init (path: Path, bufferLength: Int32, scanFile: Bool)
 /**
  * 是否包含ID3v1标签
  *
@@ -354,6 +357,7 @@ public init (bytes: Array<Int8>, obseleteFormat: Bool)
  */
 #public open func getFrameSets (): HashMap<String, ID3v2FrameSet>
 #public open func getPadding (): Bool
+1222转测 #public open func setPadding(padding: Bool): Unit
 #public open func hasFooter (): Bool
 /**
  * 只有id3v24版本支持设置标签页脚。其他版本设置无效。
