@@ -59,4 +59,76 @@ public class mp3agic_FileInfo_003 {
         file24.removeId3v1Tag()
         @Assert(file24.hasId3v1Tag().toString(),"false")
     }
+
+    @TestCase
+    func mp3agic_FileInfo_004(): Unit {
+        var pa = Path("v1tag.mp3") //设置全部标签内容
+        var file14 = Mp3File(pa, 300, true)
+        var id3v1: ID3v1Tag = ID3v1Tag()
+        id3v1.setTrack(Option<String>.Some(""))
+        id3v1.setArtist(Option<String>.Some("NEWARTIST12345678901234567890"))
+        id3v1.setTitle(Option<String>.Some("NEWTITLE12345678901234567890"))
+        id3v1.setAlbum(Option<String>.Some("NEWALBUM1234567890123456789011111111111111111111111111"))
+        id3v1.setYear(Option<String>.Some("19940821"))
+        id3v1.setGenre(Option<Int64>.Some(20))
+        id3v1.setComment(Option<String>.Some("NEWCOMMENT123456"))
+        file14.setId3v1Tag(Option<ID3v1>.Some(id3v1))
+        var file15 = Mp3File(pa, 300, true)
+        var ID3V103 = file14.getId3v1Tag().getOrThrow()
+        @Assert(ID3V103.getTrack().toString(),"Some()")
+        @Assert(ID3V103.getArtist().toString(),"Some(NEWARTIST12345678901234567890)")
+        @Assert(ID3V103.getTitle().toString(),"Some(NEWTITLE12345678901234567890)")
+        @Assert(ID3V103.getAlbum().toString(),"Some(NEWALBUM1234567890123456789011111111111111111111111111)")
+        @Assert(ID3V103.getYear().toString(),"Some(19940821)")
+        @Assert(ID3V103.getGenre().toString(),"Some(20)")
+        @Assert(ID3V103.getComment().toString(),"Some(NEWCOMMENT123456)")
+    }
+
+    @TestCase
+    func mp3agic_FileInfo_005(): Unit {
+        var pa = Path("v1tag.mp3") //设置全部标签内容
+        var file14 = Mp3File(pa)
+        var id3v1: ID3v1Tag = ID3v1Tag()
+        id3v1.setTrack(Option<String>.Some(""))
+        id3v1.setArtist(Option<String>.Some("NEWARTIST12345678901234567890"))
+        id3v1.setTitle(Option<String>.Some("NEWTITLE12345678901234567890"))
+        id3v1.setAlbum(Option<String>.Some("NEWALBUM1234567890123456789011111111111111111111111111"))
+        id3v1.setYear(Option<String>.Some("19940821"))
+        id3v1.setGenre(Option<Int64>.Some(20))
+        id3v1.setComment(Option<String>.Some("NEWCOMMENT123456"))
+        file14.setId3v1Tag(Option<ID3v1>.Some(id3v1))
+        var file15 = Mp3File(pa, 300, true)
+        var ID3V103 = file14.getId3v1Tag().getOrThrow()
+        @Assert(ID3V103.getTrack().toString(),"Some()")
+        @Assert(ID3V103.getArtist().toString(),"Some(NEWARTIST12345678901234567890)")
+        @Assert(ID3V103.getTitle().toString(),"Some(NEWTITLE12345678901234567890)")
+        @Assert(ID3V103.getAlbum().toString(),"Some(NEWALBUM1234567890123456789011111111111111111111111111)")
+        @Assert(ID3V103.getYear().toString(),"Some(19940821)")
+        @Assert(ID3V103.getGenre().toString(),"Some(20)")
+        @Assert(ID3V103.getComment().toString(),"Some(NEWCOMMENT123456)")
+    }
+
+    @TestCase
+    func mp3agic_FileInfo_006(): Unit {
+        var pa = Path("v1tag.mp3") //设置全部标签内容
+        var file14 = Mp3File(pa, 300)
+        var id3v1: ID3v1Tag = ID3v1Tag()
+        id3v1.setTrack(Option<String>.Some(""))
+        id3v1.setArtist(Option<String>.Some("NEWARTIST12345678901234567890"))
+        id3v1.setTitle(Option<String>.Some("NEWTITLE12345678901234567890"))
+        id3v1.setAlbum(Option<String>.Some("NEWALBUM1234567890123456789011111111111111111111111111"))
+        id3v1.setYear(Option<String>.Some("19940821"))
+        id3v1.setGenre(Option<Int64>.Some(20))
+        id3v1.setComment(Option<String>.Some("NEWCOMMENT123456"))
+        file14.setId3v1Tag(Option<ID3v1>.Some(id3v1))
+        var file15 = Mp3File(pa, 300, true)
+        var ID3V103 = file14.getId3v1Tag().getOrThrow()
+        @Assert(ID3V103.getTrack().toString(),"Some()")
+        @Assert(ID3V103.getArtist().toString(),"Some(NEWARTIST12345678901234567890)")
+        @Assert(ID3V103.getTitle().toString(),"Some(NEWTITLE12345678901234567890)")
+        @Assert(ID3V103.getAlbum().toString(),"Some(NEWALBUM1234567890123456789011111111111111111111111111)")
+        @Assert(ID3V103.getYear().toString(),"Some(19940821)")
+        @Assert(ID3V103.getGenre().toString(),"Some(20)")
+        @Assert(ID3V103.getComment().toString(),"Some(NEWCOMMENT123456)")
+    }
 }
