@@ -2,7 +2,6 @@
 // 3rd_party_lib:mp3agic/ci_lib/charset
 // 3rd_party_lib:mp3agic/ci_lib/okio
 // 3rd_party_lib:mp3agic/ci_lib/cryptocj
-// data_file:./v1tag.mp3
 from std import collection.*
 from std import unittest.*
 from mp3agic import mp3agic.*
@@ -11,12 +10,9 @@ from std import os.posix.*
 
 
 func call_fuzz(int32:Int32){
-    var str = "ID3 some track"
-    var sb = BufferTools.stringToByteBuffer(str, 0, str.size)
-    var sb2 = BufferTools.transUInt8ArrayToInt8(sb)
-    var tag = ID3v22Tag(sb2, false)
+    var newId3v23 = ID3v23Tag()
     println(int32)
-    tag3.setBPM(int32)
+    newId3v23.setBPM(int32)
 }
 
 func unboundTest():Unit{
@@ -31,6 +27,3 @@ main(){
     unboundTest()
     return
 }
-
-
-
