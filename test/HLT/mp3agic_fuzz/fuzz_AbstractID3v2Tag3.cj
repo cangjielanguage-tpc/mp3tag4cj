@@ -11,7 +11,7 @@ from std import os.posix.*
 
 
 func call_fuzz(int32:Int32){
-    var mp3File: Mp3File = Mp3File("../../HLT/v23tagwithchapters.mp3")
+    var mp3File: Mp3File = Mp3File("v23tagwithchapters.mp3")
     var id3V22Tag: ID3v2 = mp3File.getId3v2Tag().getOrThrow()
     println(int32)
     id3V22Tag.setWmpRating(int32)

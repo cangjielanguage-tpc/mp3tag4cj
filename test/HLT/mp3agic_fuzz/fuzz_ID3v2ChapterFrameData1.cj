@@ -11,7 +11,7 @@ from std import os.posix.*
 
 
 func call_fuzz(string:String){
-    var mp3File: Mp3File = Mp3File("../../HLT/v23tagwithchapters.mp3")
+    var mp3File: Mp3File = Mp3File("v23tagwithchapters.mp3")
     var id3V22Tag: ID3v2 = mp3File.getId3v2Tag().getOrThrow()
     var chapters: ArrayList<ID3v2ChapterFrameData> = id3V22Tag.getChapters().getOrThrow()
     var id3v2ChapterFrameData: ID3v2ChapterFrameData = chapters[0]
