@@ -12,8 +12,8 @@ main() {
     var list: ArrayList<Int64> = ArrayList<Int64>()
     var times = 1
     for (i in 0..times) {
-        start = Time.now().unixNano()
-        end = Time.now().unixNano() - start
+        start = Time.now().nanosecond()
+        end = Time.now().nanosecond() - start
         list.append(end)
     }
     var res : Int64 = 0

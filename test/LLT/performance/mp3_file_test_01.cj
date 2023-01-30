@@ -18,12 +18,12 @@ main() {
     var list: ArrayList<Int64> = ArrayList<Int64>()
     for (i in 0..times) {
         println("------${i}------")
-        start = Time.now().unixNano()
-        println("start ==> ${Time.now().unixNano()}")
+        start = Time.now().nanosecond()
+        println("start ==> ${Time.now().nanosecond()}")
         ID3V1.toBytes()
         //ID3V2.toBytes()
-        println("end ==> ${Time.now().unixNano()}")
-        end = Time.now().unixNano() - start
+        println("end ==> ${Time.now().nanosecond()}")
+        end = Time.now().nanosecond() - start
         list.append(end)
     }
     var res : Int64 = 0

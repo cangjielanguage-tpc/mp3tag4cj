@@ -14,9 +14,9 @@ main() {
     var list: ArrayList<Int64> = ArrayList<Int64>()
     var times = 1
     for (i in 0..times) {
-        start = Time.now().unixNano()
+        start = Time.now().nanosecond()
         mp3File.setId3v2Tag(Option<ID3v2>.Some(id3v2))
-        end = Time.now().unixNano() - start
+        end = Time.now().nanosecond() - start
         list.append(end)
     }
     var res : Int64 = 0
