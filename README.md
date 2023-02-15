@@ -3,9 +3,9 @@
 </div>
 
 <p align="center">
-<img alt="" src="https://img.shields.io/badge/release-v0.0.5-brightgreen" style="display: inline-block;" />
+<img alt="" src="https://img.shields.io/badge/release-v0.0.6-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/build-pass-brightgreen" style="display: inline-block;" />
-<img alt="" src="https://img.shields.io/badge/cjc-v0.36.4-brightgreen" style="display: inline-block;" />
+<img alt="" src="https://img.shields.io/badge/cjc-v0.35.6-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/cjcov-90.7%25-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/project-open-brightgreen" style="display: inline-block;" />
 </p>
@@ -53,6 +53,7 @@
 │   ├── assets
 │   ├── design.md
 │   ├── api.md
+│   ├── feature_api.md
 │   └── xxx_lib.md
 ├── src
 │   └── mp3agic 
@@ -90,11 +91,25 @@
 
 - `doc`是库的设计文档、提案、库的使用文档、LLT 覆盖率报告
 - `src`是库源码目录
-- `test`是存放测试用例，包括HLT用例、LLT 用例和UT用例
+- `test`是测试用例所在目录，包括HLT用例、LLT 用例和UT用例
 
 ### 接口说明
 
-主要是核心类和成员函数说明，详情请见 [API](./doc/api.md)
+主要是核心类和成员函数说明，详情请见 [API](./doc/feature_api.md)
+
+### 编译
+
+```shell
+git clone https://gitee.com/HW-PLLab/mp3agic.git
+git clone https://gitee.com/HW-PLLab/testJekins.git
+cd toml
+
+cp -r ../testJekins/src/ci_test .;
+python3 ci_test/main.py build   ---> 编译
+python3 ci_test/main.py test;   ---> 执行 test/LLT 用例
+```
+
+test/LLT 用例书写参考：https://gitee.com/HW-PLLab/cangjie-library-pages/wikis 的门禁测试脚本使用方式
 
 #### class FileWrapper
 
