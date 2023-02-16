@@ -3,7 +3,7 @@
   "organization": "mp3agic",
   "name": "mp3agic",
   "description": "nothing here",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "requires": {
     "charset": {
       "organization": "pllab",
