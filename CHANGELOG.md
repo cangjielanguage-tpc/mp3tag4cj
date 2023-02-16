@@ -40,4 +40,4 @@
 - clearFrameSet (id: String): Unit
 ## 0.0.5
 - 添加图片的设置、获取方法
-- 適配cjc 0.35.6
+- 適配cjc 0.36.4
