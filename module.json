@@ -7,7 +7,7 @@
   "requires": {
     "charset": {
       "organization": "pllab",
-      "version": "0.0.1",
+      "version": "1.0.0",
       "path": "./charset"
     },
     "okio": {
