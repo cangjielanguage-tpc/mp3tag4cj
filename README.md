@@ -3,9 +3,9 @@
 </div>
 
 <p align="center">
-<img alt="" src="https://img.shields.io/badge/release-v0.0.5-brightgreen" style="display: inline-block;" />
+<img alt="" src="https://img.shields.io/badge/release-v0.0.7-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/build-pass-brightgreen" style="display: inline-block;" />
-<img alt="" src="https://img.shields.io/badge/cjc-v0.36.4-brightgreen" style="display: inline-block;" />
+<img alt="" src="https://img.shields.io/badge/cjc-v0.35.6-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/cjcov-90.7%25-brightgreen" style="display: inline-block;" />
 <img alt="" src="https://img.shields.io/badge/project-open-brightgreen" style="display: inline-block;" />
 </p>
@@ -52,7 +52,7 @@
 ├── doc
 │   ├── assets
 │   ├── design.md
-│   ├── api.md
+│   ├── feature_api.md
 │   └── xxx_lib.md
 ├── src
 │   └── mp3agic 
@@ -90,11 +90,25 @@
 
 - `doc`是库的设计文档、提案、库的使用文档、LLT 覆盖率报告
 - `src`是库源码目录
-- `test`是存放测试用例，包括HLT用例、LLT 用例和UT用例
+- `test`是测试用例所在目录，包括HLT用例、LLT 用例和UT用例
 
 ### 接口说明
 
-主要是核心类和成员函数说明，详情请见 [API](./doc/api.md)
+主要是核心类和成员函数说明，详情请见 [API](./doc/feature_api.md)
+
+### 编译
+
+```shell
+git clone https://gitee.com/HW-PLLab/mp3agic.git
+git clone https://gitee.com/HW-PLLab/testJekins.git
+cd toml
+
+cp -r ../testJekins/src/ci_test .;
+python3 ci_test/main.py build   ---> 编译
+python3 ci_test/main.py test;   ---> 执行 test/LLT 用例
+```
+
+test/LLT 用例书写参考：https://gitee.com/HW-PLLab/cangjie-library-pages/wikis 的门禁测试脚本使用方式
 
 #### class FileWrapper
 
@@ -103,6 +117,12 @@
 得到文件的全路径名称
 
 ```cangjie
+/**
+ * 得到文件的全路径名称 核心接口
+ *
+ * @return Type of String
+ * @since 0.31.4
+ */
 public open func getFilename (): String
 ```
 
@@ -111,6 +131,12 @@ public open func getFilename (): String
 得到文件的大小
 
 ```cangjie
+/**
+ * 得到文件的大小 核心接口
+ *
+ * @return Type of Int64
+ * @since 0.31.4
+ */
 public open func getLength (): Int64
 ```
 
@@ -121,6 +147,12 @@ public open func getLength (): Int64
 是否存在ID3V1标签
 
 ```cangjie
+/**
+ * 是否包含ID3v1标签 核心接口
+ *
+ * @return Type of Bool
+ * @since 0.31.4
+ */
 public func hasId3v1Tag (): Bool
 ```
 
@@ -129,6 +161,12 @@ public func hasId3v1Tag (): Bool
 获得ID3v1标签
 
 ```cangjie
+/**
+ * 获得ID3v1标签 核心接口
+ *
+ * @return Type of Option<ID3v1>
+ * @since 0.31.4
+ */
 public func getId3v1Tag (): Option<ID3v1>
 ```
 
@@ -137,6 +175,14 @@ public func getId3v1Tag (): Option<ID3v1>
 设置ID3v1标签
 
 ```cangjie
+/**
+ * 设置ID3v1标签 核心接口
+ *
+ * @param id3v1Tag of Option<ID3v1>
+ *
+ * @return Type of Unit
+ * @since 0.31.4
+ */
 public func setId3v1Tag (id3v1Tag: Option<ID3v1>): Unit
 ```
 
@@ -145,6 +191,12 @@ public func setId3v1Tag (id3v1Tag: Option<ID3v1>): Unit
 移除ID3v1标签
 
 ```cangjie
+/**
+ * 移除ID3v1标签 核心接口
+ *
+ * @return Type of Unit
+ * @since 0.31.4
+ */
 public func removeId3v1Tag (): Unit
 ```
 
@@ -153,6 +205,12 @@ public func removeId3v1Tag (): Unit
 是否存在ID3V2标签
 
 ```cangjie
+/**
+ * 是否包含ID3v2标签 核心接口
+ *
+ * @return Type of Bool
+ * @since 0.31.4
+ */
 public func hasId3v2Tag(): Bool
 ```
 
@@ -161,6 +219,12 @@ public func hasId3v2Tag(): Bool
 获得ID3v2标签
 
 ```cangjie
+/**
+ * 获取ID3v2标签 核心接口
+ *
+ * @return Type of Option
+ * @since 0.31.4
+ */
 public func getId3v2Tag(): Option<ID3v2>
 ```
 
@@ -169,6 +233,14 @@ public func getId3v2Tag(): Option<ID3v2>
 设置ID3v2标签
 
 ```cangjie
+/**
+ * 设置Id3v2标签 核心接口
+ *
+ * @param id3v2Tag of Option<Id3v2>
+ *
+ * @return Type of Unit
+ * @since 0.31.4
+ */
 public func setId3v2Tag(id3v2Tag: Option<ID3v2>): Unit
 ```
 
@@ -177,6 +249,12 @@ public func setId3v2Tag(id3v2Tag: Option<ID3v2>): Unit
 移除ID3v2标签
 
 ```cangjie
+/**
+ * 移除ID3v2标签 核心接口
+ *
+ * @return Type of Unit
+ * @since 0.31.4
+ */
 public func removeId3v2Tag(): Unit
 ```
 
@@ -185,6 +263,12 @@ public func removeId3v2Tag(): Unit
 是否存在CustomTag标签
 
 ```cangjie
+/**
+ * The Function is hasCustomTag, Include custom labels 核心接口
+ * 
+ * @return Type of Bool
+ * @since 0.31.4
+ */
 public func hasCustomTag(): Bool
 ```
 
@@ -193,6 +277,12 @@ public func hasCustomTag(): Bool
 获得CustomTag标签
 
 ```cangjie
+/**
+ * 获取Custom标签 核心接口
+ *
+ * @return Type of Option
+ * @since 0.31.4
+ */
 public func getCustomTag (): Option<Array<Int8>>
 ```
 
@@ -201,6 +291,14 @@ public func getCustomTag (): Option<Array<Int8>>
 设置CustomTag标签
 
 ```cangjie
+/**
+ * 设置Custom标签 核心接口
+ *
+ * @param customTag of Option<Array<Int8>>
+ *
+ * @return Type of Unit
+ * @since 0.31.4
+ */
 public func setCustomTag (customTag: Option<Array<Int8>>): Unit
 ```
 
@@ -209,6 +307,12 @@ public func setCustomTag (customTag: Option<Array<Int8>>): Unit
 移除CustomTag标签
 
 ```cangjie
+/**
+ * 移除ID3v2标签 核心接口
+ *
+ * @return Type of Unit
+ * @since 0.31.4
+ */
 public func removeCustomTag (): Unit
 ```
 
@@ -337,6 +441,14 @@ public func hasXingFrame(): Bool
 保存文件，不能保存同名文件
 
 ```cangjie
+/**
+ * 保存文件，不能保存同名文件 核心接口
+ *
+ * @param newFilename of String
+ *
+ * @return Type of Unit
+ * @since 0.31.4
+ */
 public func save (): Unit
 ```
 
@@ -347,27 +459,158 @@ public func save (): Unit
 将标签数据转化为字节数据
 
 ```cangjie
+/**
+ * 将成员数据转换成字节数据
+ *
+ * @return Type of Array<Byte>
+ * @since 0.31.4
+ */
 public func toBytes (): Array<Int8>
 ```
 
 ##### 设置、获取id3v1标签数据
 
 ```cangjie
+/**
+ * 获取版本
+ *
+ * @return Type of String
+ * @since 0.32.5
+ */
 public func getVersion (): String
+
+/**
+ * TRCK or TRK 标识对应的数据 核心接口
+ *
+ * @return Type of Option<String>
+ * @since 0.32.5
+ */
 public func getTrack (): Option<String>
+
+/**
+ * The Function is setTrack。设置之前会给dataLength置零 核心接口
+ * 
+ * @param track of Option<String>
+ * 
+ * @return Type of Unit
+ * @since 0.32.5
+ */
 public func setTrack (track: Option<String>): Unit
+
+/**
+ * TPE1 or TP1 标识对应的数据 核心接口
+ *
+ * @return Type of Option<String>
+ * @since 0.32.5
+ */
 public func getArtist (): Option<String>
+
+/**
+ * The Function is setArtist。 设置之前会给dataLength置零 核心接口
+ * 
+ * @param artist of Option<String>
+ * 
+ * @return Type of Unit
+ * @since 0.32.5
+ */
 public func setArtist (artist: Option<String>): Unit
+
+/**
+ * TIT2 or TT2 标识对应的数据 核心接口
+ *
+ * @return Type of Option<String>
+ * @since 0.32.5
+ */
 public func getTitle (): Option<String>
+
+/**
+ * The Function is setTitle。 设置之前会给dataLength置零 核心接口
+ * 
+ * @param title of Option<String>
+ * 
+ * @return Type of Unit
+ * @since 0.32.5
+ */
 public func setTitle (title: Option<String>): Unit
+
+/**
+ * TALB or TAL 标识对应的数据 核心核心
+ *
+ * @return Type of Option<String>
+ * @since 0.32.5
+ */
 public func getAlbum (): Option<String>
+
+/**
+ * The Function is setAlbum。设置之前会给dataLength置零 核心接口
+ * 
+ * @param album of Option<String>
+ * 
+ * @return Type of Unit
+ * @since 0.32.5
+ */
 public func setAlbum (album: Option<String>): Unit
+
+/**
+ * TYER or TYE 标识对应的数据 核心接口
+ *
+ * @return Type of Option<String>
+ * @since 0.32.5
+ */
 public func getYear (): Option<String>
+
+/**
+ * The Function is setYear。 设置之前会给dataLength置零 核心接口
+ * 
+ * @param year of Option<String>
+ * 
+ * @return Type of Unit
+ * @since 0.32.5
+ */
 public func setYear (year: Option<String>): Unit
+
+/**
+ * TCON or TCO 标识对应的数据 核心接口
+ *
+ * @return Type of Option<Int64>
+ * @since 0.32.5
+ */
 public func getGenre (): Option<Int64>
+
+/**
+ * The Function is setGenre。设置之前会给dataLength置零 核心接口
+ * 
+ * @param genre of Option<Int64>
+ * 
+ * @return Type of Unit
+ * @since 0.32.5
+ */
 public func setGenre (genre: Option<Int64>): Unit
+
+/**
+ * The Function is getGenreDescription 核心接口
+ * 
+ * @return Type of String
+ * @since 0.32.5
+ */
 public func getGenreDescription (): String
+
+/**
+ * COMM or COM 标识对应的数据 核心接口
+ *
+ * @return Type of Option<String>
+ * @since 0.33.3
+ */
 public func getComment (): Option<String>
+
+/**
+ * The Function is setComment COMM or COM 标识对应的数据 核心接口
+ * 
+ * @param encoder of Option<String>
+ * 
+ * @return Type of Unit
+ * @since 0.33.3
+ */
 public func setComment (comment: Option<String>): Unit
 ```
 
@@ -378,12 +621,23 @@ public func setComment (comment: Option<String>): Unit
 将标签数据转化为字节数据
 
 ```cangjie
+/**
+ * 将对象数据转换成字节数据 核心接口
+ *
+ * @return Type of Array<Int8>
+ */
 public open func toBytes (): Array<Int8>
 ```
 
 ##### 设置、获取id3v2标签数据
 
 ```cangjie
+/**
+ * 获取版本
+ *
+ * @return Type of String
+ * @since 0.32.5
+ */
 public open func getVersion (): String
 /**
  * 得到整个标签数据长度.
@@ -582,6 +836,7 @@ cpm build
 ```
 
 ### 使用示例
+注意，请记得配置MP3文件路径
 
 对ID3V1标签的设置、获取和保存
 
