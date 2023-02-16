@@ -11,7 +11,7 @@
       "path": "./charset"
     },
     "okio": {
-      "organization": "kool",
+      "organization": "cangjie",
       "version": "0.0.4",
       "path": "./okio"
     }
