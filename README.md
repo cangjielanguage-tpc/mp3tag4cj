@@ -96,26 +96,25 @@
 
 主要是核心类和成员函数说明，详情请见 [API](./doc/feature_api.md)
 
-
 ## <img alt="" src="./doc/assets/readme-icon-compile.png" style="display: inline-block;" width=3%/>使用说明
+
+### 项目依赖
+
+charset 包
+
+下载地址：https://gitee.com/HW-PLLab/charset.git
+
+okio 包：
+
+下载地址：https://gitee.com/HW-PLLab/okio.git
+
+cryptocj 包：
+
+下载地址：https://gitee.com/HW-PLLab/cryptocj.git
 
 ### 编译
 
-#### 1.本项目编译运行方式
-
-```shell
-git clone https://gitee.com/HW-PLLab/mp3agic.git
-git clone https://gitee.com/HW-PLLab/testJekins.git
-cd toml
-
-cp -r ../testJekins/src/ci_test .;
-python3 ci_test/main.py build   ---> 编译
-python3 ci_test/main.py test;   ---> 执行 test/LLT 用例
-```
-
-test/LLT 用例书写参考：https://gitee.com/HW-PLLab/cangjie-library-pages/wikis 的门禁测试脚本使用方式
-
-#### 2.外部项目依赖使用
+#### 1.外部项目依赖使用
 
  根目录下添加 `gitee_gate.cfg` 文件，内容如下 
 
@@ -167,6 +166,59 @@ cryptocj = develop									--->  依赖三方库的分支
   "command_option": "-O2"
 }
 ```
+
+
+
+#### 2.本项目编译运行方式
+
+##### 第一种方式
+
+###### 引入charset，okio，cryptocj包
+
+```
+git clone https://gitee.com/HW-PLLab/charset.git
+git clone https://gitee.com/HW-PLLab/okio.git
+git clone https://gitee.com/HW-PLLab/cryptocj.git
+```
+
+将charset，okio，cryptocj包放在mp3agic目录下
+
+###### 使用
+
+1. 配置 module.json 文件
+
+2. 编译
+
+   ```
+   cpm build
+   ```
+
+3. 测试
+
+   ```
+   pm test test/UT
+   unittest/bin/main
+   ```
+
+##### 第二种方式
+
+######  引入 testJekins 包
+
+ 地址：https://gitee.com/HW-PLLab/testJekins 将 src 下 ci_test 放入 mp3agic 根目录下 
+
+###### 使用
+
+```shell
+git clone https://gitee.com/HW-PLLab/mp3agic.git
+git clone https://gitee.com/HW-PLLab/testJekins.git
+cd mp3agic
+
+cp -r ../testJekins/src/ci_test .;
+python3 ci_test/main.py build   ---> 编译
+python3 ci_test/main.py test;   ---> 执行 test/LLT 用例
+```
+
+test/LLT 用例书写参考：https://gitee.com/HW-PLLab/cangjie-library-pages/wikis 的门禁测试脚本使用方式
 
 
 
