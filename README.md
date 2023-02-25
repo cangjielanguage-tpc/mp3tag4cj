@@ -185,7 +185,7 @@ git clone https://gitee.com/HW-PLLab/cryptocj.git
 
 ###### 使用
 
-1. 配置module.json文件
+1. 配置 module.json文件
 
 2. 编译
 
