@@ -37,7 +37,7 @@ public class Mp3agic_Filename_003 {
             var biaoqian9 = mp3File09.hasId3v1Tag()
             var ID3V109 = mp3File09.getId3v1Tag().getOrThrow()
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `v1ta.mp3` does not exist")
         }
     }
 }

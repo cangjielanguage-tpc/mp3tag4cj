@@ -21,13 +21,13 @@ public class Mp3agic_FileInfo_001 {
             var filef1 = FileInfo("v1ta.mp3") //以错误格式fileinfo构造
             var filef2 = Mp3File(filef1)
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `v1ta.mp3` does not exist")
         }
         try {
             var filef3 = FileInfo(" ") //以空字符串fileinfo构造
             var filef4 = Mp3File(filef3)
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path ` ` does not exist")
         }
         try {
             var filef5 = FileInfo("v1tag.mp3") //以fileinfo构造小于40长度

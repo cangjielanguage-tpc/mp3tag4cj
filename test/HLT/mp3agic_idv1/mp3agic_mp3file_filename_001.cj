@@ -29,13 +29,13 @@ public class Mp3agic_Filename_001 {
             var mp3File0: Mp3File = Mp3File("v1ta.mp3") //错误格式路径
             var biaoqian = mp3File0.hasId3v1Tag()
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `v1ta.mp3` does not exist")
         }
         try {
             var mp3File01: Mp3File = Mp3File("") //空字符串
             var biaoqian = mp3File01.hasId3v1Tag()
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `` does not exist")
         }
         var mp3File02: Mp3File = Mp3File("v1tag.mp3", 3000) //正确的路径最大的文件长度     
 
@@ -86,7 +86,7 @@ public class Mp3agic_Filename_001 {
             var mp3File05: Mp3File = Mp3File("./v1ta.mp3", 1) //错误的路径小于文件小于40
             var biaoqian5 = mp3File05.hasId3v1Tag()
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `./v1ta.mp3` does not exist")
         }
     }
 }

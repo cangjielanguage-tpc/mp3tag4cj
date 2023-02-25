@@ -21,19 +21,21 @@ public class Mp3agic_FileInfo {
         let fileWrapper1: FileWrapper = FileWrapper(file)
         @Assert(fileWrapper1.getLength(),2997)
 
-        try { //fileinfo错误路径构造             
+        
+        try {                          //fileinfo错误路径构造             
             var file = FileInfo("v1ta.mp3")
             let fileWrapper: FileWrapper = FileWrapper(file)
             @Assert(fileWrapper.getLength(),2997)
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `v1ta.mp3` does not exist")
+        
         }
-        try { //fileinfo空路径构造
+        try {         //fileinfo空路径构造
             var file = FileInfo("")
             let fileWrapper3: FileWrapper = FileWrapper(file)
             @Assert(fileWrapper3.getLength(),2997)
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `` does not exist")
         }
     }
 }
