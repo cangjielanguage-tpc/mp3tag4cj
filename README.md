@@ -181,7 +181,7 @@ git clone https://gitee.com/HW-PLLab/okio.git
 git clone https://gitee.com/HW-PLLab/cryptocj.git
 ```
 
-将charset，okio，cryptocj包放在mp3agic目录下
+将charset，okio，cryptocj分别编译好将包放在mp3agic目录下
 
 ###### 使用
 
