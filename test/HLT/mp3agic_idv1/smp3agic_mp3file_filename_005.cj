@@ -41,7 +41,7 @@ public class Mp3agic_Filename_005 {
             var ID3V99 = mp3File014.getId3v1Tag().getOrThrow()
             @Assert(ID3V99.getArtist(),"NEWARTIST12345678901234567890")
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: Failed to open the file!")
+            @Assert(e.toString(),"FSException: The path `123.` does not exist.")
         }
         var mp3File015: Mp3File = Mp3File("v1tag.mp3", 300, true) //保存错误的格式
         var ID3V18 = mp3File015.getId3v1Tag().getOrThrow()
@@ -71,7 +71,7 @@ public class Mp3agic_Filename_005 {
             mp3File016.setId3v1Tag(Option<ID3v1>.Some(id3v105))
             mp3File016.save("")
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The file path cannot be empty.")
+            @Assert(e.toString(),"IllegalArgumentException: The file path cannot be empty.")
         }
     }
 }

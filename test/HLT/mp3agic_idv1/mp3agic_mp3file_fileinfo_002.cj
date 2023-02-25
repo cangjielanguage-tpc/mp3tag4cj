@@ -21,19 +21,19 @@ public class mp3agic_FileInfo_002 {
             var file12 = FileInfo("v1ta.mp3") //以异常路径构造fileinfo长度大于40scanfile为true
             var file13 = Mp3File(file12, 300, true)
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `v1ta.mp3` does not exist")
         }
         try {
             var file13 = FileInfo("v1tag.mp3") //以正常路径构造fileinfo长度最大2997scanfile为false
             var file14 = Mp3File(file13, 2997, false)
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `v1ta.mp3` does not exist")
         }
         try {
             var file15 = FileInfo("v1ta.mp3") //以异常路径构造fileinfo长度为0scanfile为false
             var file16 = Mp3File(file15, 0, false)
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `v1ta.mp3` does not exist")
         }
         var file11 = FileInfo("v1tag.mp3") //以fileinfo构造长度大于40scanfile为true
         var file12 = Mp3File(file11, 300, true)

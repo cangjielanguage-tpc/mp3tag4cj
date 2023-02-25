@@ -43,14 +43,14 @@ public class Mp3agic_Filename_002 {
             var biaoqian8 = mp3File08.hasId3v1Tag()
             var ID3V108 = mp3File08.getId3v1Tag().getOrThrow()
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `../../mp3agic_idv1/v1ta.mp3` does not exist")
         }
         try {
             var mp3File08: Mp3File = Mp3File("../../mp3agic_idv1/v1ta.mp3", false) //异常的路径不进行文件扫描      
             var biaoqian8 = mp3File08.hasId3v1Tag()
             var ID3V108 = mp3File08.getId3v1Tag().getOrThrow()
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `../../mp3agic_idv1/v1ta.mp3` does not exist")
         }
     }
 }
