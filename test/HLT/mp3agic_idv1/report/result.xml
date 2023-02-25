@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<testsuites errors="0" failures="0" skipped="0" tests="1">
+    <testsuite errors="0" failures="0" name="mp3agic_mp3file_fileinfo_002.mp3agic_FileInfo_002" skipped="0" tests="1" time="0.000261996">
+        <testcase class_name="mp3agic_mp3file_fileinfo_002.mp3agic_FileInfo_002" name="mp3agic_FileInfo_002" time="0.000259062"/>
+    </testsuite>
+</testsuites>

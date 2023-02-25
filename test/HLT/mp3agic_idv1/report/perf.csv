@@ -1,0 +1,2 @@
+class,case_name,status,case_time_elapsed(ns),case_time_per_op(ns/op)
+mp3agic_mp3file_fileinfo_002.mp3agic_FileInfo_002,mp3agic_FileInfo_002, PASSED ,259062.0,

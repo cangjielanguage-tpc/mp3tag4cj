@@ -24,12 +24,12 @@ public class Mp3agic_FileWrapper {
         try {
             let fileWrapper: FileWrapper = FileWrapper("v1ta.mp3") //错误的路径构造
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `v1ta.mp3` does not exist")
         }
         try {
             let fileWrapper: FileWrapper = FileWrapper("") //空路径构造
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: The `path` is invalid!")
+            @Assert(e.toString(),"FSException: The path `` does not exist")
         }
     }
 }

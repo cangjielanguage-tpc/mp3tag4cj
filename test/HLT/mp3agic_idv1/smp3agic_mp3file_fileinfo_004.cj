@@ -30,7 +30,7 @@ public class mp3agic_FileInfo_004 {
             var ID3V30 = file41.getId3v1Tag().getOrThrow()
             @Assert(file41.hasId3v1Tag().toString(),"true")
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: Failed to open the file!")
+            @Assert(e.toString(),"FSException: The path `jwb123.` does not exist.")
         }
         var file30 = FileInfo("v1tag.mp3") //设置部分标签内容保存到正确路径
         var file31 = Mp3File(file30, 300, true)
@@ -63,7 +63,7 @@ public class mp3agic_FileInfo_004 {
             var ID3V99 = file88.getId3v1Tag().getOrThrow()
             @Assert(file88.hasId3v1Tag().toString(),"true")
         } catch (e: Exception) {
-            @Assert(e.toString(),"FSException: Failed to open the file!")
+            @Assert(e.toString(),"FSException: The path `.home` does not exist.")
         }
         try {
             var file34 = FileInfo("v1tag.mp3") //设置部分标签内容保存到相同路径
