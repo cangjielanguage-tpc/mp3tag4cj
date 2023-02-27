@@ -56,6 +56,7 @@ public open class FileWrapper {
             throw BaseException("File not readable")
         }
         var byteaArray: Array<Byte> = file.readToEnd()
+        file.close()
         return byteaArray.size
     }
 
