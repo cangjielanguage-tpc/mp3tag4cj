@@ -168,6 +168,7 @@ public class Mp3File <: FileWrapper {
         if (scanFile) {
             initCustomTag(file)
         }
+        file.close()
     }
 
     private func scanFileFunc(seekableByteChannel: File): Unit {
@@ -666,6 +667,7 @@ public class Mp3File <: FileWrapper {
             var byteBuffer: Array<UInt8> = BufferTools.transInt8ArrayToUInt8(bytes)
             saveFile.write(byteBuffer)
         }
+        saveFile.close()
     }
 
     private func saveMpegFrames(saveFile: File): Unit {
