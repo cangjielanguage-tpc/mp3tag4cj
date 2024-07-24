@@ -1,0 +1,16 @@
+.git/
+.vscode/
+build/
+charset4cj/
+ci_lib/
+ci_test/
+log/
+module-resolve.json
+report/
+test/report/
+test/tmp/
+tmp/
+*.macrocall
+.cache/
+test_temp/
+cjpm.lock

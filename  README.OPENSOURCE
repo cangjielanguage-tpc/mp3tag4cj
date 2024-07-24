@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "mp3agic",
+        "License": "MIT License",
+        "License File": "mit-license.txt",
+        "Version Number": "v0.9.1",
+        "Owner" : " mpatric"
+        "Upstream URL": "http://github.com/mpatric/mp3agic",
+        "Description": "A library for reading mp3 files and reading / manipulating the ID3 tags"
+    }
+]
