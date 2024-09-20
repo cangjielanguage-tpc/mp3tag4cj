@@ -13,7 +13,6 @@ package mp3tag4cj.mp3tag4cj
  * @since 0.31.4
  */
 public class NoSuchTagException <: BaseException {
-    private static let serialVersionUID: Int64 = 1i64
 
     /**
      * The Function is init constructor

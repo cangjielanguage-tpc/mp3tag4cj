@@ -14,7 +14,6 @@ package mp3tag4cj.mp3tag4cj
  */
 public class InvalidDataException <: BaseException {
     /* let member serialVersionUID type is Int64 */
-    private static let serialVersionUID: Int64 = 1i64
 
     /**
      * The Function is init constructor
