@@ -7,6 +7,7 @@
  * Package type of the file, and obtain the basic information of the file.
  */
 package mp3tag4cj.mp3tag4cj
+import std.fs 
 
 /**
  * The class is FileWrapper
@@ -26,7 +27,8 @@ public open class FileWrapper {
      * @since 0.31.4
      */
     public init(filename: String) {
-        this.path = FileInfo(filename).path.toCanonical().toString()
+        this.path = fs.canonicalize(FileInfo(filename).path).toString()
+
         var size = initSizeFunc(this.path)
         this.length = size
     }
@@ -39,7 +41,8 @@ public open class FileWrapper {
      */
     public init(file: FileInfo) {
         try {
-            this.path = file.path.toCanonical().toString()
+            this.path = fs.canonicalize(file.path).toString()
+
         } catch (e: Exception) {
             throw IllegalArgumentException("File path exception")
         }
@@ -48,11 +51,11 @@ public open class FileWrapper {
     }
 
     private static func initSizeFunc(path: String): Int64 {
-        var file: File = File(FileInfo(path).path.toCanonical().toString(), OpenOption.Open(true, true))
+        var file: File = File(fs.canonicalize(FileInfo(path).path).toString(), OpenOption.Open(true, true))
         if (!file.canRead()) {
             throw BaseException("File not readable")
         }
-        var byteaArray: Array<Byte> = file.readToEnd()
+        var byteaArray: Array<Byte> = File.readFrom(path)
         file.close()
         return byteaArray.size
     }
