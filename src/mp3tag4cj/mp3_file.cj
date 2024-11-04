@@ -7,6 +7,7 @@
  * Mp3 file
  */
 package mp3tag4cj.mp3tag4cj
+import std.fs 
 
 public class Mp3File <: FileWrapper {
     private static let DEFAULT_BUFFER_LENGTH: Int32 = 65536
@@ -636,14 +637,14 @@ public class Mp3File <: FileWrapper {
     public func save(newFilename: String): Unit {
         var isExist: Bool = true
         try {
-            FileInfo(newFilename).path.toCanonical().toString()
+            fs.canonicalize(FileInfo(newFilename).path).toString()
             ()
         } catch (e: Exception) {
             isExist = false
             ()
         }
         if (isExist) {
-            if (FileInfo(newFilename).path.toCanonical().toString() == super.path) {
+            if (fs.canonicalize(FileInfo(newFilename).path).toString() == super.path) {
                 throw IllegalArgumentException("Save filename same as source filename")
             }
         }
