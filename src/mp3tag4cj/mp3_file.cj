@@ -637,14 +637,14 @@ public class Mp3File <: FileWrapper {
     public func save(newFilename: String): Unit {
         var isExist: Bool = true
         try {
-            fs.canonicalize(FileInfo(newFilename).path).toString()
+            FileInfo(newFilename).path.toCanonical().toString()
             ()
         } catch (e: Exception) {
             isExist = false
             ()
         }
         if (isExist) {
-            if (fs.canonicalize(FileInfo(newFilename).path).toString() == super.path) {
+            if (FileInfo(newFilename).path.toCanonical().toString() == super.path) {
                 throw IllegalArgumentException("Save filename same as source filename")
             }
         }
