@@ -51,7 +51,7 @@ public open class FileWrapper {
     }
 
     private static func initSizeFunc(path: String): Int64 {
-        var file: File = File(fs.canonicalize(FileInfo(path).path).toString(), OpenOption.Open(true, true))
+        var file: File = File(fs.canonicalize(FileInfo(path).path).toString(), OpenMode.ReadWrite)
         if (!file.canRead()) {
             throw BaseException("File not readable")
         }

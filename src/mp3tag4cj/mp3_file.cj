@@ -155,7 +155,7 @@ public class Mp3File <: FileWrapper {
         }
         this.bufferLength = bufferLength
         this.scanFile = scanFile
-        var file: File = File(super.path, OpenOption.Open(true, true))
+        var file: File = File(super.path, OpenMode.ReadWrite)
         initId3v1Tag(file)
         scanFileFunc(file) //扫描文件获取音频数据流的帧头数据并解析。 涉及到Xing-header帧处理和是否扫描全部的容器大小
         if (startOffset < 0) { //此时startOffset的值应为第一个媒体数据帧的起始位置，不算Xing-header帧不算做媒体数据帧
@@ -319,7 +319,7 @@ public class Mp3File <: FileWrapper {
                 x.increment()
                 ()
             case None =>
-                this.bitrates.put(bitrate, MutableInteger(1))
+                this.bitrates.add(bitrate, MutableInteger(1))
                 ()
         }
         this.bitrate = ((this.bitrate * (Float64(frameCounts) - Float64(1))) + Float64(bitrate)) / Float64(frameCounts)
@@ -648,7 +648,7 @@ public class Mp3File <: FileWrapper {
                 throw IllegalArgumentException("Save filename same as source filename")
             }
         }
-        var saveFile: File = File(newFilename, OpenOption.CreateOrTruncate(true))
+        var saveFile: File = File(newFilename, OpenMode.Write)
         if (hasId3v2Tag()) {
             var bytes: Array<Int8> = this.id3v2Tag.getOrThrow().toBytes()
             var byteBuffer: Array<UInt8> = BufferTools.transInt8ArrayToUInt8(bytes)
@@ -680,7 +680,7 @@ public class Mp3File <: FileWrapper {
         }
         var byteBuffer: Array<UInt8> = Array<UInt8>(Int64(bufferLength), {_ => 0})
         try {
-            var seekableByteChannel: File = File(super.path, OpenOption.Open(true, true))
+            var seekableByteChannel: File = File(super.path, OpenMode.ReadWrite)
             seekableByteChannel.seek(SeekPosition.Begin(Int64(filePos)))
             while (true) {
                 var bytesRead: Int64 = seekableByteChannel.read(byteBuffer)
