@@ -56,7 +56,7 @@ public open class ID3v2FrameSet <: Equatable<ID3v2FrameSet> {
      * @since 0.32.5
      */
     public open func addFrame(frame: ID3v2Frame): Unit {
-        frames.append(frame)
+        frames.add(frame)
     }
 
     /**

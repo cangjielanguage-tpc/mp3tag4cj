@@ -240,7 +240,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
         if (isNone) {
             frameSetVar = ID3v2FrameSet(frame.getId())
             frameSetVar.addFrame(frame)
-            frameSets.put(frame.getId(), frameSetVar)
+            frameSets.add(frame.getId(), frameSetVar)
             ()
         } else if (replace) {
             frameSetVar.clear()
@@ -367,7 +367,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
         var sortMap: HashMap<String, ID3v2FrameSet> = HashMap<String, ID3v2FrameSet>()
         var keyList: ArrayList<String> = ArrayList<String>()
         for ((key, _) in frameSets) {
-            keyList.append(key)
+            keyList.add(key)
         }
         if (keyList.size > 0) {
             keyList.sortBy(
@@ -388,7 +388,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
         }
         for (key in keyList) {
             match (map.get(key)) {
-                case Some(x) => sortMap.put(key, x)
+                case Some(x) => sortMap.add(key, x)
                 case None => return map
             }
         }
@@ -1907,7 +1907,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                     var frameData: ID3v2ChapterFrameData
                     try {
                         frameData = ID3v2ChapterFrameData(useFrameUnsynchronisation(), frame.getData())
-                        chapterData.append(frameData)
+                        chapterData.add(frameData)
                     } catch (e: InvalidDataException) {}
                 }
                 return chapterData
@@ -1962,7 +1962,7 @@ public open class AbstractID3v2Tag <: ID3v2 {
                     var frameData: ID3v2ChapterTOCFrameData
                     try {
                         frameData = ID3v2ChapterTOCFrameData(useFrameUnsynchronisation(), frame.getData())
-                        chapterData.append(frameData)
+                        chapterData.add(frameData)
                     } catch (e: Exception) {}
                 }
                 return chapterData

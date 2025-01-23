@@ -91,7 +91,7 @@ public class ID3v2ChapterFrameData <: AbstractID3v2FrameData & Equatable<ID3v2Ch
             var frame: ID3v2Frame = ID3v2Frame(bytes, Int32(offset))
             frame.unpackFrame(bytes, Int32(offset))
             offset += Int64(frame.getLength())
-            subframes.getOrDefault({ => ArrayList<ID3v2Frame>()}).append(frame)
+            subframes.getOrDefault({ => ArrayList<ID3v2Frame>()}).add(frame)
         }
     }
 
@@ -105,7 +105,7 @@ public class ID3v2ChapterFrameData <: AbstractID3v2FrameData & Equatable<ID3v2Ch
      * @since 0.33.3
      */
     public func addSubframe(id: String, frame: AbstractID3v2FrameData): Unit {
-        subframes.getOrThrow().append(ID3v2Frame(id, frame.toBytes()))
+        subframes.getOrThrow().add(ID3v2Frame(id, frame.toBytes()))
     }
 
     @OverflowWrapping
