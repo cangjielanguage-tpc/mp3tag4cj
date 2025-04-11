@@ -109,7 +109,7 @@ public class ID3v24Tag <: AbstractID3v2Tag {
         }
         if (isNone) {
             frameSet = ID3v2FrameSet(ID_GENRE)
-            getFrameSets().add(ID_GENRE, frameSet)
+            getFrameSets().put(ID_GENRE, frameSet)
         }
         frameSet.clear()
         frameSet.addFrame(createFrame(ID_GENRE, frameData.toBytes()))
