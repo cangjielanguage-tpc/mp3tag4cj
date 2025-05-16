@@ -481,10 +481,13 @@ public class Mp3File <: FileWrapper {
             case None => false
         }
     }
+
+    @Frozen
     public func getId3v2Tag(): Option<ID3v2> {
         return id3v2Tag
     }
 
+    @Frozen
     public func setId3v2Tag(id3v2Tag: Option<ID3v2>): Unit {
         this.id3v2Tag = id3v2Tag
     }
@@ -524,6 +527,7 @@ public class Mp3File <: FileWrapper {
      * @return Type of Option<ID3v1>
      * @since 0.31.4
      */
+    @Frozen
     public func getId3v1Tag(): Option<ID3v1> {
         return id3v1Tag
     }
@@ -536,6 +540,7 @@ public class Mp3File <: FileWrapper {
      * @return Type of Unit
      * @since 0.31.4
      */
+    @Frozen
     public func setId3v1Tag(id3v1Tag: Option<ID3v1>): Unit {
         this.id3v1Tag = id3v1Tag
     }
