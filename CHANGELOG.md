@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.4
+1. 适配 cangjie 1.1.3
+
 ## 1.0.3
 1. 适配 cangjie 1.0.0
 
